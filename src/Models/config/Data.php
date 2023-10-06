@@ -2,6 +2,6 @@
 session_start();
 
 define('HOST','localhost');
-define('DATABASE','');
+define('DATABASE','ecommerce');
 define('PASSWORD','');
 define('USER','');

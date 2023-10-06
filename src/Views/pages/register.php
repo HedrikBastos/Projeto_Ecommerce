@@ -40,7 +40,7 @@
         <h5>Cadastro teste</h5>
         <h1>Cadastre-se</h1>
         <input type="text" name="name" placeholder="Nome" >
-        <input type="text" name="sobrenome" placeholder="Sobrenome" >
+        <input type="text" name="surname" placeholder="Sobrenome" >
         <input type="email" name="email" placeholder="Email" >
         <input type="text" name="password" placeholder="Senha" >
         <input type="text" name="passwordConfirm" placeholder="Confirmar senha" >

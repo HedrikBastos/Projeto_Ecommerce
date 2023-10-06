@@ -3,6 +3,8 @@
         ☐ Utilizar DTO para trabalhar com os dados
         ☐ Carrinho de compras(ver se é possível usar sessões)
 
-        // Comandos para checar os quadros, precisa ta clicado na linha
+        
+        //Para usar esse arquivo precisa colocar a extensão Todo+
+        // Comandos para checar os quadrados, precisa ta clicado na linha
         //alt + x : Não concluido   
         // alt + d : Concluido
