@@ -15,26 +15,21 @@ if (isset($_POST['submit']) && !empty($_POST['name']) && !empty($_POST['surname'
     $passwordConfirm = $_POST['passwordConfirm'];
 
     //Ainda tem várias validações que serão feitas, aqui só tá a base por enquanto.
-    // Dá para deixar mais complexto as validações aqui dentro
 
     //Instância do UserDTO.
     $UserDTO = new UserDTO($name, $surname, $email, $password, $passwordConfirm);
 
-
     //Instância de validações;
     $Validations = new Validations($UserDTO);
-    $Validations->valid();
-
-    echo $UserDTO->name .  $UserDTO->email.   $UserDTO->password;
 
     //Instância inserindo os dados.
-    $UserRepository = new UserRepository($UserDTO);
-   
-    //apenas para testar por enquanto
-    if ( $UserRepository->insert() === true) {
-        echo ' deu bom';
+    //Só inseri se todas as validações derem certo
+    if ( $Validations->valid() === true) {
+        $UserRepository = new UserRepository($UserDTO);
+        $UserRepository->insert();
+        header("Location:../Views/pages/login.php");
     }
     else {
-        echo 'deu ruim';
+        header("Location:../Views/pages/register.php");
     }
 }

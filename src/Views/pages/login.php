@@ -36,9 +36,9 @@
 </head>
 <body>
 
-    <form action="" method="post">
-        <h5>Login teste</h5>
-        <h1>Cadastre-se</h1>
+    <form action="../../Controllers/LoginController.php" method="post">
+        <h5>Login para testar sistema</h5>
+        <h1>Fazer Login</h1>
         <input type="email" name="email" placeholder="Email" >
         <input type="text" name="password" placeholder="Senha" >
         <button type="submit" name="submit" >LOGAR</button>

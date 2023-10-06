@@ -37,7 +37,7 @@
 <body>
 
     <form action="../../Controllers/RegisterController.php" method="post">
-        <h5>Cadastro teste</h5>
+        <h5>Cadastro para testar sistema</h5>
         <h1>Cadastre-se</h1>
         <input type="text" name="name" placeholder="Nome" >
         <input type="text" name="surname" placeholder="Sobrenome" >
