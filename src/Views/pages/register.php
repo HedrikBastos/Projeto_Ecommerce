@@ -42,8 +42,8 @@
         <input type="text" name="name" placeholder="Nome" >
         <input type="text" name="surname" placeholder="Sobrenome" >
         <input type="email" name="email" placeholder="Email" >
-        <input type="text" name="password" placeholder="Senha" >
-        <input type="text" name="passwordConfirm" placeholder="Confirmar senha" >
+        <input type="password" name="password" placeholder="Senha" >
+        <input type="password" name="passwordConfirm" placeholder="Confirmar senha" >
         <button type="submit" name="submit" >CADASTRAR</button>
         <a href="login.php">Tenho conta</a>
     </form>
