@@ -36,7 +36,7 @@
 </head>
 <body>
 
-    <form action="" method="post">
+    <form action="../../Controllers/RegisterController.php" method="post">
         <h5>Cadastro teste</h5>
         <h1>Cadastre-se</h1>
         <input type="text" name="name" placeholder="Nome" >
