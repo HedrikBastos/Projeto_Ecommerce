@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\config;
+namespace App\Models\Config;
 
 class Connection
 {
@@ -14,7 +14,7 @@ class Connection
                 self::$pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
             }
         } catch (\TypeError $e) {
-            echo "<h2>Erro ao conectar<h/2>";
+            echo "<h2>Erro ao conectar</h2>";
         }
 
         return self::$pdo;
