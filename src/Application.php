@@ -7,7 +7,7 @@ class Application
 
     private function setApp(){
 
-        $loadName = 'Site/Controllers/';
+        $loadName = 'App/Controllers/';
 
         $url = isset($_GET['url']) ? explode('/', $_GET['url']) : [''];
     
