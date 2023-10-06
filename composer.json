@@ -1,0 +1,15 @@
+{
+    "name": "ecommerce/projeto_mscode",
+    "description": "Projeto Ecommerce MSCODE.",
+    "autoload": {
+        "psr-4": {
+            "Ecommerce\\ProjetoMscode\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Diogo e Hedrik"
+        }
+    ],
+    "require": {}
+}
