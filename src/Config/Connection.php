@@ -1,6 +1,6 @@
 <?php
 
-namespace src\Config;
+namespace Src\Config;
 require_once('Data.php');
 
 class Connection

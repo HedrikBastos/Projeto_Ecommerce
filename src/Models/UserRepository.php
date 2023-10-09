@@ -1,9 +1,9 @@
 <?php
 // Classe comum para insert de usuários no database
 
-namespace App\Models;
-use App\Models\UserDTO;
-use App\Models\Config\Connection;
+namespace Src\Models;
+use Src\Models\UserDTO;
+use Src\Config\Connection;
 
 class UserRepository
 {

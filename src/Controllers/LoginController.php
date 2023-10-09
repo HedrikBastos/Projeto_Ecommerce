@@ -1,8 +1,8 @@
 <?php
 
-use src\Models\UserDTO;
-use src\Models\Service\VerificarUsuarioValidoService;
-use src\Models\Service\ValidaUsuarioService;
+use Src\Models\UserDTO;
+use Src\Models\Service\VerificarUsuarioValidoService;
+use Src\Models\Service\ValidaUsuarioService;
 if (isset($_POST['acao'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];

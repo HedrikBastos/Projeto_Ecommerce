@@ -2,8 +2,8 @@
 //Validações antes de registrar um usuário
 
 namespace App\Models;
-use App\Models\UserDTO;
-use App\Models\UserRepository;
+use Src\Models\UserDTO;
+use Src\Models\UserRepository;
 
 class Validations
 {
