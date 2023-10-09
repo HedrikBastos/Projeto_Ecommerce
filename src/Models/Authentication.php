@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use App\Models\UserDTO;
-use App\Models\UserRepository;
+use App\Models\Repository\UserRepository;
 
 // Aqui ficaria a parte relacionado ao sistema de login(Conhecido como Autenticação)
 class Authentication
@@ -15,8 +15,8 @@ class Authentication
 
     public function authentic()
     {
-        //Tem usando esse try catch e tem usando só os if nessa situação aqui
-        //Uma observação, estamos tratando e validando, mas os erros não estão na página em o usuário estava, olhar isso depois
+        //Tem usando esse try catch e tem usando só os if,
+        //Uma observação, estamos tratando e validando, mas os erros não estão na página que o usuário estava, verificar isso depois.
 
         $UserRepository = new UserRepository($this->UserDTO);
         $sql = $UserRepository->select();

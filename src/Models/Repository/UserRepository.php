@@ -1,14 +1,14 @@
 <?php
-// Classe comum para insert de usuários no database
+// Classe comum para consultas no database
 
-namespace App\Models;
+namespace App\Models\Repository;
 use App\Models\UserDTO;
 use App\Models\Config\Connection;
 
 class UserRepository
 {
 
-    public function __construct(private readonly UserDTO $UserDTO)
+    public function __construct(private readonly UserDTO $userDTO)
     {
     }
 
@@ -16,14 +16,14 @@ class UserRepository
     {
         try {
 
-            $Connection = new Connection();
+            $connection = Connection::execute();
 
-            $name =  $this->UserDTO->name;
-            $surname = $this->UserDTO->surname;
-            $email = $this->UserDTO->email;
-            $password = password_hash($this->UserDTO->password, PASSWORD_DEFAULT);
+            $name =  $this->userDTO->name;
+            $surname = $this->userDTO->surname;
+            $email = $this->userDTO->email;
+            $password = password_hash($this->userDTO->password, PASSWORD_DEFAULT);
 
-            $sql = $Connection->execute()->prepare("INSERT INTO users VALUES(NULL,:NAME,:SURNAME,:EMAIL,:PASSWORD)");
+            $sql = $connection->prepare("INSERT INTO users VALUES(NULL,:NAME,:SURNAME,:EMAIL,:PASSWORD)");
             $sql->bindValue(':NAME', $name, \PDO::PARAM_STR);
             $sql->bindValue(':SURNAME', $surname, \PDO::PARAM_STR);
             $sql->bindValue(':EMAIL', $email, \PDO::PARAM_STR);
@@ -40,11 +40,11 @@ class UserRepository
     {
         try {
 
-            $Connection = new Connection();
+            $connection = Connection::execute();
 
-            $email = $this->UserDTO->email;
+            $email = $this->userDTO->email;
 
-            $sql = $Connection->execute()->prepare("SELECT * FROM users WHERE email = :EMAIL");
+            $sql = $connection->execute()->prepare("SELECT * FROM users WHERE email = :EMAIL");
             $sql->bindValue(':EMAIL', $email, \PDO::PARAM_STR);
             $sql->execute();
 

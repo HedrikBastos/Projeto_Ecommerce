@@ -11,7 +11,6 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['passwor
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-
     //Tentar usar DTO para transição de dados
 
     $UserDTO = new UserDTO(

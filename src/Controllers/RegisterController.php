@@ -3,7 +3,7 @@ require_once(__DIR__ . '../../../vendor/autoload.php');
 
 use App\Models\UserDTO;
 use App\Models\Validations;
-use App\Models\UserRepository;
+use App\Models\Repository\UserRepository;
 
 //Esse arquivo seria tipo o Cadastro.php daquela sua atividade, a gente receberia os dados das views aqui e instânciaria os classes do Model aqui para tratar e fazer diversas coisas com os dados.
 //Lembrando que provavelmente vai ter que ter mais inputs
@@ -24,12 +24,13 @@ if (isset($_POST['submit']) && !empty($_POST['name']) && !empty($_POST['surname'
 
     //Instância inserindo os dados.
     //Só inseri se todas as validações derem certo
-    if ( $Validations->valid() === true) {
+
+    if ($Validations->valid() === true) {
         $UserRepository = new UserRepository($UserDTO);
         $UserRepository->insert();
+
         header("Location:../Views/pages/login.php");
-    }
-    else {
+    } else {
         header("Location:../Views/pages/register.php");
     }
 }

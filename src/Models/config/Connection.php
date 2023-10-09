@@ -7,7 +7,7 @@ class Connection
 {
     private static $pdo;
 
-    public function execute()
+    public static function execute()
     {
         try {
             if (self::$pdo == null) {
