@@ -1,19 +1,12 @@
 <?php
-//Verifica se o usuário está registrado no banco de dados, cria sua sessão e direciona para página de produtos
 
-require_once(__DIR__.'../../../vendor/autoload.php');
-
-use App\Models\UserDTO;
-use App\Models\Authentication;
-
-if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['password'])) {
-
+use src\Models\UserDTO;
+use src\Models\Service\VerificarUsuarioValidoService;
+use src\Models\Service\ValidaUsuarioService;
+if (isset($_POST['acao'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-    //Tentar usar DTO para transição de dados
-
-    $UserDTO = new UserDTO(
+    $usuarioValidoDTO = new UserDTO(
         '',
         '',
         $email,
@@ -21,10 +14,27 @@ if (isset($_POST['submit']) && !empty($_POST['email']) && !empty($_POST['passwor
         ''
     );
 
-    //Instância que vai fazer a autenticação && Redirecionamento para página de produtos caso seja cadastrado
+    $verificaService = new VerificarUsuarioValidoService($usuarioValidoDTO);
+    $usuario = $verificaService->execute();
 
-    $Authentication = new Authentication($UserDTO);
-    $Authentication->authentic();
+    try {
+        $validarUsuario = new ValidaUsuarioService($usuario);
+        $usuarioValido = $validarUsuario->execute();
 
+        if ($usuarioValido === false) {
 
+           echo "Erro ao validar o usuário";
+           
+            exit;
+        } else {
+            
+            header("Location: Site.php");
+            
+        }
+    } catch (TypeError $e) {
+
+        header("Location: ../index.php");
+        $_SESSION['erro'] = "Usuário ou senha inválidos";
+        exit;
+    }
 }

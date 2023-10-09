@@ -1,14 +1,17 @@
 <?php
-namespace App\Controllers;
 
-class HomeController{
+namespace src\Controllers;
 
-    public function index(){
-        if(isset($_SESSION['login'])){
-            \App\Views\MainView::renderizar('home');
-        }else{
-            
-            \App\Views\MainView::renderizar('registrar');
+class HomeController
+{
+
+    public function index()
+    {
+        if (isset($_SESSION['login'])) {
+            \src\Views\MainView::renderizar('home');
+        } else {
+            \src\Views\MainView::renderizar('login');
+          
         }
     }
 }

@@ -1,54 +1,38 @@
-<?php
-session_start();
-require_once('../../Controllers/CartController.php');
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <style>
-        * {
-            margin: 20px;
+         *{
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: Arial, Helvetica, sans-serif;
         }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
 
-        body {
+        div h1{
+            width: 100vw;
+            color: cornflowerblue;
             text-align: center;
-            margin: 20px;
+            background-color: black;
+            font-size: 80px;
         }
-
-        div a {
-            margin: 15px;
-            text-decoration: none;
-        }
+      
     </style>
-
 </head>
-
 <body>
 
-    <h1>CLIQUE NO PRODUTO PARA TESTAR</h1>
-    <div>
-        <?php
-        foreach ($dados as $key => $value) {
-        ?>
-        
-            <a href="?add=<?php echo $key ?>"> <?php echo $value['name'] ?> </a>
-
-        <?php }; ?>
-    </div>
-
-    <a style="background-color: brown; border:5px solid black;   " href="cart.php">Carrinho</a>
-
+<div>
+    <h1>LOGADO COM SUCESSO!</h1>
+</div>
+    
 </body>
-
 </html>
