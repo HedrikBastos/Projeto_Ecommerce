@@ -28,13 +28,13 @@ if (isset($_POST['acao'])) {
             exit;
         } else {
             
-            header("Location: Site.php");
+            echo "Usuário valido";
+            die();
             
         }
     } catch (TypeError $e) {
 
-        header("Location: ../index.php");
-        $_SESSION['erro'] = "Usuário ou senha inválidos";
+        echo "Usuário ou senha inválidos";
         exit;
     }
 }

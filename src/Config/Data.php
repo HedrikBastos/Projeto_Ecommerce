@@ -3,5 +3,5 @@
 
 define('HOST','localhost');
 define('DATABASE','ecommerce');
-define('PASSWORD','');
+define('PASSWORD','Apocalipse16!');
 define('USER','root');
