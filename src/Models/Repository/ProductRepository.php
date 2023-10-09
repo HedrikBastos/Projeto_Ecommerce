@@ -6,12 +6,6 @@ use App\Models\Config\Connection;
 class ProductRepository
 {
 
-    /*
-    public function __construct(private readonly ProductDTO $productDTO)
-    {
-    }
-    */
-
     public function select() {
         
         $connection = Connection::execute();
