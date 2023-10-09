@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Models\Repository;
-use App\Models\Config\Connection;
+namespace src\Models\Repository;
+use src\Config\Connection;
 
 class ProductRepository
 {
 
     public function select() {
         
-        $connection = Connection::execute();
+        $connection = Connection::conect();
         $sql = $connection->prepare("SELECT * FROM products");
         $sql->execute();
        

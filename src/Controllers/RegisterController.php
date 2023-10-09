@@ -1,5 +1,5 @@
 <?php
-namespace Src\Controllers;
+namespace src\Controllers;
 
 class  RegisterController 
 {

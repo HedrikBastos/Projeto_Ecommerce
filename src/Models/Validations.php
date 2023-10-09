@@ -2,13 +2,14 @@
 //Validações antes de registrar um usuário
 
 namespace App\Models;
-use Src\Models\UserDTO;
-use Src\Models\UserRepository;
+use src\Models\UserDTO;
+use src\Models\UserRepository;
 
 class Validations
 {
 
-    public function __construct(private readonly UserDTO $UserDTO)
+    public function __construct(
+        private readonly UserDTO $UserDTO)
     {
     }
 
