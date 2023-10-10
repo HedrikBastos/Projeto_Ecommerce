@@ -4,7 +4,11 @@
 
 require_once(__DIR__ . '../../../vendor/autoload.php');
 
+<<<<<<< HEAD:Src/Controllers/CartController.php
 use Src\Models\Repository\ProductRepository;                                    
+=======
+use Src\Models\Repository\ProductRepository;
+>>>>>>> 419ed88 (Testando rebase):src/Controllers/CartController.php
 
 
 $ProductRepository = new ProductRepository();
