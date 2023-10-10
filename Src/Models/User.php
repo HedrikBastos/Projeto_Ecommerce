@@ -6,9 +6,11 @@ namespace Src\Models;
 
 class User
 {
-    private string $email;
-    private string $nome;
-    private string $senha;
+   public function __construct( 
+    private string $email,
+    private string $nome,
+    private string $senha){
+   }
 
     public function email(): string
     {
@@ -23,20 +25,5 @@ class User
     public function senha(): string
     {
         return $this->senha;
-    }
-
-    public function setEmail(string $email)
-    {
-        $this->email = $email;
-    }
-
-    public function setNome(string $nome)
-    {
-        $this->nome = $nome;
-    }
-
-    public function setSenha(string $senha)
-    {
-        $this->senha = $senha;
     }
 }
