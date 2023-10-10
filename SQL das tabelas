@@ -14,9 +14,9 @@ CREATE TABLE senhas_usuarios (
 );
 
 //junção das tabelas 
-
-SELECT u.nome, u.email, s.senha
+// Os dois tem que ter o mesmo ID
+SELECT u.nome, u.email, s.sennha
 FROM usuarios u
 INNER JOIN senhas_usuarios s ON u.id = s.id_usuario
-WHERE u.id = 1;
+WHERE u.id = s.id_usuario;
 
