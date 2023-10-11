@@ -1,9 +1,9 @@
 <?php
 
-namespace Src\Models;
+namespace App\Models;
 
-use Src\Models\UserDTO;
-use Src\Models\UserRepository;
+use App\Models\UserDTO;
+use App\Models\UserRepository;
 
 // Aqui ficaria a parte relacionado ao sistema de login(Conhecido como Autenticação)
 class Authentication

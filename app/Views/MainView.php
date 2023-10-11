@@ -1,5 +1,5 @@
 <?php 
-namespace Src\Views;
+namespace App\Views;
 
 class MainView{
     public static function renderizar($nomeArquivo){

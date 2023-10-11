@@ -1,6 +1,6 @@
 <?php
 
-namespace Src;
+namespace App;
 
 class Application
 {
@@ -9,7 +9,7 @@ class Application
     private function setApp()
     {
 
-        $loadName = 'Src/Controllers/';
+        $loadName = 'App/Controllers/';
 
         $url = isset($_GET['url']) ? explode('/', $_GET['url']) : [''];
 

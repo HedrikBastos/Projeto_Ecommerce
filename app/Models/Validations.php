@@ -1,9 +1,9 @@
 <?php
 //Validações antes de registrar um usuário
 
-namespace Src\Models;
-use Src\Models\UserDTO;
-use Src\Models\UserRepository;
+namespace App\Models;
+use App\Models\UserDTO;
+use App\Models\UserRepository;
 
 class Validations
 {

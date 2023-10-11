@@ -1,8 +1,8 @@
-<?php
+App<?php
 
-namespace src\Models\Service;
-use Src\Models\UserDTO;
-use Src\Models\User;
+namespace App\Models\Service;
+use App\Models\UserDTO;
+use App\Models\User;
 
 class VerificarUsuarioValidoService
 {

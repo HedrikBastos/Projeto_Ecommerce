@@ -1,4 +1,2 @@
 /vendor/
-Connection.php
-Data.php
-index.php
+composer.lock

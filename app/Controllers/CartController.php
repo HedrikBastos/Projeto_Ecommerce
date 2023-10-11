@@ -4,7 +4,7 @@
 
 require_once(__DIR__ . '../../../vendor/autoload.php');
 
-use Src\Models\Repository\ProductRepository;                                    
+use App\Models\Repository\ProductRepository;                                    
 
 
 $ProductRepository = new ProductRepository();

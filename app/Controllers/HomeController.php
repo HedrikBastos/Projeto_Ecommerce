@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Controllers;
+namespace App\Controllers;
 
 class HomeController
 {
@@ -8,9 +8,9 @@ class HomeController
     public function index()
     {
         if (isset($_SESSION['login'])) {
-            \Src\Views\MainView::renderizar('home');
+            \App\Views\MainView::renderizar('home');
         } else {
-            \Src\Views\MainView::renderizar('login');  
+            \App\Views\MainView::renderizar('login');  
         }
     }
 }
