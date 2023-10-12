@@ -15,27 +15,31 @@ if (isset($_POST['acao'])) {
         ''
     );
 
-    $verificaService = new VerificarUsuarioValidoService($usuarioValidoDTO);
-    $usuario = $verificaService->execute();
+class LoginController
+{
 
-    try {
-        $validarUsuario = new ValidaUsuarioService($usuario);
-        $usuarioValido = $validarUsuario->execute();
+    public function index()
+    {
 
-        if ($usuarioValido === false) {
+        if (isset($_POST['acao'])) {
+            $email = $_POST['email'];
+            $password = $_POST['password'];
+            $usuarioValidoDTO = new UserDTO(
+                '',
+                '',
+                $email,
+                $password,
+                ''
+            );
 
             echo "Erro ao validar o usuário";
 
             exit;
-        } else {
+        } else{
 
             echo "Usuário valido";
             die();
         }
-    } catch (TypeError $e) {
-
-        echo "Usuário ou senha inválidos";
-        exit;
     }
 } else {
     \App\Views\MainView::renderizar('login');
