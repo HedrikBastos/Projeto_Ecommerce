@@ -6,6 +6,10 @@ class  RegisterController
 {
     public function index()
     {
+        if (isset($_SESSION['login'])) {
+            header('Location:home');
+            die();
+        }
         MainView::renderizar('register',['name'=>'Diogo']);
     }
 }

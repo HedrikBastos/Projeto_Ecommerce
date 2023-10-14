@@ -13,8 +13,14 @@ class CarrinhoController
         $carrinho = new Carrinho();
         $produtos = $carrinho->acessaProduct();
         $session = $carrinho->solicitaCarrinho();
-        
+
+        if (isset($_SESSION['login'])) {
         MainView::renderizar('carrinho',['session'=>$session]);
+        } else {
+            unset($_SESSION['login']);
+            \App\Views\MainView::renderizar('login');
+            die();
+        }
     }
 }
 

@@ -40,12 +40,12 @@ class LoginController
                     die();
                 } else {
                     header('location:home');
-                    die();
+                    die('Seja bem vindo');
                 }
             } catch (TypeError $e) {
-                echo "Usuário ou senha inválidos";
-                \App\Views\MainView::renderizar('login');
-                exit;
+               
+                \App\Views\MainView::renderizar('login', ['mesage' => 'Usuário ou senha inválidos']);
+                die();
             }
         } else {
             \App\Views\MainView::renderizar('login');

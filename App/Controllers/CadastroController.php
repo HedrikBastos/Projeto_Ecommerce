@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use App\DTOs\EnderecoDTO;
 use App\DTOs\UserDTO;
-use App\Models\Service\VerificarCadastroService;
+use App\Models\Service\ValidaCadastroService;
 use App\Models\Service\CadastrarUsuarioService;
 
 class CadastroController
@@ -14,9 +14,9 @@ class CadastroController
         if (isset($_POST['acao'])) {
             $nome = $_POST['nome'];
             $sobrenome = $_POST['sobrenome'];
-            $genero = $_POST['genero'];                    
+            $genero = $_POST['genero'];
             $cpf = $_POST['cpf'];
-            $email = $_POST['email']; 
+            $email = $_POST['email'];
             $senha = $_POST['senha'];
             $confirmarSenha = $_POST['confirmarSenha'];
             $usuarioDTO = new UserDTO(
@@ -29,7 +29,7 @@ class CadastroController
                 $confirmarSenha
             );
 
-           /* $enderecoDTO = new EnderecoDTO(
+            /* $enderecoDTO = new EnderecoDTO(
                 $_POST['rua'],
                 $_POST['numero'],
                 $_POST['complemento'],
@@ -42,23 +42,24 @@ class CadastroController
 
             */
 
-            $verificarService = new VerificarCadastroService($usuarioDTO);
-            $usuario = $verificarService->execute();
+            $validarService = new ValidaCadastroService($usuarioDTO);
+            $usuario = $validarService->execute();
             try {
-                if($usuario != null){$cadastrarService = new CadastrarUsuarioService($usuario);
-                $cadastroExecutado = $cadastrarService->execute();
-
+                if ($usuario != null) {
+                    $cadastrarService = new CadastrarUsuarioService($usuario);
+                    $cadastroExecutado = $cadastrarService->execute();
+                   
                 }
-                if ($cadastroExecutado == true) {
-                    echo "<script>alert('Cadastro realizado com sucesso!')</script>";
+                if (isset($cadastroExecutado) === true) {
+                    header("Location: home");
+                    die();
                 } else {
                     echo "<script>alert('Cadastro não realizado!')</script>";
                     \App\Views\MainView::renderizar('register');
                 }
-               
             } catch (\TypeError $e) {
-
-            die();
+                \App\Views\MainView::renderizar('register');
+                die();
             }
         }
     }
