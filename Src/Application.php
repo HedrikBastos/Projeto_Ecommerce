@@ -13,7 +13,7 @@ class Application
 
         $url = isset($_GET['url']) ? explode('/', $_GET['url']) : [''];
 
-       
+
         if (empty($url[0])) {
             $loadName .= 'Home';
         } else {
