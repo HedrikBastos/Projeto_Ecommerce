@@ -3,8 +3,7 @@
     "description": "Projeto Ecommerce MSCODE.",
     "autoload": {
         "psr-4": {
-          
-              Src\\": "Src/"
+            "Src\\": "Src/"
         }
     },
     "authors": [
