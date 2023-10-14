@@ -45,7 +45,7 @@ class UserRepository
 
             $email = $this->userDTO->email;
 
-            $sql = $connection->execute()->prepare("SELECT * FROM users WHERE email = :EMAIL");
+            $sql = $connection->prepare("SELECT * FROM users WHERE email = :EMAIL");
             $sql->bindValue(':EMAIL', $email, \PDO::PARAM_STR);
             $sql->execute();
 

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC?>/styles/style.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <title>Registro</title>
 </head>
 
 <body>
-
+    <h1>TESTANDO CSS</h1>
     <div class="box-login centralizar">
         <form action="" method="post">
             <h5>Cadastro para testar sistema</h5>
@@ -23,8 +24,10 @@
             </div>
 
         </form>
-        <a href="<?php echo INCLUDE_PATH ?>">Tenho conta</a>
+        <a href="login">Tenho conta</a>
     </div>
+
+
 
 </body>
 

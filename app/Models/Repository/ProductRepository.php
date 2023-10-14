@@ -6,10 +6,10 @@ use App\Config\Connection;
 class ProductRepository
 {
 
-    public function select() {
+    public static function select() {
         
         $connection = Connection::connect();
-        $sql = $connection->prepare("SELECT * FROM products");
+        $sql = $connection->prepare("SELECT * FROM produtos");
         $sql->execute();
        
         return $sql;

@@ -13,19 +13,23 @@ class Application
 
         $url = isset($_GET['url']) ? explode('/', $_GET['url']) : [''];
 
-       
+
         if (empty($url[0])) {
             $loadName .= 'Home';
         } else {
             $loadName .= ucfirst(strtolower($url[0]));
         }
 
+        if ($url == 'show') {
+        }
+
+
         $loadName .= 'Controller';
 
         if (file_exists($loadName . '.php')) {
             $loadName = str_replace("/", "\\", $loadName);
             $this->controller = new $loadName();
-        } else {
+        }else {
 
             include('Views/pages/erro404.php');
             die();

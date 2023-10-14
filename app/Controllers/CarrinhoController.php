@@ -1,18 +1,25 @@
 <?php
 
-// Cart = Carrinho em português, quando a gente finalizar o projeto apago os comentários para ficar limpo
+namespace App\Controllers;
+use App\Models\Carrinho;
+use App\Views\MainView;
 
-require_once(__DIR__ . '../../../vendor/autoload.php');
+class CarrinhoController
+{
 
-use App\Models\Repository\ProductRepository;                                    
+    //lembra de fazer uma limpeza, validação do que vai ser recebido
+    public function index()
+    {
+        $carrinho = new Carrinho();
+        $produtos = $carrinho->acessaProduct();
+        $session = $carrinho->solicitaCarrinho();
+        
+        MainView::renderizar('carrinho',['session'=>$session]);
+    }
+}
 
 
-$ProductRepository = new ProductRepository();
-
-$sql = $ProductRepository->select();
-
-$dados = $sql->fetchAll();
-
+/*
 //Adicionar produtos no carrinho
 if (isset($_GET['add'])) {
     $id_produto = (int) $_GET['add'];
@@ -63,4 +70,4 @@ if (isset($_POST['soma'])) {
         die('Não tem mais produtos desse no seu carrinho!');
     }
 }
-
+*/

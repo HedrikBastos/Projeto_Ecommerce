@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Views\MainView;
 class  RegisterController
 {
     public function index()
     {
-        \App\Views\MainView::renderizar('register');
+        MainView::renderizar('register',['name'=>'Diogo']);
     }
 }

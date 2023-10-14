@@ -1,9 +1,3 @@
-<?php
-session_start();
-require_once('../../Controllers/CartController.php');
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -34,11 +28,12 @@ require_once('../../Controllers/CartController.php');
 <body>
     <div>
         <?php
+
         if (isset($_SESSION['carrinho'])) {
             foreach ($_SESSION['carrinho'] as $key => $value) {
         ?>
                 <article>
-                    <p><?php echo 'Nome: ' . $value['nome'] . ' | Quantidade: ' . $value['quantidade'] . ' | Preço: ' . $value['preco'];
+                    <p><?php echo 'Nome: ' . $value['nome'] . ' | Quantidade: ' . $value['quantidade'] . ' | Preço: ' . $value['quantidade']*$value['preco'];
                         echo '<br>'; ?></p>
 
                     <form action="" method="post">
@@ -53,24 +48,38 @@ require_once('../../Controllers/CartController.php');
 
                 </article>
 
-
-
-
         <?php
             }
         } else {
             echo 'Ainda não existe nenhum produto no seu carrinho!';
         }
-        
 
         ?>
 
+        <?php
+
+        if (isset($_SESSION['carrinho'])) {
+            $somaTotal = 0; // Inicialize a variável de soma fora do loop
+
+            foreach ($_SESSION['carrinho'] as $key => $value) {
+                $subtotal = $value['quantidade'] * $value['preco'];
+                $somaTotal += $subtotal; // Adicione o subtotal à soma total
+
+                // Resto do seu código para exibir os produtos
+                // ...
+            }
+
+            // Exiba a soma total para o usuário
+            echo 'Soma Total: ' . $somaTotal;
+        } else {
+            echo 'Ainda não existe nenhum produto no seu carrinho!';
+        }
+        ?>
 
 
     </div>
 
-
-    <a href="products.php">Voltar para Produtos</a>
+    <a href="home">Voltar para Produtos</a>
 
 </body>
 

@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<!--npx tailwindcss -i ./app/assets/styles/input.css -o ./app/assets/styles/output.css --watch
-<?php
-// echo INCLUDE_PATH_STATIC
-?>style.css 
--->
 
 <head>
     <meta charset="UTF-8">
@@ -14,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
-<body class=" bg-[#F7F7F7] ">
+<body>
 
     <head class="">
 
@@ -59,16 +54,12 @@
 
     </head>
 
-    <div>
+    <?php foreach ($produtos as $index => $value) : ?>
 
-        <?php foreach ($produtos as $key => $valor) : ?>
 
-            <a href="show/<?= $key ?>">
-                <img src="<?= INCLUDE_PATH_STATIC ?><?= $valor['path'] ?>" alt="">
-                <a href="?add=<?= $key ?>"> <?= $valor['nome'] ?> </a>
-            </a>
+    <?php endforeach; ?>
 
-        <?php endforeach; ?>
+
 
 </body>
 
