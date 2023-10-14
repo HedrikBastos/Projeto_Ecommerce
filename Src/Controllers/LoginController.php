@@ -2,7 +2,7 @@
 
 namespace Src\Controllers;
 
-use Src\Models\UserDTO;
+use Src\DTOs\UserDTO;
 use Src\Models\Service\VerificarUsuarioValidoService;
 use Src\Models\Service\ValidaUsuarioService;
 use TypeError;
@@ -15,18 +15,20 @@ class LoginController
 
         if (isset($_POST['acao'])) {
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $senha = $_POST['senha'];
             $usuarioValidoDTO = new UserDTO(
                 '',
                 '',
+                '',
+                '',
                 $email,
-                $password,
+                $senha,
                 ''
             );
 
-            $verificaService = new VerificarUsuarioValidoService();
-            $usuario = $verificaService->execute($usuarioValidoDTO);
-
+            $verificaService = new VerificarUsuarioValidoService($usuarioValidoDTO);
+            $usuario = $verificaService->execute();
+            echo $usuario->senha();
             try {
                 $validarUsuario = new ValidaUsuarioService($usuario);
                 $usuarioValido = $validarUsuario->execute();
@@ -34,15 +36,15 @@ class LoginController
                 if ($usuarioValido === false) {
 
                     echo "Erro ao validar o usuário";
-
-                    exit;
+                    \Src\Views\MainView::renderizar('login');
+                    die();
                 } else {
-
+                 
+                    \Src\Views\MainView::renderizar('home');
                     echo "Usuário valido";
                     die();
                 }
             } catch (TypeError $e) {
-
                 echo "Usuário ou senha inválidos";
                 exit;
             }
