@@ -28,7 +28,7 @@ class LoginController
 
             $verificaService = new VerificarUsuarioValidoService($usuarioValidoDTO);
             $usuario = $verificaService->execute();
-            echo $usuario->senha();
+
             try {
                 $validarUsuario = new ValidaUsuarioService($usuario);
                 $usuarioValido = $validarUsuario->execute();
@@ -39,9 +39,8 @@ class LoginController
                     \Src\Views\MainView::renderizar('login');
                     die();
                 } else {
-                 
+
                     \Src\Views\MainView::renderizar('home');
-                    echo "Usuário valido";
                     die();
                 }
             } catch (TypeError $e) {
