@@ -14,7 +14,7 @@
         <h2>Faça login</h2>
         <form action="Login" method="post">
             <input type="email" name="email" id="" class="inputs" placeholder="Seu Email" required>
-            <input type="password" name="password" id="" class="inputs" placeholder="Senha" required>
+            <input type="password" name="senha" id="" class="inputs" placeholder="Senha" required>
             <input type="hidden" name="login">
             <div class="left">
                 <input type="submit" name="acao" id="" value="Entrar">
