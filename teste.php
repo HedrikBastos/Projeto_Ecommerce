@@ -9,14 +9,11 @@
         }
   
 
-    $email = 'hedrik@email.com';
-   
-    $query = conect()->prepare("SELECT u.nome, u.email, s.senha FROM usuarios u INNER JOIN `senhas_usuarios` s ON u.id_usuario = s.id_usuario WHERE u.email = :email");
-    $query->bindParam(':email', $email, \PDO::PARAM_STR);
-    $query->execute();
-    $resultado = $query->fetch(\PDO::FETCH_ASSOC);
-    
-   echo $resultado['senha'];
-  $test =  password_verify('123', $resultado['senha']);
+        $email = $this->user->email();
+        $senha = $this->user->senha();
+        $query = connect()->prepare("SELECT u.nome, u.email FROM usuarios u INNER JOIN `senhas_usuarios` s ON u.id = s.id_usuario WHERE u.email = :email");
+        $query->bindParam(':email', $email, \PDO::PARAM_STR);
+        $query->execute();
+        $resultado = $query->fetch(\PDO::FETCH_ASSOC);
 
   var_dump($test);

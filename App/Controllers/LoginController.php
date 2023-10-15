@@ -1,19 +1,11 @@
 <?php
 
-use App\Models\UserDTO;
+namespace App\Controllers;
+
+use App\DTOs\UserDTO;
 use App\Models\Service\VerificarUsuarioValidoService;
 use App\Models\Service\ValidaUsuarioService;
-
-if (isset($_POST['acao'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $usuarioValidoDTO = new UserDTO(
-        '',
-        '',
-        $email,
-        $password,
-        ''
-    );
+use TypeError;
 
 class LoginController
 {
@@ -23,25 +15,41 @@ class LoginController
 
         if (isset($_POST['acao'])) {
             $email = $_POST['email'];
-            $password = $_POST['password'];
+            $senha = $_POST['senha'];
             $usuarioValidoDTO = new UserDTO(
                 '',
                 '',
+                '',
+                '',
                 $email,
-                $password,
+                $senha,
                 ''
             );
 
-            echo "Erro ao validar o usuário";
+            $verificaService = new VerificarUsuarioValidoService($usuarioValidoDTO);
+            $usuario = $verificaService->execute();
 
-            exit;
-        } else{
+            try {
+                $validarUsuario = new ValidaUsuarioService($usuario);
+                $usuarioValido = $validarUsuario->execute();
 
-            echo "Usuário valido";
+                if ($usuarioValido === false) {
+
+                    echo "Erro ao validar o usuário";
+                    \App\Views\MainView::renderizar('login');
+                    die();
+                } else {
+                    header('location:home');
+                    die();
+                }
+            } catch (TypeError $e) {
+                echo "Usuário ou senha inválidos";
+                \App\Views\MainView::renderizar('login');
+                exit;
+            }
+        } else {
+            \App\Views\MainView::renderizar('login');
             die();
         }
     }
-} else {
-    \App\Views\MainView::renderizar('login');
-    die();
 }

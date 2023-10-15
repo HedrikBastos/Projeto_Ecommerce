@@ -25,27 +25,30 @@
                 <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
             </a>
 
-            <div class="hidden border-solid w-[350px] border-2 border-opacity-40 border-gray-600 lg:flex ">
+            <div class="hidden border-solid w-[350px] border-2 border-opacity-40 border-gray-600 md:flex ">
                 <input class=" ml-2 outline-none w-[340px]" type="search">
                 <box-icon name='search-alt' color='#717171' size="md"></box-icon>
             </div>
 
-            <div class="hidden justify-center items-center gap-3 mr-6 lg:flex">
-                <a href="carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="lg"></box-icon> </a>
+            <div class="hidden justify-center items-center gap-3 mr-6 md:flex">
+                <a href="carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
 
                 <a href="perfil">
-                    <div class="flex justify-center items-center ">
-                        <box-icon name='user-circle' color='#717171' size="lg"></box-icon>
-                        <p class=" text-[#717171] ">Olá <?php echo 'Name!'; ?></p>
+                    <div class="flex flex-col justify-center items-center ">
+                        <box-icon name='user-circle' color='#717171' size="md"></box-icon>
+                        <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
+                    
                     </div>
                 </a>
 
-
+                <form action="sair" method="post">
+                    <button type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
+                </form>
             </div>
 
         </nav>
 
-        <nav class=" hidden justify-center w-[100%] bg-blue-600 lg:flex">
+        <nav class=" hidden justify-center w-[100%] bg-blue-600 md:flex">
             <ul class="flex  text-white ">
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Smartphones</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> TVs </a>
