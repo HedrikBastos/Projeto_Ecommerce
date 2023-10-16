@@ -8,3 +8,5 @@
         // Comandos para checar os quadrados, precisa ta clicado na linha
         // alt + x : Não concluido   
         // alt + d : Concluido
+
+        npx tailwindcss -i ./App/assets/styles/input.css -o ./App/assets/styles/output.css --watch

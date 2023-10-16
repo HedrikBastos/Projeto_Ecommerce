@@ -1,10 +1,10 @@
 <?php
 
-namespace Src\Controllers;
+namespace App\Controllers;
 
-use Src\DTOs\UserDTO;
-use Src\Models\Service\VerificarUsuarioValidoService;
-use Src\Models\Service\ValidaUsuarioService;
+use App\DTOs\UserDTO;
+use App\Models\Service\VerificarUsuarioValidoService;
+use App\Models\Service\ValidaUsuarioService;
 use TypeError;
 
 class LoginController
@@ -36,19 +36,19 @@ class LoginController
                 if ($usuarioValido === false) {
 
                     echo "Erro ao validar o usuário";
-                    \Src\Views\MainView::renderizar('login');
+                    \App\Views\MainView::renderizar('login');
                     die();
                 } else {
-
-                    \Src\Views\MainView::renderizar('home');
-                    die();
+                    header('location:home');
+                    die('Seja bem vindo');
                 }
             } catch (TypeError $e) {
-                echo "Usuário ou senha inválidos";
-                exit;
+               
+                \App\Views\MainView::renderizar('login', ['mesage' => 'Usuário ou senha inválidos']);
+                die();
             }
         } else {
-            \Src\Views\MainView::renderizar('login');
+            \App\Views\MainView::renderizar('login');
             die();
         }
     }

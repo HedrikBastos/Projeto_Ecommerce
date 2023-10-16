@@ -2,6 +2,6 @@
 
 namespace src\Views\pages;
 
-echo "bem vindo a home";
+echo "bem vindo " . ucfirst($_SESSION['nome']);
 
 

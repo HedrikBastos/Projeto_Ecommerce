@@ -1,5 +1,9 @@
 /vendor/
+composer.lock
+node_modules
+teste.php
+projeto.todo
+AbstractController.php
 Connection.php
 Data.php
 index.php
-teste.php
