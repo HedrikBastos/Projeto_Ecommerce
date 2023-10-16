@@ -4,9 +4,11 @@ session_start();
 
 require('vendor/autoload.php');
 
-define('INCLUDE_PATH_STATIC', 'http://localhost/htdocs/Projeto_Ecommerce/src/Views/pages/');
-define('INCLUDE_PATH', 'http://localhost/htdocs/Projeto_Ecommerce/');
+define('INCLUDE_PATH_STATIC', 'App/assets/');
+define('INCLUDE_PATH', 'App/');
 
-$app = new \Src\Application();
+$app = new \App\Application();
 
 $app->run();
+
+//"C:\xampp\htdocs\Ecommerce"
