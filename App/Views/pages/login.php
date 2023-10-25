@@ -16,8 +16,6 @@
 
 <body class="flex justify-center items-center h-[100vh] ">
 
-
-
     <div class="flex rounded-3xl shadow-[0_5px_40px_-5px_rgba(0,0,0,0.3)] shadow-slate-900  ">
 
         <div class=" flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">
@@ -42,7 +40,6 @@
             </form>
 
         </div>
-
 
         <div class=" hidden flex-col gap-5 justify-center items-center text-center rounded-e-3xl rounded-tl-[120px] rounded-bl-[100px] w-[300px] bg-blue-600 lg:flex ">
             <p class="text-white font-bold text-2xl ">HELLO, FRIEND!</p>

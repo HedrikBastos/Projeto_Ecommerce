@@ -4,16 +4,15 @@ namespace App\Controllers;
 use App\Views\MainView;
 use App\Models\Carrinho;
 
-
-class CarrinhoController
+class JsonController
 {
 
     public function index()
     {
-        $cart = new Carrinho();
-        $cart->solicitaCarrinho();
+        $carrinho = new Carrinho();
+        $carrinho->json();
 
-        MainView::renderizar('carrinho');
+        MainView::renderizar('json');
         /*
         if (isset($_SESSION['login'])) {
             

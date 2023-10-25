@@ -26,60 +26,32 @@
 </head>
 
 <body>
-    <div>
-        <?php
+    <pre>
+    <?php var_dump($_SESSION['carrinho'])
+    
 
-        if (isset($_SESSION['carrinho'])) {
-            foreach ($_SESSION['carrinho'] as $key => $value) {
-        ?>
-                <article>
-                    <p><?php echo 'Nome: ' . $value['nome'] . ' | Quantidade: ' . $value['quantidade'] . ' | Preço: ' . $value['quantidade']*$value['preco'];
-                        echo '<br>'; ?></p>
+     ?>
+    </pre>
 
-                    <form action="" method="post">
-                        <input type="hidden" name="soma" value="<?php echo $key ?>">
-                        <button type="submit">+</button>
-                    </form>
 
-                    <form action="" method="post">
-                        <input type="hidden" name="subtrai" value="<?php echo $key ?>">
-                        <button type="submit">-</button>
-                    </form>
 
-                </article>
+    <div class="main" style=" margin-top:200px;  ">
 
-        <?php
-            }
-        } else {
-            echo 'Ainda não existe nenhum produto no seu carrinho!';
-        }
+        <div class="carrinho" style="display: flex; flex-direction:column; gap:20px; ">
 
-        ?>
+        </div>
 
-        <?php
+        <div class="totalDiv">
 
-        if (isset($_SESSION['carrinho'])) {
-            $somaTotal = 0; // Inicialize a variável de soma fora do loop
-
-            foreach ($_SESSION['carrinho'] as $key => $value) {
-                $subtotal = $value['quantidade'] * $value['preco'];
-                $somaTotal += $subtotal; // Adicione o subtotal à soma total
-
-                // Resto do seu código para exibir os produtos
-                // ...
-            }
-
-            // Exiba a soma total para o usuário
-            echo 'Soma Total: ' . $somaTotal;
-        } else {
-            echo 'Ainda não existe nenhum produto no seu carrinho!';
-        }
-        ?>
-
+        </div>
 
     </div>
 
-    <a href="home">Voltar para Produtos</a>
+
+
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/jquery-3.7.1.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/Carrinho.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/RecebeCarrinho.js"></script>
 
 </body>
 

@@ -30,6 +30,7 @@ class ValidaUsuarioService
                 $_SESSION['nome'] = $resultado['nome'];
                 return true;
             }
+            
         } catch (\PDOException $e) {
             return false;
             

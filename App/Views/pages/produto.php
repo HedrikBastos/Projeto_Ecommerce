@@ -1,21 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<!--npx tailwindcss -i ./app/assets/styles/input.css -o ./app/assets/styles/output.css --watch
-<?php
-// echo INCLUDE_PATH_STATIC
-?>style.css 
--->
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/ValidaForms.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
 </head>
 
-<body class=" bg-[#F7F7F7] ">
+<body>
 
     <head class="">
 
@@ -58,26 +52,33 @@
 
     </head>
 
-    <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
+    <div class=" flex justify-center items-center mt-[150px]">
+        <form class="flex flex-col justify-center items-center gap-1 " action="" method="post" enctype="multipart/form-data">
 
-    <article class=" flex justify-center items-center ">
+            <h1 class="text-2xl font-bold">INSIRA PRODUTOS</h1>
+            <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="text" name="nome" placeholder="Nome do produto" type="text" id="searchInput">
+            <div class=""  id="autocomplete"></div>
+            <input class=" border-blue-600 border-b-2 w-[270px] p-1  outline-none" type="number" name="preco" placeholder="Preço do produto">
+            <select class=" border-blue-600 border-b-2 w-[270px] p-1  outline-none" name="categoria" id="">
+                <option value="Smarthphones">Smarthphones</option>
+                <option value="TVs">TVs</option>
+                <option value="Monitores">Monitores</option>
+                <option value="Computadores">Computadores</option>
+                <option value="Fones">Fones</option>
+                <option value="Teclados">Teclados</option>
+                <option value="Mouses">Mouses</option>
+            </select>
 
-        <div class=" flex flex-wrap justify-center w-[1300px] p-[10px] gap-1 ">
-            <?php foreach ($produtos as $key => $valor) : ?>
+            <label for="file[]" class="cursor-pointer w-[270px] text-center  hover:bg-blue-400 py-2">Escolher imagem</label>
+            <input type="file" id="file[]" name="file[]" class="hidden">
+            <button class="  border-blue-600 border-2 w-[270px] p-1  outline-none  hover:bg-blue-500" type="submit" name="submit">Upload</button>
+        </form>
 
-                <a class="flex flex-col items-center justify-center  w-[200px] text-center relative border-hidden border-[1px] border-black  hover:border-solid " href="show/<?= $valor['id'] ?>">
-                    <img class="w-[200px]" src="<?= INCLUDE_PATH_STATIC ?><?= $valor['path'] ?>" alt="">
-                    <p class="text-xs w-[150px]"> <?= $valor['nome'] ?></p>
-                    <p class="text-md font-semibold text-[#E01D25] "> R$<?php echo number_format($valor['preco'], 2, ',', '.') ?></p>
-                </a>
+    </div>
 
-            <?php endforeach; ?>
-
-        </div>
-
-    </article>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-umd-min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/index.js"></script>
 
 </body>
 

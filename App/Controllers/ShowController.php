@@ -1,22 +1,23 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\Carrinho;
+use App\Models\Repository\ProductRepository;
 use App\Views\MainView;
+use App\Models\Carrinho;
+
 
 class ShowController
 {
-    public function index()
+public function index($parameter = null)
     {
-        $carrinho = new Carrinho();
-        $produtos = $carrinho->acessaProduct();
-        
-        if (isset($_SESSION['login'])) {
-        MainView::renderizar('show', [ 'produtos'=>$produtos ]);
+        $produtos = ProductRepository::selectProdutos();
+        $cart = new Carrinho();
+        $cart->solicitaCarrinho();
+
+        if ($parameter == null) {
+            header('location:home');
         } else {
-            unset($_SESSION['login']);
-            \App\Views\MainView::renderizar('login');  
+            MainView::renderizar('show', ['produtos' => $produtos,'parameter' => $parameter]);
         }
     }
-
 }
