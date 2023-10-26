@@ -7,3 +7,4 @@ AbstractController.php
 Connection.php
 Data.php
 index.php
+root.session

@@ -37,16 +37,17 @@
                     <div class="flex flex-col justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
                         <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
-                    
+
                     </div>
                 </a>
 
                 <form action="sair" method="post">
-                    <button type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
+                    <button id="sair" type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
                 </form>
             </div>
 
         </nav>
+        <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
 
         <nav class=" hidden justify-center w-[100%] bg-blue-600 md:flex">
             <ul class="flex  text-white ">
@@ -72,6 +73,8 @@
             </a>
 
         <?php endforeach; ?>
+
+        <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
 
 </body>
 

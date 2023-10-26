@@ -13,7 +13,7 @@ class ValidaCadastroService
     ) {
     }
 
-    public function execute(): ?User
+    public function execute(): ? User
     {
         if ($this->usuarioDTO->senha != $this->usuarioDTO->confirmarSenha) {
             return null;
@@ -57,12 +57,6 @@ class ValidaCadastroService
     protected function validaEmail(string $email): bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
-    }
-
-
-    protected function validaTelefone(int $telefone): bool
-    {
-        return (bool)(preg_match("/[0-9]{3}[6789][0-9]{4}[0-9]{4}/", $telefone));
     }
 
     protected function LimpaStrings(string $string): string
