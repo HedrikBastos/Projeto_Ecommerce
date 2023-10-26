@@ -1,57 +1,55 @@
 <?php
-// Classe comum para consultas no database
 
 namespace App\Models\Repository;
 
-use App\Models\UserDTO;
+use App\Models\User;
 use App\Config\Connection;
 
 class UserRepository
 {
-
-    public function __construct(private readonly UserDTO $userDTO)
-    {
-    }
-
-    public function insert()
+    public function atualizaUsuario(User $usuario): bool
     {
         try {
+            $conexao = Connection::connect();
+            $atualizaUsuario = $conexao->prepare("UPDATE usuarios
+             SET nome = :nome, email = :email, cpf = :cpf, sobrenome = :sobrenome, genero = :genero
+             WHERE id_usuario = :id_usuario");
 
-            $connection = Connection::connect();
-
-            $name =  $this->userDTO->name;
-            $sobrenome = $this->userDTO->sobrenome;
-            $email = $this->userDTO->email;
-            $password = password_hash($this->userDTO->password, PASSWORD_DEFAULT);
-
-            $sql = $connection->prepare("INSERT INTO users VALUES(NULL,:NAME,:SURNAME,:EMAIL,:PASSWORD)");
-            $sql->bindValue(':NAME', $name, \PDO::PARAM_STR);
-            $sql->bindValue(':SURNAME', $sobrenome, \PDO::PARAM_STR);
-            $sql->bindValue(':EMAIL', $email, \PDO::PARAM_STR);
-            $sql->bindValue(':PASSWORD', $password, \PDO::PARAM_STR);
-            $sql->execute();
-
+            $atualizaUsuario->bindParam(':nome', $usuario->nome(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindParam(':email', $usuario->email(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindParam(':cpf', $usuario->cpf(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindParam(':sobrenome', $usuario->sobrenome(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindParam(':genero', $usuario->genero(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindParam('id_usuario', $_SESSION['id_usuario'], \PDO::PARAM_INT);
+            $atualizaUsuario->execute();
             return true;
-        } catch (\Exception $e) {
+        } catch (\PDOException $e) {
+            return false;
+        }
+    }
+    public function deletaUsuario($idUsuario): bool
+    {
+        try {
+            $conexao = Connection::connect();
+            $deletaUsuario = $conexao->prepare("DELETE FROM ususarios
+             WHERE id_usuario =:id_usuario");
+            $deletaUsuario->bindParam(':id_usuario', $idUsuario);
+            $deletaUsuario->execute();
+            return true;
+        } catch (\PDOException $e) {
             return false;
         }
     }
 
-    public function select()
+    public function buscaUsuario($idUsuario)
     {
-        try {
+        $conexao = Connection::connect();
+        $buscaUsuario = $conexao->prepare("SELECT * FROM usuarios
+         WHERE id_usuario =:id_usuario");
+        $buscaUsuario->bindParam(':id_usuario', $idUsuario, \PDO::PARAM_INT);
+        $buscaUsuario->execute();
+        $usuario = $buscaUsuario->fetch(\PDO::FETCH_ASSOC);
 
-            $connection = Connection::connect();
-
-            $email = $this->userDTO->email;
-
-            $sql = $connection->prepare("SELECT * FROM users WHERE email = :EMAIL");
-            $sql->bindValue(':EMAIL', $email, \PDO::PARAM_STR);
-            $sql->execute();
-
-            return $sql;
-        } catch (\Exception $e) {
-            return false;
-        }
+        return $usuario;
     }
 }

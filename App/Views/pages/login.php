@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="pr-br">
 <!--npx tailwindcss -i ./app/assets/styles/input.css -o ./app/assets/styles/output.css --watch-->
@@ -18,7 +15,7 @@
 
 
 
-    <div class="flex rounded-3xl shadow-[0_5px_40px_-5px_rgba(0,0,0,0.3)] shadow-slate-900  ">
+    <div class="flex rounded-3xl shadow-[0_3px_20px_-7px_rgba(0,0,0,0.3)] shadow-slate-000  ">
 
         <div class=" flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">
 
@@ -54,7 +51,7 @@
 
  <?php echo $mesage??'';?>
 
-
+<script src="App/assets/scripts/verificaLogin.js" type="text/javascript" ></script>
 </body>
 
 </html>

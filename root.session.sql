@@ -1,0 +1,1 @@
+INSERT INTO p.nome, p.grade, p.preco, e.id_produto, e.quantidade FROM produtos p inner join estoque e on p.id_produto = e.id_produto;

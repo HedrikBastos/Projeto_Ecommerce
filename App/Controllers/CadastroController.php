@@ -6,6 +6,8 @@ use App\DTOs\EnderecoDTO;
 use App\DTOs\UserDTO;
 use App\Models\Service\ValidaCadastroService;
 use App\Models\Service\CadastrarUsuarioService;
+use App\Models\Service\ValidaEnderecoService;
+use App\Models\Service\CadastrarEnderecoService;
 
 class CadastroController
 {
@@ -19,6 +21,8 @@ class CadastroController
             $email = $_POST['email'];
             $senha = $_POST['senha'];
             $confirmarSenha = $_POST['confirmarSenha'];
+
+
             $usuarioDTO = new UserDTO(
                 $nome,
                 $sobrenome,
@@ -29,7 +33,7 @@ class CadastroController
                 $confirmarSenha
             );
 
-            /* $enderecoDTO = new EnderecoDTO(
+            $enderecoDTO = new EnderecoDTO(
                 $_POST['rua'],
                 $_POST['numero'],
                 $_POST['complemento'],
@@ -40,24 +44,35 @@ class CadastroController
                 $_POST['telefone']
             );
 
-            */
 
-            $validarService = new ValidaCadastroService($usuarioDTO);
-            $usuario = $validarService->execute();
+            $validarUsuario = new ValidaCadastroService($usuarioDTO);
+            $usuario = $validarUsuario->execute();
+
+            $validarEndereco = new ValidaEnderecoService($enderecoDTO);
+            $endereco = $validarEndereco->executeEndereco();
+
             try {
-                if ($usuario != null) {
-                    $cadastrarService = new CadastrarUsuarioService($usuario);
-                    $cadastroExecutado = $cadastrarService->execute();
-                   
+                if ($usuario != null && $endereco != null) {
+
+                    $cadastrarUsuario = new CadastrarUsuarioService($usuario);
+
+                    $cadastroUsuarioExecutado = $cadastrarUsuario->execute();
+
+                    $cadastrarEndereco = new CadastrarEnderecoService($endereco);
+
+                    $cadastroEnderecoExecutado = $cadastrarEndereco->execute();
                 }
-                if (isset($cadastroExecutado) === true) {
+
+                if (isset($cadastroUsuarioExecutado) === true && $cadastroEnderecoExecutado === true) {
                     header("Location: home");
+
                     die();
                 } else {
                     echo "<script>alert('Cadastro não realizado!')</script>";
                     \App\Views\MainView::renderizar('register');
                 }
             } catch (\TypeError $e) {
+                echo $e;
                 \App\Views\MainView::renderizar('register');
                 die();
             }
