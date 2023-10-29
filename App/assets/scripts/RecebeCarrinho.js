@@ -32,13 +32,11 @@ $.ajax({
       var totalProduto = produto.quantidade * produto.preco;
       totalFinal += totalProduto;
 
-      produtoDiv.innerHTML =
-        "   Nome: " +
-        produto.nome +
-        "   Quantidade: " +
-        produto.quantidade +
-        "   Preço: " +
-        produto.preco;
+      produtoDiv.innerHTML = `
+      <span class=" font-bold " >Nome:</span> ${produto.nome}
+      <span class=" font-bold ml-[10px]" >Quantidade:</span> ${produto.quantidade}
+      <span class=" font-bold ml-[10px]" >Preço:</span> ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+    `;
 
       inpAdicionar.setAttribute("value", "adicionar");
       inpAdicionar.setAttribute("type", "hidden");
@@ -65,13 +63,37 @@ $.ajax({
         location.reload();
       });
 
+      carrinhoContainer.classList.add("sm:text-lg")
       produtoDiv.classList.add("produtoDiv");
+      produtoDiv.classList.add("flex");
+      produtoDiv.classList.add("gap-3");
       formAdicionar.classList.add("form-adicionar");
       formSubtrair.classList.add("form-subtrair");
       inpAdicionar.classList.add("btnAdicionar");
       inpSubtrair.classList.add("btnSubtrair");
       inpIdSubtrair.classList.add("produtoID");
       inpIdAdicionar.classList.add("produtoID");
+     
+      btnAdicionar.classList.add("px-2");
+      btnAdicionar.classList.add("border-[3px]");
+      btnAdicionar.classList.add("rounded-[20%]");
+      btnAdicionar.classList.add("border-blue-500");
+      btnAdicionar.classList.add("font-semibold");
+      btnAdicionar.classList.add("text-lg");
+      btnAdicionar.classList.add("hover:bg-blue-500");
+      btnAdicionar.classList.add("text-center");
+      btnAdicionar.classList.add("cursor-pointer");
+
+      btnSubtrair.classList.add("px-2");
+      btnSubtrair.classList.add("border-[3px]");
+      btnSubtrair.classList.add("rounded-[20%]");
+      btnSubtrair.classList.add("border-red-500");
+      btnSubtrair.classList.add("font-semibold");
+      btnSubtrair.classList.add("text-lg");
+      btnSubtrair.classList.add("hover:bg-red-500");
+      btnSubtrair.classList.add("text-center");
+      btnSubtrair.classList.add("cursor-pointer");
+
       btnAdicionar.textContent = "+";
       btnSubtrair.textContent = "-";
 
@@ -88,7 +110,7 @@ $.ajax({
       formSubtrair.appendChild(btnSubtrair);
     }
 
-    total.innerHTML = totalFinal;
+    total.innerHTML = `<span class="font-bold text-2xl ">Total a pagar: </span> R$ ${totalFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
 
     totalDiv.appendChild(total);
   })

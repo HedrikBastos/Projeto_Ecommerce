@@ -20,7 +20,7 @@ class Carrinho
                 if (isset($_SESSION['carrinho'][$id_produto])) {
                     $_SESSION['carrinho'][$id_produto]['quantidade']++;
                 } else {
-                    $_SESSION['carrinho'][$id_produto] = array('id_produto' => $dadosProdutos[$id_produto]['id'], 'quantidade' => 1, 'nome' => $dadosProdutos[$id_produto]['nome'], 'preco' => $dadosProdutos[$id_produto]['preco']);
+                    $_SESSION['carrinho'][$id_produto] = array('id_produto' => $dadosProdutos[$id_produto]['id_produto'], 'quantidade' => 1, 'nome' => $dadosProdutos[$id_produto]['nome'], 'preco' => $dadosProdutos[$id_produto]['preco']);
                 }
             } else {
                 die('Não tem mais produtos desse no seu carrinho!');

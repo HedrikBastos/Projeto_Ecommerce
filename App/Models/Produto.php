@@ -7,24 +7,36 @@ class Produto
     private string $nome;
     private int $preco;
     private string $categoria;
+    private string $descricao;
+    private int $estoque;
     private string $path;
 
-    public function nome()
+    public function nome(): string
     {
         return $this->nome;
     }
 
-    public function categoria()
-    {
-        return $this->categoria;
-    }
-
-    public function preco()
+    public function preco(): int
     {
         return $this->preco;
     }
 
-    public function path()
+    public function categoria(): string
+    {
+        return $this->categoria;
+    }
+
+    public function descricao(): string
+    {
+        return $this->descricao;
+    }
+
+    public function estoque(): int
+    {
+        return $this->estoque;
+    }
+
+    public function path(): string
     {
         return $this->path;
     }
@@ -34,14 +46,24 @@ class Produto
         $this->nome = $nome;
     }
 
+    public function setPreco(int $preco)
+    {
+        $this->preco = $preco;
+    }
+
     public function setCategoria(string $categoria)
     {
         $this->categoria = $categoria;
     }
 
-    public function setPreco(int $preco)
+    public function setDescricao(string $descricao)
     {
-         $this->preco = $preco;
+        $this->descricao = $descricao;
+    }
+
+    public function setEstoque(int $estoque)
+    {
+        $this->estoque = $estoque;
     }
 
     public function setPath(string $path)

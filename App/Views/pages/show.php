@@ -61,9 +61,9 @@
 
         <?php foreach ($produtos as $key => $value) : ?>
 
-            <?php if ($value['id'] == $parameter) : ?>
+            <?php if ($value['id_produto'] == $parameter) : ?>
 
-                <img class="w-[500px]" src="<?= INCLUDE_PATH_STATIC ?><?= $value['path'] ?>" alt="">
+                <img class="w-[500px]" src="<?= INCLUDE_PATH_STATIC ?><?= $value['imagem'] ?>" alt="">
 
                 <div class="flex flex-col items-start pt-[7%] gap-28">
 
@@ -76,7 +76,7 @@
 
                         <form class="form-adicionar" method="post" >
                             <input type="hidden" name="acao" class="btnAdicionar" value="adicionar">
-                            <input type="hidden" name="produtoID" class="produtoID" value="<?php echo $value['id'] ?>">
+                            <input type="hidden" name="produtoID" class="produtoID" value="<?php echo $value['id_produto'] ?>">
                             <input onclick="up()" value="Adicionar ao carrinho " type="submit" class=" font-semibold text-center text-sm rounded-2xl bg-blue-400 p-[4px] px-7 cursor-pointer hover:bg-blue-500">
                         </form>
 

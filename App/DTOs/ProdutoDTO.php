@@ -6,9 +6,11 @@ class ProdutoDTO
 {
     public function __construct(
         public readonly string $nome,
-        public readonly string $preco,
+        public readonly int $preco,
         public readonly string $categoria,
-        public readonly string $path,
+        public readonly string $descricao,
+        public readonly int $estoque,
+        public readonly string $path
     ) {
     }
 }

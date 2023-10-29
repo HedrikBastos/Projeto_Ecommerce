@@ -52,12 +52,12 @@
 
     </head>
 
-    <div class=" flex justify-center items-center mt-[150px]">
+    <div class=" flex flex-wrap gap-20 justify-evenly items-center mt-[150px]">
+
         <form class="flex flex-col justify-center items-center gap-1 " action="" method="post" enctype="multipart/form-data">
 
-            <h1 class="text-2xl font-bold">INSIRA PRODUTOS</h1>
-            <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="text" name="nome" placeholder="Nome do produto" type="text" id="searchInput">
-            <div class=""  id="autocomplete"></div>
+            <h1 class="text-2xl font-bold">INSIRA UM PRODUTO</h1>
+            <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="text" name="nome" placeholder="Nome do produto" >
             <input class=" border-blue-600 border-b-2 w-[270px] p-1  outline-none" type="number" name="preco" placeholder="Preço do produto">
             <select class=" border-blue-600 border-b-2 w-[270px] p-1  outline-none" name="categoria" id="">
                 <option value="Smarthphones">Smarthphones</option>
@@ -68,10 +68,20 @@
                 <option value="Teclados">Teclados</option>
                 <option value="Mouses">Mouses</option>
             </select>
-
+            <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="text" name="descricao" placeholder="Descricao">
+            <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="number" name="estoque" placeholder="Estoque">
             <label for="file[]" class="cursor-pointer w-[270px] text-center  hover:bg-blue-400 py-2">Escolher imagem</label>
-            <input type="file" id="file[]" name="file[]" class="hidden">
-            <button class="  border-blue-600 border-2 w-[270px] p-1  outline-none  hover:bg-blue-500" type="submit" name="submit">Upload</button>
+            <input type="file" id="file[]" name="file[]" class="hidden" >
+            <button class="  border-blue-600 border-2 w-[270px] p-1  outline-none  hover:bg-blue-500" type="submit" name="cadastrar" >Cadastrar</button>
+        </form>
+
+
+        <form class="flex flex-col justify-center items-center gap-1 " action="" method="post" >
+            <h1 class="text-2xl font-bold">ATUALIZE O ESTOQUE</h1>
+            <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="text" name="nome" placeholder="Nome do produto" id="searchInput" >
+            <div class="none" id="autocomplete"></div>
+            <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="number" name="estoque" placeholder="Diminua ou acrecente o estoque">
+            <button class="  border-blue-600 border-2 w-[270px] p-1  outline-none  hover:bg-blue-500" type="submit" name="atualiza">Atualizar</button>
         </form>
 
     </div>
