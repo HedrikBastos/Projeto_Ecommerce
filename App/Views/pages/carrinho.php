@@ -5,81 +5,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        div {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-
-        }
-
-        article {
-            display: flex;
-        }
-    </style>
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
 </head>
 
 <body>
-    <div>
-        <?php
+    <pre>
 
-        if (isset($_SESSION['carrinho'])) {
-            foreach ($_SESSION['carrinho'] as $key => $value) {
-        ?>
-                <article>
-                    <p><?php echo 'Nome: ' . $value['nome'] . ' | Quantidade: ' . $value['quantidade'] . ' | Preço: ' . $value['quantidade']*$value['preco'];
-                        echo '<br>'; ?></p>
+    <?php
 
-                    <form action="" method="post">
-                        <input type="hidden" name="soma" value="<?php echo $key ?>">
-                        <button type="submit">+</button>
-                    </form>
+/*
+    var_dump($_SESSION['carrinho']);
 
-                    <form action="" method="post">
-                        <input type="hidden" name="subtrai" value="<?php echo $key ?>">
-                        <button type="submit">-</button>
-                    </form>
+    $produtos = $_SESSION['carrinho'];
 
-                </article>
+    foreach ($produtos as $key => $value) {
 
-        <?php
-            }
-        } else {
-            echo 'Ainda não existe nenhum produto no seu carrinho!';
-        }
+        echo $value['nome'];
+        echo 'R$' . $value['preco'] ;
+        echo $value['id_produto'];
+    }
 
-        ?>
+    */
+    ?>
 
-        <?php
+    </pre>
 
-        if (isset($_SESSION['carrinho'])) {
-            $somaTotal = 0; // Inicialize a variável de soma fora do loop
+    <div class="main" class="flex flex-col items-center justify-center  ">
 
-            foreach ($_SESSION['carrinho'] as $key => $value) {
-                $subtotal = $value['quantidade'] * $value['preco'];
-                $somaTotal += $subtotal; // Adicione o subtotal à soma total
 
-                // Resto do seu código para exibir os produtos
-                // ...
-            }
+        <div class="carrinho flex flex-col items-center justify-center gap-3 sm:text-3xl" style="margin-bottom: 20px;" >
 
-            // Exiba a soma total para o usuário
-            echo 'Soma Total: ' . $somaTotal;
-        } else {
-            echo 'Ainda não existe nenhum produto no seu carrinho!';
-        }
-        ?>
+        </div>
 
+        <div class="totalDiv flex flex-col items-center justify-center text-3xl " >
+
+        </div>
+
+        <form action="">
+            <button>Finalizar Pedido</button>
+        </form>
 
     </div>
 
-    <a href="home">Voltar para Produtos</a>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/jquery-3.7.1.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/Carrinho.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/RecebeCarrinho.js"></script>
 
 </body>
 
