@@ -26,7 +26,7 @@
             </div>
 
             <div class="hidden justify-center gap-3 mr-6 md:flex">
-                <a href="<?php echo INCLUDE_PATH ?>carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
+                <a href="carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
 
                 <a href="perfil">
                     <div class="flex justify-center items-center ">

@@ -7,8 +7,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
-    <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC?>styles/output.css">
+    <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                 <a href="perfil">
                     <div class="flex justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
-                        <p class=" text-[#717171] ">Olá <?php echo 'Name!'; ?></p>
+                        <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
                     </div>
                 </a>
 
