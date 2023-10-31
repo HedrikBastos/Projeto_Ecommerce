@@ -40,7 +40,6 @@
 
         </div>
 
-
         <div class=" hidden flex-col gap-5 justify-center items-center text-center rounded-e-3xl rounded-tl-[120px] rounded-bl-[100px] w-[300px] bg-blue-600 lg:flex ">
             <p class="text-white font-bold text-2xl ">HELLO, FRIEND!</p>
             <p class="text-white text-xs mx-4 ">Registre-se com seus dados pessoais para usar todos os recursos do site</p>

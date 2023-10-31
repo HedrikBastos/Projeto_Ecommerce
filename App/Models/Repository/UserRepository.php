@@ -15,12 +15,12 @@ class UserRepository
              SET nome = :nome, email = :email, cpf = :cpf, sobrenome = :sobrenome, genero = :genero
              WHERE id_usuario = :id_usuario");
 
-            $atualizaUsuario->bindParam(':nome', $usuario->nome(), \PDO::PARAM_STR);
-            $atualizaUsuario->bindParam(':email', $usuario->email(), \PDO::PARAM_STR);
-            $atualizaUsuario->bindParam(':cpf', $usuario->cpf(), \PDO::PARAM_STR);
-            $atualizaUsuario->bindParam(':sobrenome', $usuario->sobrenome(), \PDO::PARAM_STR);
-            $atualizaUsuario->bindParam(':genero', $usuario->genero(), \PDO::PARAM_STR);
-            $atualizaUsuario->bindParam('id_usuario', $_SESSION['id_usuario'], \PDO::PARAM_INT);
+            $atualizaUsuario->bindValue(':nome', $usuario->nome(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindValue(':email', $usuario->email(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindValue(':cpf', $usuario->cpf(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindValue(':sobrenome', $usuario->sobrenome(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindValue(':genero', $usuario->genero(), \PDO::PARAM_STR);
+            $atualizaUsuario->bindValue('id_usuario', $_SESSION['id_usuario'], \PDO::PARAM_INT);
             $atualizaUsuario->execute();
             return true;
         } catch (\PDOException $e) {
@@ -41,15 +41,32 @@ class UserRepository
         }
     }
 
-    public function buscaUsuario($idUsuario)
+    public function buscaUsuario($idUsuario): ?user
     {
-        $conexao = Connection::connect();
+        try{
+            $conexao = Connection::connect();
         $buscaUsuario = $conexao->prepare("SELECT * FROM usuarios
          WHERE id_usuario =:id_usuario");
-        $buscaUsuario->bindParam(':id_usuario', $idUsuario, \PDO::PARAM_INT);
+        $buscaUsuario->bindValue(':id_usuario', $idUsuario, \PDO::PARAM_INT);
         $buscaUsuario->execute();
-        $usuario = $buscaUsuario->fetch(\PDO::FETCH_ASSOC);
+
+
+        if ($buscaUsuario->rowCount() === 0) {
+            return null;
+        }
+        $dadosUsuario = $buscaUsuario->fetch(\PDO::FETCH_ASSOC);
+
+        $usuario = new User();
+        $usuario->setEmail($dadosUsuario['email']);
+        $usuario->setNome($dadosUsuario['nome']);
+        $usuario->setSobrenome($dadosUsuario['sobrenome']);
+        $usuario->setCpf($dadosUsuario['cpf']);
+        $usuario->setGenero($dadosUsuario['genero']);
 
         return $usuario;
+        }catch (\PDOException $e) {
+
+        }
     }
 }
+

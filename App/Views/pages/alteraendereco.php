@@ -1,22 +1,31 @@
+<?php
+use App\Models\Repository\EnderecoRepository;
+
+$dadosEndereco = new EnderecoRepository();
+$endereco = $dadosEndereco->buscaEndereco($_SESSION['id_usuario']);
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
     <title>Alterar Endereço</title>
 </head>
 
 <body class="flex justify-center items-center h-[100vh] ">
     <div class="containerpaginacao">
-        <div class="rounded-3xl shadow-[0_5px_40px_-5px_rgba(0,0,0,0.3)] shadow-slate-900 " id="">
-            <div class=" flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">
-                <form class=" flex flex-col justify-center items-center gap-4" action="cadastro" method="post">
-                    <h1 class=" text-3xl font-bold">Endereço</h1>
-                    <input type="text" name="cep" placeholder="Cep" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
-                    <input type="text" name="cidade" placeholder="Cidade" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
-                    <select name="uf" id="uf" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
-                        <option value="" disabled selected>Estado</option>
+        <div class="rounded-3xl shadow-[0_5px_40px_-5px_rgba(0,0,0,0.3)] shadow-slate-900">
+            <div class="flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px]">
+                <form class="flex flex-col justify-center items-center gap-4" action="cadastro" method="post">
+                    <h1 class="text-3xl font-bold">Endereço</h1>
+                    <input type="text" name="cep" placeholder="Cep" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" value="<?php echo $endereco->Cep(); ?>">
+                    <input type="text" name="cidade" placeholder="Cidade" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" value="<?php echo $endereco->Cidade(); ?>">
+                    <select name="uf" id="uf" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
+                        <option value="<?php echo $endereco->Uf(); ?>" selected><?php echo $endereco->Uf(); ?></option>
                         <option value="AC">Acre</option>
                         <option value="AL">Alagoas</option>
                         <option value="AP">Amapá</option>
@@ -45,20 +54,18 @@
                         <option value="SE">Sergipe</option>
                         <option value="TO">Tocantins</option>
                     </select>
-                    <input type="text" name="rua" placeholder="Rua" id="cpf" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" required>
-                    <input type="text" name="numero" placeholder="Nº" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" required>
-                    <input type="text" name="bairro" placeholder="Bairro" id="bairro" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" required>
-                    <input type="text" name="complemento" placeholder="Complemento" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" required>
-                    <input type="text" name="telefone" placeholder="Telefone" id="telefone" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="11" maxlength="11">
+                    <input type="text" name="rua" placeholder="Rua" id="cpf" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" value="<?php echo $endereco->Rua(); ?>">
+                    <input type="text" name="numero" placeholder="Nº" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" value="<?php echo $endereco->Numero(); ?>">
+                    <input type="text" name="bairro" placeholder="Bairro" id="bairro" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" value="<?php echo $endereco->Bairro(); ?>">
+                    <input type="text" name="complemento" placeholder="Complemento" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" value="<?php echo $endereco->Complemento(); ?>">
+                    <input type="text" name="telefone" placeholder="Telefone" id="telefone" class="rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="11" maxlength="11" value="<?php echo $endereco->Telefone(); ?>">
                     <div class="left">
-                        <input type="submit" name="acao" id="" value="Cadastrar" class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white">
+                        <input type="submit" name="acao" id="" value="Cadastrar" class="w-[140px] text-center rounded-md p-1 bg-blue-600 text-white">
                     </div>
+                </form>
             </div>
         </div>
-
     </div>
-    </form>
     <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
 </body>
-
 </html>
