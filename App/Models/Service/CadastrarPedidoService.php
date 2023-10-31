@@ -7,20 +7,16 @@ use App\Config\Connection;
 
 class CadastrarPedidoService
 {
-    public function __construct(
-        private readonly Pedido $pedido)
-    {
-    }
-    public function execute(): bool
+    public function __construct(Pedido $pedido)
     {
         try {
-            $idUsuario = $this->pedido->idUsuario();
-            $data = $this->pedido->data();
-            $itens = $this->pedido->itens();
-            $status = $this->pedido->status();
+            $idUsuario = $pedido->idUsuario();
+            $data = $pedido->data();
+            $itens = $pedido->itens();
+            $status = $pedido->status();
             $conexao = Connection::connect();
             $conexao->beginTransaction();
-            
+
             $cadastrarPedido = $conexao->prepare("INSERT INTO pedidos (id_usuario, data, status)
             VALUES (:id_usuario, :data, :status)");
             $cadastrarPedido->bindValue(':id_usuario', $idUsuario, \PDO::PARAM_INT);

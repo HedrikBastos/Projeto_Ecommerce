@@ -13,7 +13,6 @@
 <body class=" bg-[#F7F7F7] ">
 
     <head>
-
         <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
 
             <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="home">
@@ -87,7 +86,7 @@
 
                 <a class=" produtos flex flex-col items-center justify-center text-center relative border-hidden border-[1px] border-black  hover:border-solid w-[90px] sm:w-[200px] " href="show/<?= $valor['id_produto'] ?>">
                     <img class="w-[200px]" src="<?= INCLUDE_PATH_STATIC ?><?= $valor['imagem'] ?>" alt="">
-                    <p class="text-xs w-[150px]"> <?= $valor['nome'] ?></p>
+                    <p class=" text-[9px] w-[150px] sm:text-xs "> <?= $valor['nome'] ?></p>
                     <p class="text-xs font-semibold text-[#E01D25] sm:text-sm"> R$<?php echo number_format($valor['preco'], 2, ',', '.') ?></p>
                 </a>
 
@@ -100,8 +99,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/ValidaForms.js" type="text/javascript"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
-
-        <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
+    <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
 
 </body>
 

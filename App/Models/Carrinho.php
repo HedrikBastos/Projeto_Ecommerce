@@ -6,18 +6,15 @@ use App\Models\Repository\ProductRepository;
 
 class Carrinho
 {
-
     public function solicitaCarrinho()
     {
-
         $dadosProdutos = ProductRepository::selectProdutos();
-        
+
         if (isset($_POST['acao']) && $_POST['acao'] == 'adicionar') {
-
             $id_produto = (int) $_POST['produtoID'];
-            
-            $produtoEncontrado = null;
 
+            // Verifique se o produto existe na lista de produtos
+            $produtoEncontrado = null;
             foreach ($dadosProdutos as $produto) {
                 if ($produto['id_produto'] == $id_produto) {
                     $produtoEncontrado = $produto;
@@ -28,39 +25,62 @@ class Carrinho
             if ($produtoEncontrado) {
                 $nome = $produtoEncontrado['nome'];
                 $preco = $produtoEncontrado['preco'];
-            }
+                $imagem = $produtoEncontrado['imagem'];
 
-            if (isset($dadosProdutos[$id_produto])) {
-                if (isset($_SESSION['carrinho'][$id_produto])) {
-                    $_SESSION['carrinho'][$id_produto]['quantidade']++;
-                } else {
-                    $_SESSION['carrinho'][$id_produto] = array('id_produto' => $id_produto, 'quantidade' => 1, 'nome' => $nome, 'preco' => $preco);
+                // Verifique se o produto já existe no carrinho
+                $produtoNoCarrinho = false;
+                foreach ($_SESSION['carrinho'] as &$item) {
+                    if ($item['id_produto'] == $id_produto) {
+                        $item['quantidade']++;
+                        $produtoNoCarrinho = true;
+                        break;
+                    }
+                }
+
+                if (!$produtoNoCarrinho) {
+                    // Encontre o próximo índice disponível no carrinho
+                    $indice = 0;
+                    while (isset($_SESSION['carrinho'][$indice])) {
+                        $indice++;
+                    }
+
+                    // Adicione o produto no carrinho
+                    $_SESSION['carrinho'][$indice] = array('id_produto' => $id_produto, 'quantidade' => 1, 'nome' => $nome, 'preco' => $preco, 'imagem' => $imagem);
                 }
             } else {
-                die('Não tem mais produtos desse no seu carrinho!');
+                die('Produto não encontrado na lista de produtos!');
             }
-          
         }
 
-        //Subtrair produtos do carrinho (-)
+        // Subtrair produtos do carrinho (-)
         if (isset($_POST['acao']) && $_POST['acao'] == 'subtrair') {
-
             $id_produto = (int) $_POST['produtoID'];
 
-            if (isset($dadosProdutos[$id_produto])) {
-                if (isset($_SESSION['carrinho'][$id_produto])) {
+            // Encontre o índice correto do produto no carrinho
+            $produtoEncontradoNoCarrinho = false;
+            $produtoIndex = null;
 
-                    if ($_SESSION['carrinho'][$id_produto]['quantidade'] > 0) {
-                        $_SESSION['carrinho'][$id_produto]['quantidade']--;
-                    } else {
+            foreach ($_SESSION['carrinho'] as $indice => $item) {
+                if ($item['id_produto'] == $id_produto) {
+                    $produtoIndex = $indice;
+                    $produtoEncontradoNoCarrinho = true;
+                    break;
+                }
+            }
 
-                        return;
+            if ($produtoEncontradoNoCarrinho) {
+                // Subtrair a quantidade corretamente
+                if ($_SESSION['carrinho'][$produtoIndex]['quantidade'] > 0) {
+                    $_SESSION['carrinho'][$produtoIndex]['quantidade']--;
+
+                    if ($_SESSION['carrinho'][$produtoIndex]['quantidade'] === 0) {
+                        unset($_SESSION['carrinho'][$produtoIndex]);
                     }
                 } else {
-                    die('Não tem mais produtos desse no seu carrinho!');
+                    return;
                 }
             } else {
-                die('Não tem mais produtos desse no seu carrinho!');
+                die('Produto não encontrado no carrinho!');
             }
         }
     }

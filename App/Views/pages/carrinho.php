@@ -20,7 +20,7 @@
     <head>
         <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
 
-            <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="<?php echo INCLUDE_PATH ?>home">
+            <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="home">
                 <img src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent_formato.svg" alt="">
                 <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
             </a>
@@ -37,8 +37,13 @@
                     <div class="flex justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
                         <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
+
                     </div>
                 </a>
+
+                <form action="sair" method="post">
+                    <button id="sair" type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
+                </form>
 
             </div>
 
@@ -79,6 +84,12 @@
 
     <article class="main flex flex-col items-center justify-center mt-[35px] sm:mt-[70px] ">
 
+        <?php
+        if (empty($_SESSION['carrinho'])) {
+            echo 'Seu carrinho está vazio!';
+        }
+        ?>
+
         <div class="flex items-center justify-center">
             <div class="carrinho flex flex-col gap-10 " style="margin-bottom: 20px;">
 
@@ -91,16 +102,16 @@
         </div>
 
         <form action="pedido" method="post" class=" flex justify-center items-center p-2">
-            <input type="submit" name="acao" value="Finalizar Pedido" class="float-right ml-[40px] text-[8px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-2 text-center sm:px-7 sm:ml-[150px]  sm:text-sm">
+            <button class="float-right ml-[40px] text-[8px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-2 text-center sm:px-7 sm:ml-[150px] sm:text-sm">Finalizar Pedido</button>
         </form>
 
     </article>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/jquery-3.7.1.js"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/Carrinho.js"></script>
-    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/RecebeCarrinho.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </body>
 
