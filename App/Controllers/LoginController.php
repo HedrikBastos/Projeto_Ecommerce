@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Controllers;
 
 use App\DTOs\UserDTO;
@@ -34,16 +35,15 @@ class LoginController
 
                 if ($usuarioValido === false) {
 
-                    echo "Erro ao validar o usuário";
-                    \App\Views\MainView::renderizar('login');
+                    \App\Views\MainView::renderizar('login', ['mesage' => 'Email  inválido']);
                     die();
                 } else {
                     header('location:home');
                     die('Seja bem vindo');
                 }
             } catch (TypeError $e) {
-               
-                \App\Views\MainView::renderizar('login', ['mesage' => 'Usuário ou senha inválidos']);
+
+                \App\Views\MainView::renderizar('login', ['mesage' => 'senha inválida']);
                 die();
             }
         } else {

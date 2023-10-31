@@ -7,4 +7,5 @@ AbstractController.php
 Connection.php
 Data.php
 index.php
-root.session
+root.session.sql
+sql_simulação.txt

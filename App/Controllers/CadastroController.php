@@ -65,7 +65,6 @@ class CadastroController
 
                 if (isset($cadastroUsuarioExecutado) === true && $cadastroEnderecoExecutado === true) {
                     header("Location: home");
-
                     die();
                 } else {
                     echo "<script>alert('Cadastro não realizado!')</script>";

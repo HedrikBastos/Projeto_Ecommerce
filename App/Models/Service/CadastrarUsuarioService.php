@@ -30,8 +30,10 @@ class CadastrarUsuarioService
             $verificarEmail->bindParam(":email", $email);
             $verificarEmail->execute();
             $emailVerificado = $verificarEmail->fetchColumn();
-
-            if ($emailVerificado == 0) {
+            
+            if($emailVerificado !== 0) {
+                return false;
+            }
 
                 $cadastraUsuario = $pdo->prepare("INSERT INTO usuarios (nome, email, cpf, sobrenome, genero)VALUES(:nome, :email, :cpf, :sobrenome, :genero)");
                 $cadastraUsuario->bindParam(':nome', $nome, \PDO::PARAM_STR);
@@ -55,9 +57,6 @@ class CadastrarUsuarioService
                 $pdo->commit();
                 return true;
               
-            } else {
-                return false;
-            }
         } catch (\PDOException $e) {
             Connection::connect()->rollBack();
             return false;

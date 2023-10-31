@@ -6,11 +6,11 @@ $opcaoMenu = 'pedidos';
 
 if (isset($_GET['value'])) {
 
-    if ($_GET['value'] != 'pedidos' && $_GET['value'] != 'alterarcadastro' &&$_GET['value'] != 'alteraendereco') {
+    if ($_GET['value'] != 'pedidos' && $_GET['value'] != 'alterausuario' && $_GET['value'] != 'alteraendereco') {
         include('erro404.php');
         die();
-    } 
-        $opcaoMenu = $_GET['value'];
+    }
+    $opcaoMenu = $_GET['value'];
 }
 
 if ($opcaoMenu == 'pedidos') {
@@ -20,18 +20,6 @@ if ($opcaoMenu == 'pedidos') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
-
-<body>
     <!DOCTYPE html>
     <html lang="pt-br">
 
@@ -44,7 +32,7 @@ if ($opcaoMenu == 'pedidos') {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
 
-    <body class=" bg-[#F7F7F7] ">
+    <body class="min-h-screen flex flex-col">
         <header>
             <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
 
@@ -72,17 +60,17 @@ if ($opcaoMenu == 'pedidos') {
             <nav class=" hidden justify-center w-[100%] bg-blue-800 md:flex">
                 <ul class="flex  text-white ">
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
-                    <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="?value=alterarcadastro"> Alterar Cadastro </a>
+                    <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="?value=alterausuario"> Alterar Cadastro </a>
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="?value=alteraendereco"> Alterar Endereço </a>
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="?value=pedidos"> Pedidos </a>
                 </ul>
             </nav>
 
         </header>
-        <main>
+        <main class="flex-1 p-4">
             <?php include(INCLUDE_PATH_PAGES . $opcaoMenu . '.php') ?>
         </main>
-        <div class="footer">
+        <div class="footer p-4">
             <a id="" href="home">Voltar para o Home</a>
             <a id="logout">Logout</a>
         </div>
