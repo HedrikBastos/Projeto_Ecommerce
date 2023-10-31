@@ -16,23 +16,23 @@ class ValidaProdutos
     {
 
         if (!$this->validaNome($this->produtoDTO->nome)) {
-            echo 'Nome deu errado';
+            return null;
         }
 
         if (!$this->validaPreco($this->produtoDTO->preco)) {
-            echo 'Preco deu errado';
+            return null;
         }
 
         if (!$this->validaCategoria($this->produtoDTO->categoria)) {
-            echo 'Categoria deu errado';
+            return null;
         }
 
         if (!$this->validaDescricao($this->produtoDTO->descricao)) {
-            echo 'Descricao incorreta';
+            return null;
         }
 
         if (!$this->validaEstoque($this->produtoDTO->estoque)) {
-            echo 'Estoque incorreto';
+            return null;
         }
 
 
@@ -78,7 +78,7 @@ class ValidaProdutos
 
     private function validaCategoria(string $categoria): bool
     {
-        $categoriasValidas = ['Smarthphones', 'TVs', 'Monitores','Computadores','Fones','Teclados','Mouses'];
+        $categoriasValidas = ['Smartphones', 'TVs', 'Monitores','Computadores','Fones','Teclados','Mouses'];
         return in_array($categoria, $categoriasValidas) == true;
     }
 

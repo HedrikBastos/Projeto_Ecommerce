@@ -17,7 +17,7 @@ public function index($parameter = null)
         if ($parameter == null) {
             header('location:home');
         } else {
-            MainView::renderizar('show', ['produtos' => $produtos,'parameter' => $parameter]);
+            MainView::renderizar('show', ['produtos' => $produtos, 'parameter' => $parameter]);
         }
     }
 }

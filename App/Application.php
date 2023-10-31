@@ -14,6 +14,7 @@ class Application
         $url = isset($_GET['url']) ? explode('/', $_GET['url']) : [''];
         $parameter = null;
 
+
         if (empty($url[0])) {
             $loadName .= 'Home';
         } else {
@@ -23,7 +24,7 @@ class Application
         if (isset($url[1]) && is_numeric($url[1])) {
             $parameter = $url[1];
         }
-        
+
         $loadName .= 'Controller';
 
         if (file_exists($loadName . '.php')) {
@@ -33,13 +34,12 @@ class Application
 
             // Verifica se o método especificado na URL existe no controlador
             if (method_exists($this->controller, 'index')) {
-               
+
                 if (isset($parameter)) {
                     $this->controller->index($parameter);
                 } else {
                     $this->controller->index();
                 }
-                
             } else {
                 include('Views/pages/erro404.php');
                 die();

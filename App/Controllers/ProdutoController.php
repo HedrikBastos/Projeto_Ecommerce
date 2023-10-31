@@ -17,12 +17,12 @@ class ProdutoController
             # code...
         }
         */
-        
+
         MainView::renderizar('produto');
 
         if (isset($_POST['cadastrar']) && !empty($_POST['nome']) && !empty($_POST['preco']) && !empty($_POST['categoria']) && !empty($_POST['descricao']) && !empty($_FILES['file']) && !empty($_POST['estoque'])) {
 
-            
+
             $files = $_FILES['file'];
             $names = $files['name'];
             $tmp_name = $files['tmp_name'];
@@ -85,11 +85,6 @@ class ProdutoController
             } else {
                 echo 'Erro ao cadastrar produto!!';
             }
-
-
-        }
-        else{
-            echo 'deu ruim';
         }
     }
 }
