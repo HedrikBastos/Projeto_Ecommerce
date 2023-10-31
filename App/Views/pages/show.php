@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <!--  npx tailwindcss -i ./app/assets/styles/input.css -o ./app/assets/styles/output.css --watch  -->
@@ -14,6 +13,7 @@
 <body>
 
     <head>
+
         <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
 
             <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="<?php echo INCLUDE_PATH ?>home">
@@ -29,12 +29,17 @@
             <div class="hidden justify-center gap-3 mr-6 md:flex">
                 <a href="<?php echo INCLUDE_PATH ?>carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
 
-                <a href="perfil">
+                <a href="<?php echo INCLUDE_PATH ?>perfil">
                     <div class="flex justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
-                        <p class=" text-[#717171] ">Olá <?php echo 'Name!'; ?></p>
+                        <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
+
                     </div>
                 </a>
+
+                <form action="<?php echo INCLUDE_PATH ?>sair" method="post">
+                    <button id="sair" type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
+                </form>
 
             </div>
 
@@ -47,11 +52,11 @@
 
         <nav class=" hidden justify-center w-[100%] bg-blue-600 lg:flex">
             <ul class="flex  text-white ">
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="tvs"> TVs </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="<?php echo INCLUDE_PATH ?>smartphones"> Smartphones</a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="<?php echo INCLUDE_PATH ?>tvs"> TVs </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Monitores </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Computadores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="fones"> Fones </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="<?php echo INCLUDE_PATH ?>fones"> Fones </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Teclados </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Mouses </a>
             </ul>
@@ -61,11 +66,11 @@
             <ul class=" flex flex-col w-[100%] text-center text-white text-sm ">
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Perfil</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="<?php echo INCLUDE_PATH ?>carrinho"> Carrinho</a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="<?php echo INCLUDE_PATH ?>smartphones"> Smartphones</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="tvs"> TVs </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Monitores </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Computadores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="fones"> Fones </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="<?php echo INCLUDE_PATH?>fones"> Fones </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Teclados </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Mouses </a>
             </ul>
