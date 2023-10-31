@@ -33,11 +33,15 @@ $.ajax({
       totalFinal += totalProduto;
 
       produtoDiv.innerHTML = `
-      <div>
-      <span class=" font-bold " >Nome:</span> ${produto.nome}
-      <span class=" font-bold ml-[1px] sm:ml-[10px]" >Quantidade:</span> ${produto.quantidade}
-      <span class=" font-bold ml-[1px] sm:ml-[10px]" >Preço:</span> ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+      <div class="flex">
+      <img class="w-[65px] sm:w-[100px] " src="http://localhost/Ecommerce/App/assets/${produto.imagem}"> 
+      <div class="flex flex-col" >
+      <p><span class=" font-bold ml-[1px] sm:ml-[10px]" >Nome:</span> ${produto.nome}</p>
+      <p><span class=" font-bold ml-[1px] sm:ml-[10px]" >Quantidade:</span> ${produto.quantidade}</p>
+      <p><span class=" font-bold ml-[1px] sm:ml-[10px]" >Preço:</span> ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
       </div>
+      </div>
+      <br>
     `;
 
       inpAdicionar.setAttribute("value", "adicionar");

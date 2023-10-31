@@ -15,7 +15,7 @@
 
         <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
 
-            <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="<?php echo INCLUDE_PATH ?>home">
+            <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="home">
                 <img src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent_formato.svg" alt="">
                 <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
             </a>
@@ -31,9 +31,14 @@
                 <a href="perfil">
                     <div class="flex justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
-                        <p class=" text-[#717171] ">Olá <?php echo 'Name!'; ?></p>
+                        <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
+
                     </div>
                 </a>
+
+                <form action="sair" method="post">
+                    <button id="sair" type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
+                </form>
 
             </div>
 
@@ -110,7 +115,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.13.6/underscore-umd-min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/index.js"></script>
-    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js" ></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
 
 </body>
 
