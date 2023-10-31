@@ -31,12 +31,12 @@
             </div>
 
             <div class="hidden justify-center gap-3 mr-6 md:flex">
-                <a href="<?php echo INCLUDE_PATH ?>carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
+                <a href="carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
 
                 <a href="perfil">
                     <div class="flex justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
-                        <p class=" text-[#717171] ">Olá <?php echo 'Name!'; ?></p>
+                        <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
                     </div>
                 </a>
 
