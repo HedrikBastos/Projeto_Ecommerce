@@ -38,6 +38,7 @@ if ($opcaoMenu == 'pedidos') {
             </a>
 
             <div class="hidden justify-center items-center gap-3 mr-6 md:flex">
+                
                 <?php
                 if ($_SESSION['login'] == 'admin@gmail.com') : ?>
                     <a href="produto"><box-icon name='package' color='#717171' size="md"></box-icon></a>
@@ -55,11 +56,23 @@ if ($opcaoMenu == 'pedidos') {
                     <button id="sair" type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
                 </form>
             </div>
+
             <div onclick="dropdown()" class="flex justify-center mr-[10px] cursor-pointer md:hidden">
 
                 <box-icon id="menuIcon" name='menu' color='#717171' size="lg"></box-icon>
             </div>
 
+        </nav>
+
+        <nav class=" hidden justify-center w-[100%] bg-blue-800 md:flex">
+            <ul class="flex  text-white ">
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
+
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
+
+            </ul>
         </nav>
 
 
@@ -69,7 +82,7 @@ if ($opcaoMenu == 'pedidos') {
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
                 <?php
                 if ($_SESSION['login'] == 'admin@gmail.com') : ?>
-                    <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Carrinho</a>
+                    <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Produto</a>
                 <?php endif; ?>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
 

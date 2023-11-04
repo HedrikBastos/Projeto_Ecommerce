@@ -9,12 +9,6 @@ define('INCLUDE_PATH_STATIC', 'http://localhost/html/Projeto_Ecommerce/App/asset
 define('INCLUDE_PATH_PAGES', 'App/Views/pages/');
 define('INCLUDE_PATH', 'http://localhost/html/Projeto_Ecommerce/');
 
-define('INCLUDE_PATH_STATIC', 'http://localhost/Ecommerce/App/assets/');
-define('INCLUDE_PATH_PAGES', 'App/Views/pages/');
-define('INCLUDE_PATH', 'http://localhost/Ecommerce/');
-
-
-
 $app = new \App\Application();
 
 $app->run();
