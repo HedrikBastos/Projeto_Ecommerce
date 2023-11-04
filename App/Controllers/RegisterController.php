@@ -11,5 +11,6 @@ class  RegisterController
             die();
         }
         MainView::renderizar('register',['name'=>'Diogo']);
+        
     }
 }

@@ -13,6 +13,7 @@
 <body class=" bg-[#F7F7F7] ">
 
     <head>
+
         <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
 
             <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="home">
@@ -26,6 +27,11 @@
             </div>
 
             <div class="hidden justify-center gap-3 mr-6 md:flex">
+                <?php
+                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                    <a href="produto"><box-icon name='package' color='#717171' size="md"></box-icon></a>
+                <?php endif; ?>
+
                 <a href="carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
 
                 <a href="perfil">
@@ -47,6 +53,7 @@
             </div>
 
         </nav>
+
         <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
 
         <nav class=" hidden justify-center w-[100%] bg-blue-600 lg:flex">
@@ -63,8 +70,12 @@
 
         <nav id="menuResponsivo" class="hidden justify-center w-[100%] bg-blue-600 md:hidden">
             <ul class=" flex flex-col w-[100%] text-center text-white text-sm ">
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Perfil</a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="<?php echo INCLUDE_PATH ?>carrinho"> Carrinho</a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="perfil"> Perfil</a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
+                <?php
+                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                    <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Carrinho</a>
+                <?php endif; ?>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="tvs"> TVs </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Monitores </a>

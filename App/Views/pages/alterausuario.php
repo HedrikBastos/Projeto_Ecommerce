@@ -53,11 +53,8 @@ $usuario = $dadosUsuario->buscaUsuario($_SESSION['id_usuario']);
                         <div class="left">
                         <input type="submit" name="acao" id="" value="Salvar" class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white">
                         </div>
-
-                   
                 </div>
             </div>
-
 
             </form>
             <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
