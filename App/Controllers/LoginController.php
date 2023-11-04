@@ -35,7 +35,8 @@ class LoginController
 
                 if ($usuarioValido === false) {
 
-                    \App\Views\MainView::renderizar('login', ['mesage' => 'Email  inválido']);
+                    \App\Views\MainView::renderizar('login');
+                    \App\Views\Notificador::notificar('Email inválido','erro');
                     die();
                 } else {
                     header('location:home');
@@ -43,7 +44,8 @@ class LoginController
                 }
             } catch (TypeError $e) {
 
-                \App\Views\MainView::renderizar('login', ['mesage' => 'senha inválida']);
+                \App\Views\MainView::renderizar('login');
+                \App\Views\Notificador::notificar('Senha inválida','erro');
                 die();
             }
         } else {

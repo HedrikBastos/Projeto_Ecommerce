@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
+    <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Login</title>
     <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
@@ -31,11 +32,11 @@
             <form class=" flex flex-col justify-center items-center gap-4" action="login" method="post" id="">
                 <input type="email" name="email" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" placeholder="Email" required>
                 <input type="password" name="senha" class=" rounded-md bg-slate-200 w-[220px] p-1 outline-none" placeholder="Senha" required minlength="4" maxlength="8">
-                <a class=" hidden text-xs lg:flex" href="">Esqueceu sua senha?</a>
-                <a class=" hidden text-xs lg:hidden " href="">Cria uma conta?</a>
-                <button class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white " type="submit" name="acao">Entrar</button>
-                <a class=" text-xs lg:hidden" href="">Esqueceu sua senha?</a>
-                <a class=" text-xs lg:hidden " href="register">Cria uma conta?</a>
+                <a class="font-bold hidden text-xs lg:flex" href="">Esqueceu sua senha?</a>
+                <a class="font-bold hidden text-xs lg:hidden " href="">Cria uma conta?</a>
+                <button class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white font-bold" type="submit" name="acao">Entrar</button>
+                <a class="font-bold text-xs lg:hidden" href="">Esqueceu sua senha?</a>
+                <a class="font-bold text-xs lg:hidden " href="register">Cria uma conta?</a>
             </form>
 
         </div>
@@ -48,8 +49,8 @@
 
     </div>
 
- <?php echo $mesage??'';?>
 
+ <script src="App/assets/scripts/notificador.js" type="text/javascript" ></script>
 <script src="App/assets/scripts/verificaLogin.js" type="text/javascript" ></script>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
