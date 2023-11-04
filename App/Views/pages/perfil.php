@@ -3,18 +3,14 @@
 use App\Controllers\BuscaPedidoController;
 
 $opcaoMenu = 'pedidos';
-
 if (isset($_GET['value'])) {
-
     if ($_GET['value'] != 'pedidos' && $_GET['value'] != 'alterausuario' && $_GET['value'] != 'alteraendereco') {
         include('erro404.php');
         die();
     }
     $opcaoMenu = $_GET['value'];
 }
-
 if ($opcaoMenu == 'pedidos') {
-
     $buscaPedidos = new BuscaPedidoController();
     $pedidos = $buscaPedidos->execute();
 }
@@ -66,19 +62,6 @@ if ($opcaoMenu == 'pedidos') {
 
         </nav>
 
-        <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
-
-        <nav class=" hidden justify-center w-[100%] bg-blue-600 lg:flex">
-            <ul class="flex  text-white ">
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="tvs"> TVs </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Monitores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Computadores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="fones"> Fones </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Teclados </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Mouses </a>
-            </ul>
-        </nav>
 
         <nav id="menuResponsivo" class="hidden justify-center w-[100%] bg-blue-600 md:hidden">
             <ul class=" flex flex-col w-[100%] text-center text-white text-sm ">
@@ -88,31 +71,24 @@ if ($opcaoMenu == 'pedidos') {
                 if ($_SESSION['login'] == 'admin@gmail.com') : ?>
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Carrinho</a>
                 <?php endif; ?>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="tvs"> TVs </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Monitores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Computadores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="fones"> Fones </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Teclados </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Mouses </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
+
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
             </ul>
         </nav>
 
-        </head>
-        <main class="flex-1 p-4">
-            <?php include(INCLUDE_PATH_PAGES . $opcaoMenu . '.php') ?>
-        </main>
-        <div class="footer p-4">
-            <a id="" href="home">Voltar para o Home</a>
-            <a id="logout">Logout</a>
-        </div>
-
-        <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
-
-</body>
-
-</html>
-
+    </header>
+    <main class="flex-1 p-4">
+        <?php include(INCLUDE_PATH_PAGES . $opcaoMenu . '.php') ?>
+    </main>
+    <div class="footer p-4">
+        <a id="" href="home">Voltar para o Home</a>
+        <a id="logout">Logout</a>
+    </div>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/notificador.js" type="text/javascript"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
 </body>
 
 </html>

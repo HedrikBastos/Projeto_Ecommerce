@@ -8,17 +8,17 @@
         ?>
                 <form class="bg-white p-6 mb-4 rounded-lg shadow-md relative">
                     <div class="flex items-center ">
-                        <div class="w-40">
-                            <img src="<?php echo INCLUDE_PATH_STATIC . 'img/produtos/' . $pedido['produto']['path']; ?>" alt="" class="object-cover rounded-lg" loading="lazy" />
+                        <div class="w-24 sm:w-40">
+                            <img src="<?php echo INCLUDE_PATH_STATIC . $pedido['produto']['imagem']; ?>" alt="" class="object-cover rounded-lg" loading="lazy" />
                         </div>
                         <div class="ml-4 flex flex-col ">
-                            <div class="flex  items-center ">
-                                <h6 class="text-2xl leading-none text-slate-900">
+                            <div class="flex flex-col items-center ">
+                                <h6 class="text-lg sm:text-2xl leading-none text-slate-900">
                                     <?php echo 'Pedido ' . $pedido['pedido']['status']?>
                                 </h6>
                                 
-                                <div class="absolute ml-auto right-10 text-sm font-medium uppercase text-slate-600 text-center">
-                                    <?php echo 'Quantidade: </br> ' . $pedido['pedido']['quantidade'];
+                                <div class="relative ml-auto right-10 text-sm font-medium uppercase text-slate-600 text-center sm:absolute">
+                                    <?php echo 'Quantidade: ' . $pedido['pedido']['quantidade'];
                                     ?>
                                 </div>
                                

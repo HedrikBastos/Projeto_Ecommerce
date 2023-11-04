@@ -1,54 +1,44 @@
 document.addEventListener("DOMContentLoaded", function () {
   verificarCamposPreenchidos();
-  mensagemBoaVinda();
-
   document.getElementById("cpf").addEventListener("input", function () {
     this.value = this.value.replace(/\D/g, '');
   });
-
+  document.getElementById("nome").addEventListener("input", function () {
+    this.value = this.value.replace(/\d/g, "");
+  });
+  document.getElementById("sobrenome").addEventListener("input", function () {
+    this.value = this.value.replace(/\d/g, "");
+  });
 });
 
-const btnProximo = document.getElementById("btnProximo");
+const btnAcao = document.getElementById("btnAcao");
 const inputsObrigatorios = document.querySelectorAll(".campo-obrigatorio");
 const registroUsuario = document.getElementById('registro-usuario');
 const registroEndereco = document.getElementById('registro-endereco');
 const senhaInput = document.getElementById("senha");
 const confirmaSenhaInput = document.getElementById("confirmaSenha");
+const mensagemErroSenhas = document.getElementById("mensagemErroSenhas");
+const mensagemErroEmail = document.getElementById("mensagemErroEmail");
 
-btnProximo.addEventListener('click', function () {
+btnAcao.addEventListener('click', function () {
   registroUsuario.classList.remove('active');
   registroEndereco.classList.add('active');
 });
 
-function mensagemBoaVinda() {
-  var bemVindoMensagem = document.getElementById('bemvindo-mensagem');
-
-  if (localStorage.getItem('bemVindoDefinido') === 'true') {
-    return;
-  }
-
-  bemVindoMensagem.classList.remove('hidden');
-
-  setTimeout(function () {
-    bemVindoMensagem.classList.add('hidden');
-    localStorage.setItem('bemVindoDefinido', 'true');
-  }, 5000);
-}
 
 
 function verificarCamposPreenchidos() {
-  verificarSenhas();
   const todosPreenchidos = Array.from(inputsObrigatorios).every(input => input.value.trim() !== "");
   const senhasComMinLength = senhaInput.value.length >= parseInt(senhaInput.getAttribute("minlength")) &&
-                           confirmaSenhaInput.value.length >= parseInt(confirmaSenhaInput.getAttribute("minlength"));
-
+    confirmaSenhaInput.value.length >= parseInt(confirmaSenhaInput.getAttribute("minlength"));
+  verificarSenhas();
+  verificarEmail();
   if (todosPreenchidos && senhasComMinLength) {
-    btnProximo.style.display = "block";
+    btnAcao.style.display = "block";
   } else {
-    btnProximo.style.display = "none";
+    btnAcao.style.display = "none";
   }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
   inputsObrigatorios.forEach(input => {
@@ -57,23 +47,33 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function verificarSenhas() {
-  const senhaInput = document.getElementById("senha");
-  const confirmaSenhaInput = document.getElementById("confirmaSenha");
-  const mensagemErro = document.getElementById("mensagemErro");
-
   if (senhaInput.value !== confirmaSenhaInput.value) {
-    mensagemErro.textContent = "As senhas não coincidem.";
-    mensagemErro.classList.remove("bg-blue-200");
-    mensagemErro.classList.add("bg-red-200");
+    mensagemErroSenhas.textContent = "As senhas não coincidem.";
+    mensagemErroSenhas.classList.remove("sucesso");
+    mensagemErroSenhas.classList.add("erro");
   } else if (senhaInput.value.length < 4) {
-    mensagemErro.textContent = "A senha deve conter no mínimo 4 caracteres.";
-    mensagemErro.classList.remove("bg-red-200"); 
-    mensagemErro.classList.add("bg-blue-200"); 
+    mensagemErroSenhas.textContent = "A senha deve conter no mínimo 4 caracteres.";
+    mensagemErroSenhas.classList.remove("erro");
+    mensagemErroSenhas.classList.add("sucesso");
   } else {
-    mensagemErro.textContent = "";
-    mensagemErro.classList.remove("bg-blue-200"); 
-    mensagemErro.classList.remove("bg-red-200"); 
+    mensagemErroSenhas.textContent = "";
+    mensagemErroSenhas.classList.remove("sucesso");
+    mensagemErroSenhas.classList.remove("erro");
   }
 }
 
+function verificarEmail() {
+  const emailInput = document.querySelector('input[name="email"]');
+  const email = emailInput.value;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  if (!emailRegex.test(email) && email !== "") {
+    mensagemErroEmail.textContent = 'O email inserido não é válido.';
+    mensagemErroEmail.classList.remove('sucesso');
+    mensagemErroEmail.classList.add('erro');
+  } else {
+    mensagemErroEmail.textContent = '';
+    mensagemErroEmail.classList.remove('sucesso');
+    mensagemErroEmail.classList.remove('erro');
+  }
+}

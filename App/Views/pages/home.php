@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
     <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
 </head>
 
@@ -53,8 +54,7 @@
             </div>
 
         </nav>
-
-        <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
+        <div id="bemvindo-mensagem" class="hidden bemvindo-mensagem">Seja bem-vindo!</div>
 
         <nav class=" hidden justify-center w-[100%] bg-blue-600 lg:flex">
             <ul class="flex  text-white ">
@@ -108,9 +108,8 @@
     </article>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/ValidaForms.js" type="text/javascript"></script>
+   
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
-    <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
 
 </body>
 
