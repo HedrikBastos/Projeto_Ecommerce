@@ -67,11 +67,12 @@ class CadastroController
                     header("Location: home");
                     die();
                 } else {
-                    echo "<script>alert('Cadastro não realizado!')</script>";
+                    \App\Views\Notificador::notificar("Cadastro não realizado, Verifique e tente novamente!", "erro");
                     \App\Views\MainView::renderizar('register');
+                    die();
                 }
             } catch (\TypeError $e) {
-                echo $e;
+                \App\Views\Notificador::notificar("Cadastro não realizado, Verifique e tente novamente!", "erro");
                 \App\Views\MainView::renderizar('register');
                 die();
             }

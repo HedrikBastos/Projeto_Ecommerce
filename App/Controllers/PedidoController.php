@@ -10,10 +10,10 @@ class PedidoController
 {
     public function index()
     {
-
         try {
-            if (isset($_POST['acao'])) {
-                $produtos = [['id_produto' => 4, 'quantidade' => 1, 'preco' => 300]];
+            if (isset($_POST['acaopedido'])) {
+               
+                $produtos = $_SESSION['carrinho'];
                 $data = date("Y-m-d H:i:s");
                 $status = 'entregue';
 
@@ -32,15 +32,19 @@ class PedidoController
                 }
 
                 if ($dadosPedido != null) {
-                    $cadastraPedidoExecutado = new CadastrarPedidoService($dadosPedido);
+                    $cadastraPedido = new CadastrarPedidoService($dadosPedido);
+                    $cadastraPedidoExecutado =$cadastraPedido->execute();
                 }
-
+    
                 if ($cadastraPedidoExecutado === true) {
-                    header("Location: perfil");
+                    \App\Views\Notificador::notificar("Compra efetuada com sucesso!","sucesso");
+                    \App\Views\MainView::renderizar('perfil');
                     die();
                 }
             }
         } catch (\Exception $e) {
+            \App\Views\Notificador::notificar("Erro ao realizar compra, Tente novamente.","erro");
+            die();
         }
     }
 }

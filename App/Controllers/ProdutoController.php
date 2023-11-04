@@ -59,7 +59,8 @@ class ProdutoController
                 $newProduto = new ProductRepository($produto);
                 $newProduto->insertProduto();
             } else {
-                echo 'Erro ao cadastrar produto!!';
+                \App\Views\Notificador::notificar("Erro ao cadastrar produto!","erro");
+             
             }
         } elseif (isset($_POST['atualiza'])  && !empty($_POST['nome']) && !empty($_POST['estoque'])) {
 
@@ -83,7 +84,7 @@ class ProdutoController
                 $newEstoque = new ProductRepository($produto);
                 $newEstoque->insertEstoque();
             } else {
-                echo 'Erro ao cadastrar produto!!';
+                \App\Views\Notificador::notificar("Erro ao cadastrar produto!","erro");
             }
         }
     }

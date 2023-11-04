@@ -14,7 +14,7 @@ class AlteracadastroController
 {
     public function index()
     {
-        if (isset($_POST['acao']) && isset($_POST['cadastrousuario'])) {
+        if (isset($_POST['acao']) && isset($_POST['alterausuario'])) {
             $this->alteraCadastroUsuario();
         }
 
@@ -47,20 +47,28 @@ class AlteracadastroController
 
         $validarUsuario = new ValidaCadastroService($usuarioDTO);
         $usuario = $validarUsuario->execute();
-        
+
 
         try {
             if ($usuario != null) {
                 $alterarUsuario = new UserRepository();
                 $alterarUsuarioExecutado = $alterarUsuario->atualizaUsuario($usuario);
-              
             }
             if (isset($alterarUsuarioExecutado) === true) {
-                header("Location:perfil?value=alterausuario");
+                \App\Views\MainView::renderizar('perfil');
+                \App\Views\Notificador::notificar("Cadastro alterado com sucesso!", "sucesso");
+                die();
+            }
+
+            if ($usuario == null) {
+                \App\Views\MainView::renderizar('perfil');
+                \App\Views\Notificador::notificar("Dados incorretos, Verifique e tente novamente!", "erro");
+
                 die();
             }
         } catch (\TypeError $e) {
-            echo 'falha ao alterar cadastro';
+            \App\Views\Notificador::notificar("Falha ao alterar cadastro", "erro");
+            die();
         }
     }
 
@@ -80,19 +88,24 @@ class AlteracadastroController
         $validarEndereco = new ValidaEnderecoService($enderecoDTO);
         $endereco = $validarEndereco->executeEndereco();
 
-        try{
-            if($endereco != null){
+        try {
+            if ($endereco != null) {
                 $alterarEndereco = new EnderecoRepository();
                 $alterarEnderecoEXecutado = $alterarEndereco->autualizaEndereco($endereco);
             }
 
-            if(isset($alterarEnderecoEXecutado) === true){
-                header("Location:perfil?value=alteraendereco");
+            if (isset($alterarEnderecoEXecutado) === true) {
+                \App\Views\MainView::renderizar('perfil');
+                \App\Views\Notificador::notificar("Cadastro alterado com sucesso!", "sucesso");
                 die();
             }
-        }catch (\TypeError $e){
 
+            if ($endereco == null) {
+                \App\Views\MainView::renderizar('perfil');
+                \App\Views\Notificador::notificar("Dados incorretos, Verifique e tente novamente!", "erro");
+                die();
+            }
+        } catch (\TypeError $e) {
         }
-
     }
 }

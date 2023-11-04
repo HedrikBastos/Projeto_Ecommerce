@@ -3,18 +3,14 @@
 use App\Controllers\BuscaPedidoController;
 
 $opcaoMenu = 'pedidos';
-
 if (isset($_GET['value'])) {
-
     if ($_GET['value'] != 'pedidos' && $_GET['value'] != 'alterausuario' && $_GET['value'] != 'alteraendereco') {
         include('erro404.php');
         die();
     }
     $opcaoMenu = $_GET['value'];
 }
-
 if ($opcaoMenu == 'pedidos') {
-
     $buscaPedidos = new BuscaPedidoController();
     $pedidos = $buscaPedidos->execute();
 }
@@ -60,9 +56,11 @@ if ($opcaoMenu == 'pedidos') {
         <nav class=" hidden justify-center w-[100%] bg-blue-800 md:flex">
             <ul class="flex  text-white ">
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="?value=alterausuario"> Alterar Cadastro </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="?value=alteraendereco"> Alterar Endereço </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="?value=pedidos"> Pedidos </a>
+
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
+
             </ul>
         </nav>
 
@@ -74,11 +72,7 @@ if ($opcaoMenu == 'pedidos') {
         <a id="" href="home">Voltar para o Home</a>
         <a id="logout">Logout</a>
     </div>
-
-</body>
-
-</html>
-
+    <script src="App/assets/scripts/notificador.js" type="text/javascript"></script>
 </body>
 
 </html>
