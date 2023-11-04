@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'ecommerce/projeto_mscode',
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
-        'reference' => '29e52ab77758581e863f54169cfab552c3488abd',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => '7268a9739f4283a07e6d3c955ee4ecd8d6dac3d3',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,9 +11,9 @@
     ),
     'versions' => array(
         'ecommerce/projeto_mscode' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
-            'reference' => '29e52ab77758581e863f54169cfab552c3488abd',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => '7268a9739f4283a07e6d3c955ee4ecd8d6dac3d3',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
