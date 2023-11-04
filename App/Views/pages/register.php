@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
-    <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC?>styles/estilo.css">
+    <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
 
     <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
     <title>Registro</title>
@@ -20,7 +20,7 @@
                     <input type="text" name="nome" id="nome" placeholder="Nome" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
                     <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
                     <select name="genero" id="genero" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
-                    <option value="" disabled selected>Genero</option>
+                        <option value="" disabled selected>Genero</option>
                         <option value="masculino">Masculino</option>
                         <option value="feminino">Feminino</option>
                         <option value="nao-binario">Não-binário</option>
@@ -87,7 +87,7 @@
                 </form>
             </div>
         </div>
-    </div> 
+    </div>
     <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
 </body>
 

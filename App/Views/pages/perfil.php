@@ -38,6 +38,11 @@ if ($opcaoMenu == 'pedidos') {
             </a>
 
             <div class="hidden justify-center items-center gap-3 mr-6 md:flex">
+                <?php
+                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                    <a href="produto"><box-icon name='package' color='#717171' size="md"></box-icon></a>
+                <?php endif; ?>
+                <a href="carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
                 <a href="perfil">
                     <div class="flex justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
@@ -50,17 +55,27 @@ if ($opcaoMenu == 'pedidos') {
                     <button id="sair" type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
                 </form>
             </div>
+            <div onclick="dropdown()" class="flex justify-center mr-[10px] cursor-pointer md:hidden">
+
+                <box-icon id="menuIcon" name='menu' color='#717171' size="lg"></box-icon>
+            </div>
 
         </nav>
 
-        <nav class=" hidden justify-center w-[100%] bg-blue-800 md:flex">
-            <ul class="flex  text-white ">
+
+        <nav id="menuResponsivo" class="hidden justify-center w-[100%] bg-blue-600 md:hidden">
+            <ul class=" flex flex-col w-[100%] text-center text-white text-sm ">
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="perfil"> Perfil</a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
+                <?php
+                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                    <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Carrinho</a>
+                <?php endif; ?>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
 
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
-
             </ul>
         </nav>
 
@@ -72,7 +87,8 @@ if ($opcaoMenu == 'pedidos') {
         <a id="" href="home">Voltar para o Home</a>
         <a id="logout">Logout</a>
     </div>
-    <script src="App/assets/scripts/notificador.js" type="text/javascript"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/notificador.js" type="text/javascript"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
 </body>
 
 </html>

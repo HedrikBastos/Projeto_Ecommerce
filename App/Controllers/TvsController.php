@@ -10,17 +10,14 @@ class TvsController
 
     public function index()
     {
-
-        $produtos = ProductRepository::selectProdutos();
-        MainView::renderizar('tvs', ['produtos' => $produtos]);
-
-        /*  
+        
         if (isset($_SESSION['login'])) {
-            
+            $produtos = ProductRepository::selectProdutos();
+            MainView::renderizar('tvs', ['produtos' => $produtos]);
         } else {
             unset($_SESSION['login']);
             MainView::renderizar('login');  
         }
-      */
+     
     }
 }

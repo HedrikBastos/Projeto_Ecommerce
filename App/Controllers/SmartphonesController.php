@@ -11,16 +11,12 @@ class SmartphonesController
     public function index()
     {
 
-        $produtos = ProductRepository::selectProdutos();
-        MainView::renderizar('smartphones', ['produtos' => $produtos]);
-
-        /*  
         if (isset($_SESSION['login'])) {
-            
+            $produtos = ProductRepository::selectProdutos();
+            MainView::renderizar('smartphones', ['produtos' => $produtos]);
         } else {
             unset($_SESSION['login']);
-            MainView::renderizar('login');  
+            MainView::renderizar('login');
         }
-      */
     }
 }
