@@ -1,7 +1,7 @@
 $.ajax({
-  url: "http://localhost/html/Projeto_Ecommerce/json",
+  url: "http://localhost/Ecommerce/json",
   type: "POST",
-  data: { acao: "obterCarrinho" }, // Solicita o carrinho do PHP
+  data: { acao: "obterCarrinho" }, 
   dataType: "json",
 })
   .done(function (data) {
@@ -33,14 +33,12 @@ $.ajax({
       totalFinal += totalProduto;
 
       produtoDiv.innerHTML = `
-      <div class="flex">
-
-      <img class="w-[65px] sm:w-[100px] " src="/html/Projeto_Ecommerce/App/assets/${produto.imagem}"> 
-
+      <div class="flex items-center ">
+      <img class="w-[85px] sm:w-[130px]" src="/Ecommerce/App/assets/${produto.imagem}"> 
       <div class="flex flex-col" >
-      <p><span class=" font-bold ml-[1px] sm:ml-[10px]" >Nome:</span> ${produto.nome}</p>
-      <p><span class=" font-bold ml-[1px] sm:ml-[10px]" >Quantidade:</span> ${produto.quantidade}</p>
-      <p><span class=" font-bold ml-[1px] sm:ml-[10px]" >Preço:</span> ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+      <p class="text-xs sm:text-lg " ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Nome:</span> ${produto.nome}</p>
+      <p class="text-xs sm:text-lg" ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Quantidade:</span> ${produto.quantidade}</p>
+      <p class="text-xs sm:text-lg" ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Preço:</span> ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
       </div>
       </div>
       <br>
@@ -87,7 +85,7 @@ $.ajax({
       inpIdAdicionar.classList.add("produtoID");
      
       btnAdicionar.classList.add("px-2");
-      btnAdicionar.classList.add("text-[8px]");
+      btnAdicionar.classList.add("text-[15px]");
       btnAdicionar.classList.add("border-[3px]");
       btnAdicionar.classList.add("sm:text-lg");
       btnAdicionar.classList.add("rounded-[20%]");
@@ -101,7 +99,7 @@ $.ajax({
       btnAdicionar.classList.add("justify-center");
 
       btnSubtrair.classList.add("px-2");
-      btnSubtrair.classList.add("text-[8px]");
+      btnSubtrair.classList.add("text-[15px]");
       btnSubtrair.classList.add("border-[3px]");
       btnSubtrair.classList.add("sm:text-lg");
       btnSubtrair.classList.add("rounded-[20%]");
@@ -131,7 +129,7 @@ $.ajax({
       formSubtrair.appendChild(btnSubtrair);
     }
 
-    total.innerHTML = `<span class="font-bold text-[8px] sm:text-3xl ">Total a pagar: </span> R$ ${totalFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
+    total.innerHTML = `<p><span class="font-bold  ">Total a pagar: </span> R$ ${totalFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>`;
 
     totalDiv.appendChild(total);
   })

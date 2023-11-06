@@ -40,10 +40,12 @@ class Application
                 } else {
                     $this->controller->index();
                 }
+
             } else {
                 include('Views/pages/erro404.php');
-                die();
             }
+        }else{
+            include('Views/pages/erro404.php');
         }
     }
     public function run()

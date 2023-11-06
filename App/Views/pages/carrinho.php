@@ -75,7 +75,7 @@
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="perfil"> Perfil</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
                 <?php
-                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                if ($_SESSION['login'] === 'admin@gmail.com') : ?>
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Carrinho</a>
                 <?php endif; ?>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
@@ -90,7 +90,8 @@
 
     </head>
 
-    <article class="main flex flex-col items-center justify-center mt-[35px] sm:mt-[70px] ">
+
+    <article class=" flex flex-col items-center justify-center mt-[35px] sm:mt-[70px] ">
 
         <?php
         if (empty($_SESSION['carrinho'])) {
@@ -98,14 +99,13 @@
         }
         ?>
 
-        <div class="flex items-center justify-center">
+        <div class="  flex items-center justify-center">
             <div class="carrinho flex flex-col gap-10 " style="margin-bottom: 20px;">
 
             </div>
         </div>
 
-
-        <div class="totalDiv flex flex-col items-center justify-center text-[8px] sm:text-2xl ">
+        <div class="totalDiv flex flex-col items-center justify-center text-[18px] sm:text-3xl ">
 
         </div>
 

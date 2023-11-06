@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
+    <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
 </head>
 
 <body>
@@ -26,17 +27,18 @@
             </div>
 
             <div class="hidden justify-center gap-3 mr-6 md:flex">
+
                 <?php
-                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                if ($_SESSION['login'] === 'admin@gmail.com') : ?>
                     <a href="produto"><box-icon name='package' color='#717171' size="md"></box-icon></a>
                 <?php endif; ?>
+
                 <a href="<?php echo INCLUDE_PATH ?>carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
 
                 <a href="perfil">
                     <div class="flex justify-center items-center ">
                         <box-icon name='user-circle' color='#717171' size="md"></box-icon>
                         <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
-
                     </div>
                 </a>
 
@@ -87,7 +89,7 @@
 
     <div class=" flex flex-wrap gap-20 justify-evenly items-center mt-[150px]">
 
-        <form class="flex flex-col justify-center items-center gap-1 " action="" method="post" enctype="multipart/form-data">
+        <form class="flex flex-col justify-center items-center gap-1 " action="cadastraproduto" method="post" enctype="multipart/form-data">
 
             <h1 class="text-2xl font-bold">INSIRA UM PRODUTO</h1>
             <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="text" name="nome" placeholder="Nome do produto">
@@ -105,7 +107,7 @@
             <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="number" name="estoque" placeholder="Estoque">
             <label for="file[]" class="cursor-pointer w-[270px] text-center  hover:bg-blue-400 py-2">Escolher imagem</label>
             <input type="file" id="file[]" name="file[]" class="hidden">
-            <button class="  border-blue-600 border-2 w-[270px] p-1  outline-none  hover:bg-blue-500" type="submit" name="cadastrar">Cadastrar</button>
+            <button class=" border-blue-600 border-2 w-[270px] p-1  outline-none  hover:bg-blue-500" type="submit" name="cadastrar">Cadastrar</button>
         </form>
 
 
@@ -124,6 +126,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/index.js"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/notificador.js"></script>
 
 </body>
 

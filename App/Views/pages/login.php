@@ -23,10 +23,10 @@
             <h1 class=" text-3xl font-bold">Fazer Login</h1>
 
             <div class="flex justify-center items-center gap-4 ">
-                <box-icon type='logo' name='instagram'></box-icon>
-                <box-icon type='logo' name='instagram'></box-icon>
-                <box-icon type='logo' name='instagram'></box-icon>
-                <box-icon type='logo' name='instagram'></box-icon>
+                <a href="#"><box-icon type='logo' name='github'></box-icon></a>
+                <a href="#"><box-icon type='logo' name='linkedin-square'></box-icon></a>
+                <a href="#"><box-icon type='logo' name='facebook-circle'></box-icon></a>
+                <a href="#"><box-icon type='logo' name='instagram-alt'></box-icon></a>
             </div>
 
             <form class=" flex flex-col justify-center items-center gap-4" action="login" method="post" id="">

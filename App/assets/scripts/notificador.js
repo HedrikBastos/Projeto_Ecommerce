@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    notifica();
+  notifica();
 });
 function notifica() {
     var Mensagem = document.getElementById('mensagem');
