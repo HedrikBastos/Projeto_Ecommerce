@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   mensagemBoaVinda();
+  limparCampos();
 });
 function mensagemBoaVinda() {
   var bemVindoMensagem = document.getElementById('bemvindo-mensagem');
@@ -35,3 +36,15 @@ function dropdown() {
     menuIcon.setAttribute("name", "menu");
   }
 }
+
+function limparCampos() {
+ 
+  var formulario = document.getElementById('formulario');
+  
+ 
+  formulario.reset();
+  
+ 
+  return false;
+}
+

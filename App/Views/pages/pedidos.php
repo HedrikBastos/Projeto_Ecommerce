@@ -24,11 +24,11 @@
                                
                             </div>
                             <div class="ml-2 right-10 text-sm font-medium uppercase text-slate-600">
-                                    <?php echo 'Compra realizada no dia: ' . $data =date('d/m/Y',strtotime($pedido['pedido']['data']));
+                                    <?php echo 'Compra realizada no dia: ' . $data = date('d/m/Y',strtotime($pedido['pedido']['data']));
                                     ?>
                                 </div>
                             <div class="text-lg p-1 font-medium text-slate-700">
-                                <?php echo 'Total: ' . $pedido['pedido']['preco'];
+                                <?php echo 'Total: ' . $totalformatado = number_format($pedido['pedido']['preco'],2,',','.');
                                 ?>
                             </div>
                             <div class="space-x-1 p-1 flex text-sm font-medium">

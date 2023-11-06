@@ -9,6 +9,9 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("sobrenome").addEventListener("input", function () {
     this.value = this.value.replace(/\d/g, "");
   });
+  document.getElementById("contraSenha").addEventListener("input", function () {
+    this.value = this.value.replace(/\d/g, "");
+  });
 });
 
 const btnAcao = document.getElementById("btnAcao");

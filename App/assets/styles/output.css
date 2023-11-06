@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -686,6 +686,10 @@ video {
   display: table-cell;
 }
 
+.grid {
+  display: grid;
+}
+
 .contents {
   display: contents;
 }
@@ -712,10 +716,6 @@ video {
 
 .w-\[100\%\] {
   width: 100%;
-}
-
-.w-\[100px\] {
-  width: 100px;
 }
 
 .w-\[120px\] {
@@ -768,18 +768,6 @@ video {
 
 .w-\[90px\] {
   width: 90px;
-}
-
-.w-\[60px\] {
-  width: 60px;
-}
-
-.w-\[70px\] {
-  width: 70px;
-}
-
-.w-\[65px\] {
-  width: 65px;
 }
 
 .max-w-screen-xl {
@@ -1024,11 +1012,6 @@ video {
   background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
-.bg-blue-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(191 219 254 / var(--tw-bg-opacity));
-}
-
 .bg-contain {
   background-size: contain;
 }
@@ -1105,6 +1088,14 @@ video {
 
 .pt-\[7\%\] {
   padding-top: 7%;
+}
+
+.pt-1 {
+  padding-top: 0.25rem;
+}
+
+.pt-2 {
+  padding-top: 0.5rem;
 }
 
 .text-center {
@@ -1370,14 +1361,6 @@ video {
 
   .sm\:w-\[250px\] {
     width: 250px;
-  }
-
-  .sm\:w-\[60px\] {
-    width: 60px;
-  }
-
-  .sm\:w-\[100px\] {
-    width: 100px;
   }
 
   .sm\:gap-28 {

@@ -4,10 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
 function notifica() {
     var Mensagem = document.getElementById('mensagem');
   
-    if (localStorage.getItem('mensagemDefinida') === 'true') {
-      return;
-    }
-  
     Mensagem.classList.remove('hidden');
   
     Mensagem.classList.add('mostraMensagem');
