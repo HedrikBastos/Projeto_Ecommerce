@@ -30,7 +30,7 @@
 
                 <?php
                 if ($_SESSION['login'] == 'admin@gmail.com') : ?>
-                    <a href="produto"><box-icon name='package' color='#717171' size="md"></box-icon></a>
+                    <a href="<?php echo INCLUDE_PATH ?>produto"><box-icon name='package' color='#717171' size="md"></box-icon></a>
                 <?php endif; ?>
 
                 <a href="<?php echo INCLUDE_PATH ?>carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
@@ -112,10 +112,10 @@
                             <form class="form-adicionar" method="post">
                                 <input type="hidden" name="acao" class="btnAdicionar" value="adicionar">
                                 <input type="hidden" name="produtoID" class="produtoID" value="<?php echo $parameter ?>">
-                                <input onclick="up()" value="Adicionar ao carrinho " type="submit" class=" text-[8px] font-semibold rounded-2xl hover:bg-blue-500  bg-blue-400 p-[4px] px-2 cursor-pointer text-center sm:px-7 sm:text-sm">
+                                <input onclick="up()" value="Adicionar ao carrinho " type="submit" class=" text-[9px] font-semibold rounded-2xl hover:bg-blue-500  bg-blue-400 p-[4px] px-2 cursor-pointer text-center sm:px-7 sm:text-sm">
                             </form>
 
-                            <a class=" font-semibold text-center rounded-2xl bg-yellow-400 p-[4px] hover:bg-yellow-500 text-[8px] px-2 sm:px-7 sm:text-sm" href="">Comprar agora</a>
+                            <a class=" font-semibold text-center rounded-2xl bg-yellow-400 p-[4px] hover:bg-yellow-500 text-[9px] px-2 sm:px-7 sm:text-sm" href="">Comprar agora</a>
                         </div>
 
                     </div>

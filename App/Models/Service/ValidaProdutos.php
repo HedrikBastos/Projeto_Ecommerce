@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\Service;
+
 use App\DTOs\ProdutoDTO;
 use App\Models\Produto;
 
@@ -35,6 +36,9 @@ class ValidaProdutos
             return null;
         }
 
+        if (!$this->validaPath($this->produtoDTO->path)) {
+            return null;
+        }
 
         $produto = new Produto();
         $produto->setNome($this->produtoDTO->nome);
@@ -62,9 +66,8 @@ class ValidaProdutos
         $produto->setNome($this->produtoDTO->nome);
         $produto->setEstoque($this->produtoDTO->estoque);
         return $produto;
-
     }
-    
+
     private function validaNome(string $nome): bool
     {
         $nome = trim($nome);
@@ -78,7 +81,7 @@ class ValidaProdutos
 
     private function validaCategoria(string $categoria): bool
     {
-        $categoriasValidas = ['Smartphones', 'TVs', 'Monitores','Computadores','Fones','Teclados','Mouses'];
+        $categoriasValidas = ['Smartphones', 'TVs', 'Monitores', 'Computadores', 'Fones', 'Teclados', 'Mouses'];
         return in_array($categoria, $categoriasValidas) == true;
     }
 
@@ -92,5 +95,8 @@ class ValidaProdutos
     {
         return filter_var($estoque, FILTER_VALIDATE_INT) == true;
     }
-
+    private function validaPath(string $path): bool
+    {
+        return preg_match('/[a-zA-Z0-9\/.\s]+/u', $path) == true;
+    }
 }

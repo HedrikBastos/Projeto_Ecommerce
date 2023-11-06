@@ -10,7 +10,7 @@ class  RegisterController
             header('Location:home');
             die();
         }
-        MainView::renderizar('register',['name'=>'Diogo']);
+        MainView::renderizar('register');
         
     }
 }

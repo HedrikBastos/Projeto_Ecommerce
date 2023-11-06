@@ -75,7 +75,7 @@
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="perfil"> Perfil</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
                 <?php
-                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                if ($_SESSION['login'] === 'admin@gmail.com') : ?>
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Carrinho</a>
                 <?php endif; ?>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
@@ -90,7 +90,8 @@
 
     </head>
 
-    <article class="main flex flex-col items-center justify-center mt-[35px] sm:mt-[70px] ">
+
+    <article class=" flex flex-col items-center justify-center mt-[35px] sm:mt-[70px] ">
 
         <?php
         if (empty($_SESSION['carrinho'])) {
@@ -98,19 +99,18 @@
         }
         ?>
 
-        <div class="flex items-center justify-center">
+        <div class="  flex items-center justify-center">
             <div class="carrinho flex flex-col gap-10 " style="margin-bottom: 20px;">
 
             </div>
         </div>
 
-
-        <div class="totalDiv flex flex-col items-center justify-center text-[8px] sm:text-2xl ">
+        <div class="totalDiv flex flex-col items-center justify-center text-[18px] sm:text-3xl ">
 
         </div>
 
         <form action="pedido" method="post" class=" flex justify-center items-center p-2">
-            <input type="submit" name="acaopedido" value="Finalizar Pedido" class="float-right ml-[40px] text-[8px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-2 text-center sm:px-7 sm:ml-[150px] sm:text-sm">  
+            <input type="submit" name="acaopedido" value="Finalizar Pedido" class="float-right ml-[40px] text-[17px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-4 text-center sm:px-7 sm:ml-[150px] cursor-pointer sm:text-sm">
         </form>
 
     </article>

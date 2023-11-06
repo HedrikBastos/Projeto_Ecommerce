@@ -38,7 +38,6 @@ class ProductRepository
         $connection = Connection::connect();
 
         $nome = $this->produto->nome();
-        echo $nome;
         $preco = $this->produto->preco();
         $categoria = $this->produto->categoria();
         $descricao = $this->produto->descricao();

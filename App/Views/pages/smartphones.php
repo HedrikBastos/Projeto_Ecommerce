@@ -71,7 +71,7 @@
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="perfil"> Perfil</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
                 <?php
-                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                if ($_SESSION['login'] === 'admin@gmail.com') : ?>
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Carrinho</a>
                 <?php endif; ?>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>

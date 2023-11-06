@@ -2,25 +2,26 @@ document.addEventListener("DOMContentLoaded", function () {
   mensagemBoaVinda();
 });
 function mensagemBoaVinda() {
-  var bemVindoMensagem = document.getElementById('bemvindo-mensagem');
+  var bemVindoMensagem = document.getElementById("bemvindo-mensagem");
 
-  if (localStorage.getItem('bemVindoDefinido') === 'true') {
+  if (localStorage.getItem("bemVindoDefinido") === "true") {
     return;
   }
 
-  bemVindoMensagem.classList.remove('hidden');
+  bemVindoMensagem.classList.remove("hidden");
 
-  bemVindoMensagem.classList.add('mensagem-bem-vinda');
+  bemVindoMensagem.classList.add("mensagem-bem-vinda");
 
   setTimeout(function () {
-    bemVindoMensagem.style.opacity = '1';
+    bemVindoMensagem.style.opacity = "1";
   }, 100);
 
   setTimeout(function () {
-    bemVindoMensagem.style.opacity = '0';
-    localStorage.setItem('bemVindoDefinido', 'true');
+    bemVindoMensagem.style.opacity = "0";
+    localStorage.setItem("bemVindoDefinido", "true");
   }, 5000);
 }
+
 
 
 const menuResponsivo = document.querySelector("#menuResponsivo");
@@ -30,8 +31,19 @@ function dropdown() {
   menuResponsivo.classList.toggle("hidden");
 
   if (!menuResponsivo.classList.contains("hidden")) {
-    menuIcon.setAttribute("name", "x"); 
+    menuIcon.setAttribute("name", "x");
   } else {
     menuIcon.setAttribute("name", "menu");
   }
+}
+
+
+function colorOverIcon(element) {
+  const box = element.querySelector(".icon");
+  box.setAttribute("color", "#2563eb");
+}
+
+function colorOutIcon(element) {
+  const box = element.querySelector(".icon");
+  box.setAttribute("color", "#717171");
 }

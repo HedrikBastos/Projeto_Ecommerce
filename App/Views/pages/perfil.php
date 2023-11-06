@@ -14,6 +14,7 @@ if ($opcaoMenu == 'pedidos') {
     $buscaPedidos = new BuscaPedidoController();
     $pedidos = $buscaPedidos->execute();
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +38,12 @@ if ($opcaoMenu == 'pedidos') {
                 <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
             </a>
 
-            <div class="hidden justify-center items-center gap-3 mr-6 md:flex">
+            <div class="hidden border-solid w-[350px] border-2 border-opacity-40 border-gray-600 md:flex ">
+                <input class=" ml-2 outline-none w-[340px]" type="text">
+                <box-icon name='search-alt' color='#717171' size="md"></box-icon>
+            </div>
+
+            <div class="hidden justify-center gap-3 mr-6 md:flex">
                 
                 <?php
                 if ($_SESSION['login'] == 'admin@gmail.com') : ?>
@@ -64,7 +70,7 @@ if ($opcaoMenu == 'pedidos') {
 
         </nav>
 
-        <nav class=" hidden justify-center w-[100%] bg-blue-800 md:flex">
+        <nav class=" hidden justify-center w-[100%] bg-blue-600 md:flex">
             <ul class="flex  text-white ">
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
 
@@ -81,7 +87,7 @@ if ($opcaoMenu == 'pedidos') {
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="perfil"> Perfil</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
                 <?php
-                if ($_SESSION['login'] == 'admin@gmail.com') : ?>
+                if ($_SESSION['login'] === 'admin@gmail.com') : ?>
                     <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Produto</a>
                 <?php endif; ?>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
@@ -93,9 +99,11 @@ if ($opcaoMenu == 'pedidos') {
         </nav>
 
     </header>
+
     <main class="flex-1 p-4">
         <?php include(INCLUDE_PATH_PAGES . $opcaoMenu . '.php') ?>
     </main>
+
     <div class="footer p-4">
         <a id="" href="home">Voltar para o Home</a>
         <a id="logout">Logout</a>
