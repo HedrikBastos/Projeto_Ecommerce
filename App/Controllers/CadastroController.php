@@ -21,6 +21,7 @@ class CadastroController
             $email = $_POST['email'];
             $senha = $_POST['senha'];
             $confirmarSenha = $_POST['confirmarSenha'];
+            $contraSenha = $_POST['contraSenha'];
 
 
             $usuarioDTO = new UserDTO(
@@ -30,7 +31,8 @@ class CadastroController
                 $cpf,
                 $email,
                 $senha,
-                $confirmarSenha
+                $confirmarSenha,
+                $contraSenha
             );
 
             $enderecoDTO = new EnderecoDTO(
@@ -44,7 +46,6 @@ class CadastroController
                 $_POST['telefone']
             );
 
-
             $validarUsuario = new ValidaCadastroService($usuarioDTO);
             $usuario = $validarUsuario->execute();
 
@@ -57,7 +58,7 @@ class CadastroController
                     $cadastrarUsuario = new CadastrarUsuarioService($usuario);
 
                     $cadastroUsuarioExecutado = $cadastrarUsuario->execute();
-
+                    sleep(3);
                     $cadastrarEndereco = new CadastrarEnderecoService($endereco);
 
                     $cadastroEnderecoExecutado = $cadastrarEndereco->execute();

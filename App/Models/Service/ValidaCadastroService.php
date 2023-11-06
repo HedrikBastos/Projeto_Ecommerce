@@ -40,7 +40,12 @@ class ValidaCadastroService
         if ($emailTatado == false) {
             return null;
         }
-
+ 
+        $contraSenhaTratado = $this->LimpaStrings($this->usuarioDTO->contraSenha);
+        if ($contraSenhaTratado == false ) {
+            return null;
+        }
+        
         $cpfTratado = $this->LimpaCpf($this->usuarioDTO->cpf);
         $usuario = new User();
         $usuario->setNome($nomeTratado);
@@ -49,6 +54,7 @@ class ValidaCadastroService
         $usuario->setCpf($cpfTratado);
         $usuario->setEmail($this->usuarioDTO->email);
         $usuario->setSenha($senhaCripto);
+        $usuario->setContraSenha($contraSenhaTratado);
 
 
         return $usuario;

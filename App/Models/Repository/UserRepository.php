@@ -11,6 +11,7 @@ class UserRepository
     {
         try {
             $conexao = Connection::connect();
+            $conexao->beginTransaction();
             $atualizaUsuario = $conexao->prepare("UPDATE usuarios
              SET nome = :nome, email = :email, cpf = :cpf, sobrenome = :sobrenome, genero = :genero
              WHERE id_usuario = :id_usuario");
@@ -22,6 +23,12 @@ class UserRepository
             $atualizaUsuario->bindValue(':genero', $usuario->genero(), \PDO::PARAM_STR);
             $atualizaUsuario->bindValue('id_usuario', $_SESSION['id_usuario'], \PDO::PARAM_INT);
             $atualizaUsuario->execute();
+
+            $atualizaSenha = $conexao->prepare("UPDATE senhas_usuarios SET senha = :senha WHERE id_usuario = :id_usuario");
+            $atualizaSenha->bindValue(':senha', $usuario->senha(), \PDO::PARAM_STR);
+            $atualizaSenha->bindValue('id_usuario', $_SESSION['id_usuario'], \PDO::PARAM_INT);
+            $atualizaSenha->execute();
+            $conexao->commit();
             return true;
         } catch (\PDOException $e) {
             return false;

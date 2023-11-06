@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Controllers;
+
 use App\Views\MainView;
-class  RegisterController
+class RecuperarsenhaController
 {
     public function index()
     {
@@ -10,7 +11,6 @@ class  RegisterController
             header('Location:home');
             die();
         }
-        MainView::renderizar('register');
-        
+        MainView::renderizar('recuperarsenha');  
     }
 }
