@@ -32,10 +32,10 @@
             <form class=" flex flex-col justify-center items-center gap-4" action="login" method="post" id="">
                 <input type="email" name="email" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" placeholder="Email" required>
                 <input type="password" name="senha" class=" rounded-md bg-slate-200 w-[220px] p-1 outline-none" placeholder="Senha" required minlength="4" maxlength="8">
-                <a class="font-bold hidden text-xs lg:flex" href="">Esqueceu sua senha?</a>
-                <a class="font-bold hidden text-xs lg:hidden " href="">Cria uma conta?</a>
+                <a class="font-bold hidden text-xs lg:flex" href="recuperarsenha">Esqueceu sua senha?</a>
+                <a class="font-bold hidden text-xs lg:hidden " href="register">Cria uma conta?</a>
                 <button class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white font-bold" type="submit" name="acao">Entrar</button>
-                <a class="font-bold text-xs lg:hidden" href="">Esqueceu sua senha?</a>
+                <a class="font-bold text-xs lg:hidden" href="recuperarsenha">Esquece sua senha ?</a>
                 <a class="font-bold text-xs lg:hidden " href="register">Cria uma conta?</a>
             </form>
 

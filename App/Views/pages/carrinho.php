@@ -109,8 +109,8 @@
 
         </div>
 
-        <form action="pedido" method="post" class=" flex justify-center items-center p-2">
-            <input type="submit" name="acaopedido" value="Finalizar Pedido" class="float-right ml-[40px] text-[17px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-4 text-center sm:px-7 sm:ml-[150px] cursor-pointer sm:text-sm">
+        <form action="pedido" id="formulario" method="post" class=" flex justify-center items-center p-2" onsubmit="limparCampos()">
+            <input type="submit" name="acaopedido" value="Finalizar Pedido" class="float-right ml-[40px] text-[8px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-2 text-center sm:px-7 sm:ml-[150px] sm:text-sm">  
         </form>
 
     </article>

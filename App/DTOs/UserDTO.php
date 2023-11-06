@@ -11,7 +11,8 @@ class UserDTO
         public readonly string $cpf,
         public readonly string $email,
         public readonly string $senha,
-        public readonly string $confirmarSenha
+        public readonly string $confirmarSenha,
+        public readonly string $contraSenha
     ) {
     }
 }

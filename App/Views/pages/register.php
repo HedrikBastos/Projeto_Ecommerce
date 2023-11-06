@@ -10,9 +10,18 @@
     <title>Registro</title>
 </head>
 
-<body class="flex justify-center items-center h-[100vh]">
+<body>
 
-    <div class="containerpaginacao">
+<head >
+        <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
+
+            <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="">
+                <img src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent_formato.svg" alt="">
+                <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
+            </a>
+        </nav>
+</head>
+    <div class="containerpaginacao grid justify-center items-center h-[100vh]">
         <div class="paginacao active flex rounded-3xl shadow-[0_5px_5px_-5px_rgba(0,0,0,0.3)] shadow-slate-900 " id="registro-usuario">
             <div class=" flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">
                 <form class=" flex flex-col justify-center items-center gap-4" action="cadastro" method="post">
@@ -30,6 +39,7 @@
                     <input type="email" name="email" placeholder="Email" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
                     <input type="password" name="senha" placeholder="Senha" id="senha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="4" maxlength="8">
                     <input type="password" name="confirmarSenha" placeholder="Confirmar senha" id="confirmaSenha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="4" maxlength="8">
+                    <input type="text" name="contraSenha" placeholder=" Nome animal de estimação" id="contraSenha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" maxlength="15">
                     <div id="mensagemErroSenhas" class="erro p-1"></div>
                     <div id="mensagemErroEmail" class="erro p-1"></div>
                     <div class="left">

@@ -10,7 +10,7 @@ use TypeError;
 class LoginController
 {
 
-    
+
     public function index()
     {
 
@@ -24,6 +24,7 @@ class LoginController
                 '',
                 $email,
                 $senha,
+                '',
                 ''
             );
 
@@ -37,16 +38,15 @@ class LoginController
                 if ($usuarioValido === false) {
 
                     \App\Views\MainView::renderizar('login');
-                    \App\Views\Notificador::notificar('Email inválido','erro');
+                    \App\Views\Notificador::notificar('Email inválido', 'erro');
                     die();
-                } else {
-                    header('location:home');
-                    die('Seja bem vindo');
                 }
+                header('location:home');
+                die();
             } catch (TypeError $e) {
 
                 \App\Views\MainView::renderizar('login');
-                \App\Views\Notificador::notificar('Senha inválida','erro');
+                \App\Views\Notificador::notificar('Senha inválida', 'erro');
                 die();
             }
         } else {

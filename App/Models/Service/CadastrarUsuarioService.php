@@ -22,6 +22,7 @@ class CadastrarUsuarioService
             $sobrenome = $this->usuario->sobrenome();
             $genero = $this->usuario->genero();
             $senha = $this->usuario->senha();
+            $contraSenha = $this->usuario->contraSenha();
 
             $pdo = Connection::connect();
             $pdo->beginTransaction();
@@ -45,9 +46,10 @@ class CadastrarUsuarioService
 
                 $ultimoIdUsuario = $pdo->lastInsertId();
 
-                $cadastraSenha = $pdo->prepare("INSERT INTO senhas_usuarios VALUES(:id_usuario, :senha)");
+                $cadastraSenha = $pdo->prepare("INSERT INTO senhas_usuarios VALUES(:id_usuario, :senha, :contra_senha)");
                 $cadastraSenha->bindParam(':id_usuario', $ultimoIdUsuario, \PDO::PARAM_INT);
                 $cadastraSenha->bindParam(':senha', $senha, \PDO::PARAM_STR);
+                $cadastraSenha->bindParam(':contra_senha', $contraSenha, \PDO::PARAM_STR);
                 
                 $cadastraSenha->execute();
                 $_SESSION['nome'] = $nome;
@@ -55,6 +57,7 @@ class CadastrarUsuarioService
                 $_SESSION['id_usuario'] = $ultimoIdUsuario;
 
                 $pdo->commit();
+                
                 return true;
               
         } catch (\PDOException $e) {

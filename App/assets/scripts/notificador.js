@@ -2,19 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
   notifica();
 });
 function notifica() {
-  var Mensagem = document.getElementById("mensagem");
-
-  Mensagem.classList.remove("hidden");
-
-  Mensagem.classList.add("mostraMensagem");
-
-  setTimeout(function () {
-    Mensagem.style.opacity = "1";
-  }, 100);
-
-  setTimeout(function () {
-    Mensagem.style.opacity = "0";
-    localStorage.setItem("mensagemDefinida", "true");
-  }, 5000);
-
-}
+    var Mensagem = document.getElementById('mensagem');
+  
+    Mensagem.classList.remove('hidden');
+  
+    Mensagem.classList.add('mostraMensagem');
+  
+    setTimeout(function () {
+      Mensagem.style.opacity = '1';
+    }, 100);
+  
+    setTimeout(function () {
+      Mensagem.style.opacity = '0';
+      localStorage.setItem('mensagemDefinida', 'true');
+    }, 5000);
+  }
+  
+  

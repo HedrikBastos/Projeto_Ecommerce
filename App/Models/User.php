@@ -9,6 +9,7 @@ class User
     private string $senha;
     private string $cpf;
     private string $genero;
+    private string $contraSenha;
 
 
     public function email(): string
@@ -39,6 +40,11 @@ class User
     public function genero(): string
     {
         return $this->genero;
+    }
+
+    public function contraSenha()
+    {
+        return $this->contraSenha;
     }
 
     public function setEmail($email)
@@ -74,5 +80,11 @@ class User
     public function setGenero($genero)
     {
         $this->genero = $genero;
+    }
+  
+    public function setContraSenha($contraSenha)
+    {
+        $this->contraSenha = $contraSenha;
+
     }
 }

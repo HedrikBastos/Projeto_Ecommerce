@@ -34,7 +34,6 @@ class AlteracadastroController
         $senha = $_POST['senha'];
         $confirmarSenha = $_POST['confirmarSenha'];
 
-
         $usuarioDTO = new UserDTO(
             $nome,
             $sobrenome,
@@ -42,19 +41,26 @@ class AlteracadastroController
             $cpf,
             $email,
             $senha,
-            $confirmarSenha
+            $confirmarSenha,
+            $_SESSION['contra_senha']
         );
 
         $validarUsuario = new ValidaCadastroService($usuarioDTO);
         $usuario = $validarUsuario->execute();
-
 
         try {
             if ($usuario != null) {
                 $alterarUsuario = new UserRepository();
                 $alterarUsuarioExecutado = $alterarUsuario->atualizaUsuario($usuario);
             }
+
             if (isset($alterarUsuarioExecutado) === true) {
+               
+                if(isset($_SESSION['contra_senha'])) {
+                    \App\Views\MainView::renderizar('login');
+                    \App\Views\Notificador::notificar("Cadastro alterado com sucesso!", "sucesso");
+                    die();
+                }
                 \App\Views\MainView::renderizar('perfil');
                 \App\Views\Notificador::notificar("Cadastro alterado com sucesso!", "sucesso");
                 die();

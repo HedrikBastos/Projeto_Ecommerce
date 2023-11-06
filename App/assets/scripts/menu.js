@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   mensagemBoaVinda();
+  limparCampos();
 });
 function mensagemBoaVinda() {
   var bemVindoMensagem = document.getElementById("bemvindo-mensagem");
@@ -47,3 +48,14 @@ function colorOutIcon(element) {
   const box = element.querySelector(".icon");
   box.setAttribute("color", "#717171");
 }
+function limparCampos() {
+ 
+  var formulario = document.getElementById('formulario');
+  
+ 
+  formulario.reset();
+  
+ 
+  return false;
+}
+
