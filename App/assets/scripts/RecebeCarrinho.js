@@ -1,5 +1,5 @@
 $.ajax({
-  url: "http://localhost/Ecommerce/json",
+  url: "http://localhost/html/Projeto_Ecommerce/json",
   type: "POST",
   data: { acao: "obterCarrinho" }, 
   dataType: "json",

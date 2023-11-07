@@ -58,7 +58,7 @@ class CadastroController
                     $cadastrarUsuario = new CadastrarUsuarioService($usuario);
 
                     $cadastroUsuarioExecutado = $cadastrarUsuario->execute();
-                    sleep(3);
+                    sleep(1);
                     $cadastrarEndereco = new CadastrarEnderecoService($endereco);
 
                     $cadastroEnderecoExecutado = $cadastrarEndereco->execute();
