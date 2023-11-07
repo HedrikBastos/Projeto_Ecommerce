@@ -102,7 +102,6 @@
 
     </head>
 
-    <!-- Swiper -->
     <div class="hidden lg:flex ">
         <div class="swiper mySwiper" style=" height: 280px; ">
             <div class="swiper-wrapper" style="  align-items: center;">
@@ -127,7 +126,7 @@
         <div class=" flex flex-wrap justify-center w-[1300px] p-[10px] gap-1 ">
             <?php foreach ($produtos as $key => $value) : ?>
 
-                <?php if ($value['categoria'] == 'TVs') : ?>
+                <?php if ($value['categoria'] == 'Teclados') : ?>
 
                     <a class=" produtos flex flex-col items-center justify-center text-center relative border-hidden border-[1px] border-black  hover:border-solid w-[90px] sm:w-[200px] " href="show/<?= $value['id_produto'] ?>">
                         <img class="w-[200px]" src="<?= INCLUDE_PATH_STATIC ?><?= $value['imagem'] ?>" alt="">

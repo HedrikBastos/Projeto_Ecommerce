@@ -30,7 +30,9 @@ $(document).on("submit", ".form-adicionar", function (e) {
     });
   });
 
-  function up(){
-    location.reload();
+  function up() {
+    setTimeout(function() {
+      location.reload();
+    }, 150);
   }
   

@@ -14,7 +14,6 @@ if ($opcaoMenu == 'pedidos') {
     $buscaPedidos = new BuscaPedidoController();
     $pedidos = $buscaPedidos->execute();
 }
-
 ?>
 
 <!DOCTYPE html>
