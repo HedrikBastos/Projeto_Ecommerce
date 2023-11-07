@@ -14,7 +14,7 @@ class BuscaPedidoService
 
         try {
             $conexao = Connection::connect();
-            $querypedido = $conexao->prepare("SELECT p.id_pedido, p.data, p.status,i.id_item, i.id_produto, i.quantidade, i.preco FROM pedidos p INNER JOIN itens_pedido i on p.id_pedido = i.id_pedido WHERE p.id_usuario = :id_usuario ORDER BY p.id_pedido DESC");
+            $querypedido = $conexao->prepare("SELECT p.id_pedido, p.data, p.status, i.id_produto, i.quantidade, i.preco FROM pedidos p INNER JOIN itens_pedido i on p.id_pedido = i.id_pedido WHERE p.id_usuario = :id_usuario");
 
             $querypedido->bindValue(":id_usuario", $id_usuario, \PDO::PARAM_INT);
 

@@ -71,11 +71,11 @@
             <ul class="flex text-white ">
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="tvs"> TVs </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Monitores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Notebooks </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="monitores"> Monitores </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="computadores"> Computadores </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="fones"> Fones </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Teclados </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Mouses </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="teclados"> Teclados </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="mouses"> Mouses </a>
             </ul>
         </nav>
 
@@ -92,11 +92,11 @@
                 </form>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="smartphones"> Smartphones</a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="tvs"> TVs </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Monitores </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Computadores </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="monitores"> Monitores </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="computadores"> Computadores </a>
                 <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="fones"> Fones </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Teclados </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href=""> Mouses </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="teclados"> Teclados </a>
+                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="mouses"> Mouses </a>
             </ul>
         </nav>
 
