@@ -86,7 +86,6 @@
 
     </head>
 
-    <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
 
     <article class=" flex justify-center items-center ">
 
