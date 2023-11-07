@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -612,6 +612,14 @@ video {
   margin: 2rem;
 }
 
+.m-10 {
+  margin: 2.5rem;
+}
+
+.m-24 {
+  margin: 6rem;
+}
+
 .mx-4 {
   margin-left: 1rem;
   margin-right: 1rem;
@@ -684,6 +692,22 @@ video {
 
 .mt-\[35px\] {
   margin-top: 35px;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
+
+.mt-0 {
+  margin-top: 0px;
+}
+
+.mt-\[500px\] {
+  margin-top: 500px;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
 .block {
@@ -1105,6 +1129,10 @@ video {
 
 .p-\[4px\] {
   padding: 4px;
+}
+
+.p-0 {
+  padding: 0px;
 }
 
 .px-2 {

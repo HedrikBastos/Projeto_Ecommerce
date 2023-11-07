@@ -1,7 +1,7 @@
 $.ajax({
   url: "http://localhost/html/Projeto_Ecommerce/json",
   type: "POST",
-  data: { acao: "obterCarrinho" }, 
+  data: { acao: "obterCarrinho" },
   dataType: "json",
 })
   .done(function (data) {
@@ -34,11 +34,20 @@ $.ajax({
 
       produtoDiv.innerHTML = `
       <div class="flex items-center ">
-      <img class="w-[85px] sm:w-[130px]" src="/Ecommerce/App/assets/${produto.imagem}"> 
+      <img class="w-[85px] sm:w-[130px]" src="/Ecommerce/App/assets/${
+        produto.imagem
+      }"> 
       <div class="flex flex-col" >
-      <p class="text-xs sm:text-lg " ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Nome:</span> ${produto.nome}</p>
-      <p class="text-xs sm:text-lg" ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Quantidade:</span> ${produto.quantidade}</p>
-      <p class="text-xs sm:text-lg" ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Preço:</span> ${produto.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>
+      <p class="text-xs sm:text-lg " ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Nome:</span> ${
+        produto.nome
+      }</p>
+      <p class="text-xs sm:text-lg" ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Quantidade:</span> ${
+        produto.quantidade
+      }</p>
+      <p class="text-xs sm:text-lg" ><span class=" font-bold ml-[1px] sm:ml-[10px]" >Preço:</span> ${produto.preco.toLocaleString(
+        "pt-BR",
+        { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+      )}</p>
       </div>
       </div>
       <br>
@@ -58,19 +67,23 @@ $.ajax({
       inpIdAdicionar.value = id_produto;
       btnAdicionar.setAttribute("type", "submit");
       btnSubtrair.setAttribute("type", "submit");
-     
+
       btnAdicionar.setAttribute("value", "+");
       btnSubtrair.setAttribute("value", "-");
-      
+
       btnAdicionar.addEventListener("click", () => {
-        location.reload();
+        setTimeout(function () {
+          location.reload();
+        }, 150);
       });
 
       btnSubtrair.addEventListener("click", () => {
-        location.reload();
+        setTimeout(function () {
+          location.reload();
+        }, 150);
       });
 
-      carrinhoContainer.classList.add("sm:text-lg")
+      carrinhoContainer.classList.add("sm:text-lg");
       produtoDiv.classList.add("produtoDiv");
       produtoDiv.classList.add("flex");
       produtoDiv.classList.add("gap-3");
@@ -83,7 +96,7 @@ $.ajax({
       inpSubtrair.classList.add("btnSubtrair");
       inpIdSubtrair.classList.add("produtoID");
       inpIdAdicionar.classList.add("produtoID");
-     
+
       btnAdicionar.classList.add("px-2");
       btnAdicionar.classList.add("text-[15px]");
       btnAdicionar.classList.add("border-[3px]");
@@ -111,7 +124,6 @@ $.ajax({
       btnSubtrair.classList.add("flex");
       btnSubtrair.classList.add("items-center");
       btnSubtrair.classList.add("justify-center");
-    
 
       btnAdicionar.innerHTML = "+";
       btnSubtrair.innerHTML = "-";
@@ -129,7 +141,10 @@ $.ajax({
       formSubtrair.appendChild(btnSubtrair);
     }
 
-    total.innerHTML = `<p><span class="font-bold  ">Total a pagar: </span> R$ ${totalFinal.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</p>`;
+    total.innerHTML = `<p><span class="font-bold  ">Total a pagar: </span> R$ ${totalFinal.toLocaleString(
+      "pt-BR",
+      { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+    )}</p>`;
 
     totalDiv.appendChild(total);
   })
