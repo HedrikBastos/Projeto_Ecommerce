@@ -3,7 +3,7 @@
         'name' => 'ecommerce/projeto_mscode',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '7268a9739f4283a07e6d3c955ee4ecd8d6dac3d3',
+        'reference' => '2c6f8791b7bbeeebef5e503abd9294828bd4bef8',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'ecommerce/projeto_mscode' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '7268a9739f4283a07e6d3c955ee4ecd8d6dac3d3',
+            'reference' => '2c6f8791b7bbeeebef5e503abd9294828bd4bef8',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
