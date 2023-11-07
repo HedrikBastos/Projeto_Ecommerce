@@ -102,7 +102,6 @@
 
     </head>
 
-    <!-- Swiper -->
     <div class="hidden lg:flex ">
         <div class="swiper mySwiper" style=" height: 280px; ">
             <div class="swiper-wrapper" style="  align-items: center;">
@@ -122,20 +121,20 @@
         </div>
     </div>
 
+    <article class=" flex justify-center items-center ">
 
+        <div class=" flex flex-wrap justify-center w-[1300px] p-[10px] gap-1 ">
+            <?php foreach ($produtos as $key => $value) : ?>
 
-    <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
+                <?php if ($value['categoria'] == 'Mouses') : ?>
 
-    <article class="flex justify-center items-center ">
+                    <a class=" produtos flex flex-col items-center justify-center text-center relative border-hidden border-[1px] border-black  hover:border-solid w-[90px] sm:w-[200px] " href="show/<?= $value['id_produto'] ?>">
+                        <img class="w-[200px]" src="<?= INCLUDE_PATH_STATIC ?><?= $value['imagem'] ?>" alt="">
+                        <p class="text-xs w-[150px]"> <?= $value['nome'] ?></p>
+                        <p class="text-xs font-semibold text-[#E01D25] sm:text-sm"> R$<?php echo number_format($value['preco'], 2, ',', '.') ?></p>
+                    </a>
 
-        <div class="flex flex-wrap justify-center w-[1300px] p-[10px] gap-1 ">
-            <?php foreach ($produtos as $key => $valor) : ?>
-
-                <a class="produtos flex flex-col items-center justify-center text-center relative border-hidden border-[1px] border-black  hover:border-solid w-[90px] sm:w-[200px] " href="show/<?= $valor['id_produto'] ?>">
-                    <img class="w-[200px]" src="<?= INCLUDE_PATH_STATIC ?><?= $valor['imagem'] ?>" alt="">
-                    <p class="text-[9px] w-[150px] sm:text-xs "> <?= $valor['nome'] ?></p>
-                    <p class="text-xs font-semibold text-[#E01D25] sm:text-sm"> R$<?php echo number_format($valor['preco'], 2, ',', '.') ?></p>
-                </a>
+                <?php endif; ?>
 
             <?php endforeach; ?>
 
