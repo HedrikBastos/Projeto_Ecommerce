@@ -4,6 +4,7 @@ use App\Models\Repository\UserRepository;
 
 $dadosUsuario = new UserRepository();
 $usuario = $dadosUsuario->buscaUsuario($_SESSION['id_usuario']);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,7 +14,6 @@ $usuario = $dadosUsuario->buscaUsuario($_SESSION['id_usuario']);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
-
     <title>Cadastro</title>
 </head>
 
@@ -44,9 +44,6 @@ $usuario = $dadosUsuario->buscaUsuario($_SESSION['id_usuario']);
                     <div class="left">
                         <input type="submit" name="acao" id="btnAcao" value="Salvar" class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white">
                     </div>
-
-
-
             </div>
         </div>
         </form>

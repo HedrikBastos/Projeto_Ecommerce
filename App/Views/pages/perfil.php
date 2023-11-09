@@ -30,9 +30,9 @@ if ($opcaoMenu == 'pedidos') {
 
 <body class="min-h-screen flex flex-col">
     <header>
-        <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
+        <nav class="flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
 
-            <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="home">
+            <a class="flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="home">
                 <img src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent_formato.svg" alt="">
                 <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
             </a>
@@ -43,22 +43,33 @@ if ($opcaoMenu == 'pedidos') {
             </div>
 
             <div class="hidden justify-center gap-3 mr-6 md:flex">
-                
                 <?php
                 if ($_SESSION['login'] == 'admin@gmail.com') : ?>
-                    <a href="produto"><box-icon name='package' color='#717171' size="md"></box-icon></a>
+                    <a href="produto" onmouseout="colorOutIcon(this)" onmouseover="colorOverIcon(this)"><box-icon class="icon" name='package' color='#717171' size="md"></box-icon></a>
                 <?php endif; ?>
-                <a href="carrinho"> <box-icon name='cart-add' type='solid' color='#717171' size="md"></box-icon> </a>
-                <a href="perfil">
+
+                <?php
+                $quantidadeTotal = 0;
+                if (!empty($_SESSION['carrinho'])) {
+                    foreach ($_SESSION['carrinho'] as $value) {
+                        $quantidade = $value['quantidade'];
+                        $quantidadeTotal += $quantidade;
+                    }
+                }
+                ?>
+
+                <a class="relative" href="carrinho" onmouseout="colorOutIcon(this)" onmouseover="colorOverIcon(this)"><span class="absolute text-sm text-center top-[-3px] right-[-3px] bg-orange-400 font-semibold text-white rounded-[50%] px-[6px] "> <?php echo $quantidadeTotal; ?></span> <box-icon class="icon" name='cart' color='#717171' size="md"> </box-icon> </a>
+
+                <a href="perfil" onmouseout="colorOutIcon(this)" onmouseover="colorOverIcon(this)">
                     <div class="flex justify-center items-center ">
-                        <box-icon name='user-circle' color='#717171' size="md"></box-icon>
+                        <box-icon class="icon" name='user-circle' color='#717171' size="md"></box-icon>
                         <p class=" text-[#717171] "> <?php echo $_SESSION['nome']; ?></p>
 
                     </div>
                 </a>
 
                 <form action="sair" method="post">
-                    <button id="sair" type="submit"> <box-icon name='log-out' color='#717171' size="md"></box-icon></button>
+                    <button id="sair" type="submit" onmouseout="colorOutIcon(this)" onmouseover="colorOverIcon(this)"> <box-icon class="icon" name='log-out' color='#717171' size="md"></box-icon></button>
                 </form>
             </div>
 

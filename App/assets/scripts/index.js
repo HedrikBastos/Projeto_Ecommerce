@@ -62,6 +62,3 @@ searchInput.addEventListener(
   500
 );
 
-
-//throttle: Manda uma requisição a cada 500ms.
-//debounce: Manda uma requisição depois que terminar de escrever.

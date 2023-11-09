@@ -102,15 +102,16 @@
 
     </head>
 
-    <div class="hidden lg:flex ">
-        <div class="swiper mySwiper" style=" height: 280px; ">
-            <div class="swiper-wrapper" style="  align-items: center;">
-                <div class="swiper-slide " class="slideP" style="height: 260px;"> <img src="<?php echo INCLUDE_PATH_STATIC ?>img/carousel/slideOne.png" alt=""> </div>
-                <div class="swiper-slide " class="slideP" style="height: 260px;"> <img src="<?php echo INCLUDE_PATH_STATIC ?>img/carousel/slideTwo.png" alt=""> </div>
-                <div class="swiper-slide " class="slideP" style="height: 260px;"> <img src="<?php echo INCLUDE_PATH_STATIC ?>img/carousel/slideThree.png" alt=""> </div>
+    <!-- Swiper -->
+    <div class="hidden sm:flex ">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper" style="align-items: center;">
+                <div class="swiper-slide " class="slideP" style="width: 100%; object-fit: cover; "> <img src="<?php echo INCLUDE_PATH_STATIC ?>img/carousel/slideOne.png" alt=""> </div>
+                <div class="swiper-slide " class="slideP" style="width: 100%; object-fit: cover; "> <img src="<?php echo INCLUDE_PATH_STATIC ?>img/carousel/slideTwo.png" alt=""> </div>
+                <div class="swiper-slide " class="slideP" style="width: 100%; object-fit: cover; "> <img src="<?php echo INCLUDE_PATH_STATIC ?>img/carousel/slideThree.png" alt=""> </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next buttonSlide bg-white rounded-[1px]"></div>
+            <div class="swiper-button-prev buttonSlide bg-white rounded-[1px]"></div>
             <div class="swiper-pagination"></div>
             <div class="autoplay-progress">
                 <svg style="display:none;" viewBox="0 0 48 48">
@@ -120,6 +121,8 @@
             </div>
         </div>
     </div>
+
+    <h1 class="flex justify-center font-semibold text-sm sm:text-2xl mt-6 ">Produtos em falta!</h1>
 
     <article class=" flex justify-center items-center ">
 
@@ -142,7 +145,7 @@
 
     </article>
 
-    <div class="flex flex-col">
+    <div class="flex flex-col mt-[400px] ">
         <footer class="flex flex-col items-center rounded-lg bg-blue-800 m-8 py-24 sm:items-stretch">
 
             <article class="flex flex-col justify-around sm:items-start sm:flex-row">
