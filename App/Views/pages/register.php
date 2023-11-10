@@ -39,7 +39,7 @@
                     <input type="email" name="email" placeholder="Email" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
                     <input type="password" name="senha" placeholder="Senha" id="senha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="4" maxlength="8">
                     <input type="password" name="confirmarSenha" placeholder="Confirmar senha" id="confirmaSenha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="4" maxlength="8">
-                    <input type="text" name="contraSenha" placeholder=" Nome animal de estimação" id="contraSenha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" maxlength="15">
+                    <input type="text" name="contraSenha" placeholder=" Nome animal de estimação" id="contraSenha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" maxlength="15" required>
                     <div id="mensagemErroSenhas" class="erro p-1"></div>
                     <div id="mensagemErroEmail" class="erro p-1"></div>
                     <div class="left">
@@ -89,7 +89,7 @@
                     <input type="text" name="numero" placeholder="Nº" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" required>
                     <input type="text" name="bairro" placeholder="Bairro" id="bairro" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" required>
                     <input type="text" name="complemento" placeholder="Complemento" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" required>
-                    <input type="text" name="telefone" placeholder="Telefone" id="telefone" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="11" maxlength="11" required>
+                    <input type="text" name="telefone" id="telefone" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="11" maxlength="11"  pattern="[0-9]{2}[0-9]{5}[0-9]{4}" placeholder="dd-xxxxx-xxxx" required>
                     <div class="left">
                         <input type="submit" name="acao" id="" value="Cadastrar" class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white">
                     </div>

@@ -1,21 +1,3 @@
-<?php
-
-use App\Controllers\BuscaPedidoController;
-
-$opcaoMenu = 'pedidos';
-if (isset($_GET['value'])) {
-    if ($_GET['value'] != 'pedidos' && $_GET['value'] != 'alterausuario' && $_GET['value'] != 'alteraendereco') {
-        include('erro404.php');
-        die();
-    }
-    $opcaoMenu = $_GET['value'];
-}
-if ($opcaoMenu == 'pedidos') {
-    $buscaPedidos = new BuscaPedidoController();
-    $pedidos = $buscaPedidos->execute();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -24,8 +6,10 @@ if ($opcaoMenu == 'pedidos') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Perfil do Cliente</title>
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
-    <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js"
+        integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body class="min-h-screen flex flex-col">
@@ -71,35 +55,35 @@ if ($opcaoMenu == 'pedidos') {
 
         <nav class=" hidden justify-center w-[100%] bg-blue-600 md:flex">
             <ul class="flex  text-white ">
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="home"> Home</a>
 
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
 
             </ul>
         </nav>
 
-
         <nav id="menuResponsivo" class="hidden justify-center w-[100%] bg-blue-600 md:hidden">
             <ul class=" flex flex-col w-[100%] text-center text-white text-sm ">
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="perfil"> Perfil</a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="carrinho"> Carrinho</a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-800" href="perfil"> Perfil</a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-800" href="carrinho"> Carrinho</a>
                 <?php
                 if ($_SESSION['login'] === 'admin@gmail.com') : ?>
-                    <a class="p-3 px-7 cursor-pointer hover:bg-blue-800" href="produto"> Produto</a>
+                    <a class="p-3 px-7 cursor-pointer hover-bg-blue-800" href="produto"> Produto</a>
                 <?php endif; ?>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="home"> Home</a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="home"> Home</a>
 
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
-                <a class="p-3 px-7 cursor-pointer hover:bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="perfil?value=alterausuario"> Alterar Cadastro </a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="perfil?value=alteraendereco"> Alterar Endereço </a>
+                <a class="p-3 px-7 cursor-pointer hover-bg-blue-900" href="perfil?value=pedidos"> Pedidos </a>
             </ul>
         </nav>
 
     </header>
 
     <main class="flex-1 p-4">
+
         <?php include(INCLUDE_PATH_PAGES . $opcaoMenu . '.php') ?>
     </main>
 
@@ -112,3 +96,4 @@ if ($opcaoMenu == 'pedidos') {
 </body>
 
 </html>
+

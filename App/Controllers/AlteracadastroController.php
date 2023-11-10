@@ -9,7 +9,6 @@ use App\Models\Repository\UserRepository;
 use App\Models\Service\ValidaCadastroService;
 use App\Models\Service\ValidaEnderecoService;
 
-
 class AlteracadastroController
 {
     public function index()
@@ -23,26 +22,18 @@ class AlteracadastroController
         }
     }
 
-
     protected function alteraCadastroUsuario()
     {
-        $nome = $_POST['nome'];
-        $sobrenome = $_POST['sobrenome'];
-        $genero = $_POST['genero'];
-        $cpf = $_POST['cpf'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $confirmarSenha = $_POST['confirmarSenha'];
 
         $usuarioDTO = new UserDTO(
-            $nome,
-            $sobrenome,
-            $genero,
-            $cpf,
-            $email,
-            $senha,
-            $confirmarSenha,
-            $_SESSION['contra_senha']
+            $_POST['nome'],
+            $_POST['sobrenome'],
+            $_POST['genero'],
+            $_POST['cpf'],
+            $_POST['email'],
+            $_POST['senha'],
+            $_POST['confirmarSenha'],
+            $_POST['contraSenha']
         );
 
         $validarUsuario = new ValidaCadastroService($usuarioDTO);
@@ -54,26 +45,21 @@ class AlteracadastroController
                 $alterarUsuarioExecutado = $alterarUsuario->atualizaUsuario($usuario);
             }
 
-            if (isset($alterarUsuarioExecutado) === true) {
-               
-                if(isset($_SESSION['contra_senha'])) {
-                    \App\Views\MainView::renderizar('login');
-                    \App\Views\Notificador::notificar("Cadastro alterado com sucesso!", "sucesso");
-                    die();
-                }
-                \App\Views\MainView::renderizar('perfil');
-                \App\Views\Notificador::notificar("Cadastro alterado com sucesso!", "sucesso");
+            if ($alterarUsuarioExecutado === true) {
+                $_SESSION['mensagem'] = "Cadastro alterado com sucesso!";
+                $_SESSION['condicao'] = "sucesso";
+                header('Location: perfil?value=alteraendereco');
                 die();
             }
 
             if ($usuario == null) {
-                \App\Views\MainView::renderizar('perfil');
-                \App\Views\Notificador::notificar("Dados incorretos, Verifique e tente novamente!", "erro");
-
+                $_SESSION['mensagem'] = "Tente novamente!";
+                $_SESSION['condicao'] = "erro";
+                header('Location: perfil?value=alteraendereco');
                 die();
             }
         } catch (\TypeError $e) {
-            \App\Views\Notificador::notificar("Falha ao alterar cadastro", "erro");
+            header('Location: perfil?value=alterausuario');
             die();
         }
     }
@@ -97,21 +83,26 @@ class AlteracadastroController
         try {
             if ($endereco != null) {
                 $alterarEndereco = new EnderecoRepository();
-                $alterarEnderecoEXecutado = $alterarEndereco->autualizaEndereco($endereco);
+                $alterarEnderecoExecutado = $alterarEndereco->atualizaEndereco($endereco);
             }
 
-            if (isset($alterarEnderecoEXecutado) === true) {
-                \App\Views\MainView::renderizar('perfil');
-                \App\Views\Notificador::notificar("Cadastro alterado com sucesso!", "sucesso");
+
+            if ($endereco == null) {
+                $_SESSION['mensagem'] = "Tente novamente!";
+                $_SESSION['condicao'] = "erro";
+                header('Location: perfil?value=alteraendereco');
                 die();
             }
 
-            if ($endereco == null) {
-                \App\Views\MainView::renderizar('perfil');
-                \App\Views\Notificador::notificar("Dados incorretos, Verifique e tente novamente!", "erro");
+            if ($alterarEnderecoExecutado === true) {
+                $_SESSION['mensagem'] = "Cadastro alterado com sucesso!";
+                $_SESSION['condicao'] = "sucesso";
+                header('Location: perfil?value=alteraendereco');
                 die();
             }
         } catch (\TypeError $e) {
+            \App\Views\Notificador::notificar("Dados incorretos, Verifique e tente novamente!", "erro");
+            die();
         }
     }
 }

@@ -7,7 +7,7 @@ use App\Config\Connection;
 
 class EnderecoRepository
 {
-    public function autualizaEndereco(Endereco $endereco): bool
+    public function atualizaEndereco(Endereco $endereco): bool
     {
         try {
             $conexao = Connection::connect();
@@ -27,7 +27,7 @@ class EnderecoRepository
             $atualizaEndereco->execute();
             return true;
         } catch (\PDOException $e) {
-            return false;
+            return null;
         }
     }
 

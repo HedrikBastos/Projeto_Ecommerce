@@ -1,8 +1,9 @@
 <?php
-use App\Models\Repository\EnderecoRepository;
-
-$dadosEndereco = new EnderecoRepository();
-$endereco = $dadosEndereco->buscaEndereco($_SESSION['id_usuario']);
+if(isset($_SESSION['mensagem'])){
+    \App\Views\Notificador::notificar($_SESSION['mensagem'], $_SESSION['condicao']);
+    unset($_SESSION['mensagem']);
+    unset($_SESSION['condicao']);
+}
 ?>
 
 <!DOCTYPE html>

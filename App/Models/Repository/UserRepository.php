@@ -15,7 +15,6 @@ class UserRepository
             $atualizaUsuario = $conexao->prepare("UPDATE usuarios
              SET nome = :nome, email = :email, cpf = :cpf, sobrenome = :sobrenome, genero = :genero
              WHERE id_usuario = :id_usuario");
-
             $atualizaUsuario->bindValue(':nome', $usuario->nome(), \PDO::PARAM_STR);
             $atualizaUsuario->bindValue(':email', $usuario->email(), \PDO::PARAM_STR);
             $atualizaUsuario->bindValue(':cpf', $usuario->cpf(), \PDO::PARAM_STR);
@@ -24,13 +23,15 @@ class UserRepository
             $atualizaUsuario->bindValue('id_usuario', $_SESSION['id_usuario'], \PDO::PARAM_INT);
             $atualizaUsuario->execute();
 
-            $atualizaSenha = $conexao->prepare("UPDATE senhas_usuarios SET senha = :senha WHERE id_usuario = :id_usuario");
+            $atualizaSenha = $conexao->prepare("UPDATE senhas_usuarios SET senha = :senha, contra_senha = :contra_senha WHERE id_usuario = :id_usuario");
             $atualizaSenha->bindValue(':senha', $usuario->senha(), \PDO::PARAM_STR);
+            $atualizaSenha->bindValue(':contra_senha', $usuario->contraSenha(), \PDO::PARAM_STR);
             $atualizaSenha->bindValue('id_usuario', $_SESSION['id_usuario'], \PDO::PARAM_INT);
             $atualizaSenha->execute();
             $conexao->commit();
             return true;
         } catch (\PDOException $e) {
+            Connection::connect()->rollBack();
             return false;
         }
     }
@@ -44,36 +45,32 @@ class UserRepository
             $deletaUsuario->execute();
             return true;
         } catch (\PDOException $e) {
-            return false;
+            return null;
         }
     }
 
     public function buscaUsuario($idUsuario): ?user
     {
-        try{
+        try {
             $conexao = Connection::connect();
-        $buscaUsuario = $conexao->prepare("SELECT * FROM usuarios
+            $buscaUsuario = $conexao->prepare("SELECT * FROM usuarios
          WHERE id_usuario =:id_usuario");
-        $buscaUsuario->bindValue(':id_usuario', $idUsuario, \PDO::PARAM_INT);
-        $buscaUsuario->execute();
+            $buscaUsuario->bindValue(':id_usuario', $idUsuario, \PDO::PARAM_INT);
+            $buscaUsuario->execute();
+            if ($buscaUsuario->rowCount() === 0) {
+                return null;
+            }
+            $dadosUsuario = $buscaUsuario->fetch(\PDO::FETCH_ASSOC);
 
-
-        if ($buscaUsuario->rowCount() === 0) {
+            $usuario = new User();
+            $usuario->setEmail($dadosUsuario['email']);
+            $usuario->setNome($dadosUsuario['nome']);
+            $usuario->setSobrenome($dadosUsuario['sobrenome']);
+            $usuario->setCpf($dadosUsuario['cpf']);
+            $usuario->setGenero($dadosUsuario['genero']);
+            return $usuario;
+        } catch (\PDOException $e) {
             return null;
-        }
-        $dadosUsuario = $buscaUsuario->fetch(\PDO::FETCH_ASSOC);
-
-        $usuario = new User();
-        $usuario->setEmail($dadosUsuario['email']);
-        $usuario->setNome($dadosUsuario['nome']);
-        $usuario->setSobrenome($dadosUsuario['sobrenome']);
-        $usuario->setCpf($dadosUsuario['cpf']);
-        $usuario->setGenero($dadosUsuario['genero']);
-
-        return $usuario;
-        }catch (\PDOException $e) {
-
         }
     }
 }
-

@@ -1,6 +1,13 @@
+<?php
+if (isset($_SESSION['mensagem'])) {
+    \App\Views\Notificador::notificar($_SESSION['mensagem'], "sucesso");
+    unset($_SESSION['mensagem']);
+    unset($_SESSION['codicao']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pr-br">
-<!--  npx tailwindcss -i ./app/assets/styles/input.css -o ./app/assets/styles/output.css --watch  -->
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +15,7 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <title>Login</title>
+    <title>Tech Store</title>
     <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
 </head>
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use TypeError;
@@ -27,7 +26,6 @@ class ContrasenhaController
                 $contraSenha
             );
 
-
             $verificaService = new VerificaContraSenhaService($usuarioValidoDTO);
             $contraSenha = $verificaService->execute();
 
@@ -40,7 +38,8 @@ class ContrasenhaController
                     \App\Views\Notificador::notificar('Email inválido', 'erro');
                     die();
                 }
-                \App\Views\MainView::renderizar('alterausuario');
+                
+                \App\Views\MainView::renderizar('alterasenha');
                 die();
             } catch (TypeError $e) {
                 \App\Views\MainView::renderizar('recuperarsenha');
