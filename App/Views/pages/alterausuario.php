@@ -13,7 +13,6 @@ if (isset($_SESSION['mensagem'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
-
     <title>Cadastro</title>
 </head>
 
@@ -49,12 +48,10 @@ if (isset($_SESSION['mensagem'])) {
                 </form>
             </div>
         </div>
-
     </div>
-    </div>
-
 
     <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
+
 </body>
 
 </html>

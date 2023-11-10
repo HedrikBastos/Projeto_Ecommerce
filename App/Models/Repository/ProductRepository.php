@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Models\Repository;
-
 use App\Config\Connection;
 use App\Models\Produto;
 

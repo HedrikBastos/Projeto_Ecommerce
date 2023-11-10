@@ -11,7 +11,7 @@ class MousesController
     {
         if (isset($_SESSION['login'])) {
             $produtos = ProductRepository::selectProdutos();
-            MainView::renderizar('teclados', ['produtos' => $produtos]);
+            MainView::renderizar('mouses', ['produtos' => $produtos]);
         } else {
             unset($_SESSION['login']);
             MainView::renderizar('login');

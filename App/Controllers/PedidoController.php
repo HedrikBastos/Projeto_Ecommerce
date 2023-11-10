@@ -12,7 +12,7 @@ class PedidoController
     {
         try {
             if (isset($_POST['acaopedido'])) {
-               
+
                 $produtos = $_SESSION['carrinho'];
                 $data = date("Y-m-d H:i:s");
                 $status = 'entregue';
@@ -33,17 +33,48 @@ class PedidoController
 
                 if ($dadosPedido != null) {
                     $cadastraPedido = new CadastrarPedidoService($dadosPedido);
-                    $cadastraPedidoExecutado =$cadastraPedido->execute();
+                    $cadastraPedidoExecutado = $cadastraPedido->execute();
+                    unset($_SESSION['carrinho']);
                 }
-    
+
                 if ($cadastraPedidoExecutado === true) {
-                    \App\Views\Notificador::notificar("Compra efetuada com sucesso!","sucesso");
+                    \App\Views\Notificador::notificar("Compra efetuada com sucesso!", "sucesso");
                     \App\Views\MainView::renderizar('perfil');
                     die();
                 }
             }
+
+            if (isset($_POST['acaopedidoshow'])) {
+                $data = date("Y-m-d H:i:s");
+                $status = 'entregue';
+                $idProduto = $_POST['idproduto'];
+                $preco = $_POST['preco'];
+                $quantidade = $_POST['quantidade'];
+
+                $dadosPedido = new Pedido(
+                    $_SESSION['id_usuario'],
+                    $data,
+                    $status
+                );
+
+                $itensPedido = new ItensPedido($idProduto, $quantidade, $preco);
+                $dadosPedido->adicionarItem($itensPedido);
+
+                if ($dadosPedido != null) {
+                    $cadastraPedido = new CadastrarPedidoService($dadosPedido);
+                    $cadastraPedidoExecutado = $cadastraPedido->execute();
+                }
+
+                if ($cadastraPedidoExecutado === true) {
+                    \App\Views\Notificador::notificar("Compra efetuada com sucesso!", "sucesso");
+                    \App\Views\MainView::renderizar('perfil');
+                    die();
+                }
+
+            }
+
         } catch (\Exception $e) {
-            \App\Views\Notificador::notificar("Erro ao realizar compra, Tente novamente.","erro");
+            \App\Views\Notificador::notificar("Erro ao realizar compra, Tente novamente.", "erro");
             die();
         }
     }

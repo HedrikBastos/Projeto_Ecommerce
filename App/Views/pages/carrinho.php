@@ -64,12 +64,10 @@
             </div>
 
             <div onclick="dropdown()" class="flex justify-center mr-[10px] cursor-pointer md:hidden">
-
                 <box-icon id="menuIcon" name='menu' color='#717171' size="lg"></box-icon>
             </div>
 
         </nav>
-        <div id="bemvindo-mensagem" class="hidden bemvindo-mensagem">Seja bem-vindo!</div>
 
         <nav class="hidden justify-center w-[100%] bg-blue-600 lg:flex">
             <ul class="flex text-white ">
@@ -131,6 +129,7 @@
             <div class="totalDiv flex flex-col items-center justify-center text-[18px] sm:text-3xl ">
 
             </div>
+
             <form action="pedido" id="formulario" method="post" class=" flex justify-center items-center p-2" onsubmit="limparCampos()">
                 <input type="submit" name="acaopedido" value="Finalizar Pedido" class=" cursor-pointer float-right ml-[40px] text-[8px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-2 text-center sm:px-7 sm:ml-[150px] sm:text-sm">
             </form>

@@ -121,12 +121,18 @@
                         <div class="flex flex-col gap-2 ">
 
                             <form class="form-adicionar" method="post">
-                                <input type="hidden" name="acao" class="btnAdicionar" value="adicionar">
+                                <input type="hidden" name="acao" class="btnAdicionar" value="adicionar" onsubmit="limparCampos()">
                                 <input type="hidden" name="produtoID" class="produtoID" value="<?php echo $parameter ?>">
-                                <input onclick="up()" value="Adicionar ao carrinho " type="submit" class=" text-[9px] font-semibold rounded-2xl hover:bg-blue-500  bg-blue-400 p-[4px] px-2 cursor-pointer text-center sm:px-7 sm:text-sm">
+                                <input onclick="up()" value="Adicionar ao carrinho " type="submit" class=" w-[120px]  text-[9px] font-semibold rounded-2xl  bg-blue-400 hover:bg-blue-500 p-[6px] px-2 cursor-pointer text-center sm:w-[200px] sm:px-7 sm:text-sm">
                             </form>
 
-                            <a class=" font-semibold text-center rounded-2xl bg-yellow-400 p-[4px] hover:bg-yellow-500 text-[9px] px-2 sm:px-7 sm:text-sm" href="">Comprar agora</a>
+                            <form action="<?php echo INCLUDE_PATH ?>pedido" id="formulario" method="post">
+                                <input class="hidden" type="int" value="<?php echo $parameter ?>" name="idproduto" >
+                                <input class="hidden" type="int" value="<?php echo $value['preco']?>" name="preco" >
+                                <input class="hidden" type="int" value="1" name="quantidade" >
+                                <input type="submit" value="Comprar Agora" name="acaopedidoshow" class=" w-[120px] text-[9px] font-semibold rounded-2xl  bg-yellow-400 hover:bg-yellow-500 p-[6px] cursor-pointer text-center sm:w-[200px] sm:px-7 sm:text-sm">
+                            </form>
+
                         </div>
 
                     </div>
