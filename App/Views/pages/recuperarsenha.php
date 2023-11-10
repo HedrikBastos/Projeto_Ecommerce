@@ -9,7 +9,7 @@
     <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
 
     <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
-    <title>Recuperar Senha</title>
+    <title>Tech Store</title>
 </head>
 
 <body class="">

@@ -32,7 +32,6 @@ class Application
             $loadName = str_replace("/", "\\", $loadName);
             $this->controller = new $loadName();
 
-            // Verifica se o método especificado na URL existe no controlador
             if (method_exists($this->controller, 'index')) {
 
                 if (isset($parameter)) {

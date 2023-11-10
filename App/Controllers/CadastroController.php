@@ -57,7 +57,7 @@ class CadastroController
                     $cadastrarUsuario = new CadastrarUsuarioService($usuario);
 
                     $cadastroUsuarioExecutado = $cadastrarUsuario->execute();
-                    sleep(3);
+                    sleep(1);
                     $cadastrarEndereco = new CadastrarEnderecoService($endereco);
 
                     $cadastroEnderecoExecutado = $cadastrarEndereco->execute();
@@ -67,18 +67,21 @@ class CadastroController
                     header("Location: home");
                     die();
                 } else {
-                    \App\Views\Notificador::notificar("Cadastro não realizado, Verifique e tente novamente!", "erro");
-                    \App\Views\MainView::renderizar('register');
+                    $_SESSION['mensagem'] = "Cadastro não realizado, Verifique e tente novamente!";
+                    $_SESSION['condicao'] = "erro";
+                    header('Location: register');
                     die();
                 }
             } catch (\TypeError $e) {
-                \App\Views\Notificador::notificar("Cadastro não realizado, Verifique e tente novamente!", "erro");
-                \App\Views\MainView::renderizar('register');
+                $_SESSION['mensagem'] = "Email já cadastrado, Verifique e tente novamente!";
+                $_SESSION['condicao'] = "erro";
+                header('Location: register');
                 die();
             }
-        }else {
-            \App\Views\Notificador::notificar("Erro ao alterar senha, Verifique e tente novamente!", "erro");
-            \App\Views\MainView::renderizar('alterasenha');
+        } else {
+            $_SESSION['mensagem'] = "Cadastro não realizado, Verifique e tente novamente!";
+            $_SESSION['condicao'] = "erro";
+            header('Location: register');
             die();
         }
     }

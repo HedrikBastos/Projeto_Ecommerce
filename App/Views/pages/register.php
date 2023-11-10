@@ -1,3 +1,10 @@
+<?php
+if (isset($_SESSION['mensagem'])) {
+    \App\Views\Notificador::notificar($_SESSION['mensagem'], $_SESSION['condicao']);
+    unset($_SESSION['mensagem']);
+    unset($_SESSION['codicao']);
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -11,10 +18,10 @@
     <title>Registro</title>
 </head>
 
-<body>
+<body class="flex flex-col justify-center items-center h-[100vh] ">
 
     <div class="container mt-[-70px] grid justify-center items-center h-[100vh]">
-        <div class="paginacao active flex rounded-3xl shadow-[0_5px_5px_-5px_rgba(0,0,0,0.3)] shadow-slate-900 " id="registro-usuario">
+        <div class="paginacao active flex justify-center item-center rounded-3xl shadow-[0_5px_5px_-5px_rgba(0,0,0,0.3)] shadow-slate-900 " id="registro-usuario">
             <div class="flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">
                 <form class=" flex flex-col justify-center items-center gap-4" action="cadastro" method="post">
                     <a class=" flex mb-4 mr-7 items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="">
@@ -47,6 +54,10 @@
         </div>
         <div class="paginacao flex rounded-3xl shadow-[0_5px_5px_-5px_rgba(0,0,0,0.3)] shadow-slate-900 " id="registro-endereco">
             <div class=" flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">
+            <a class=" flex mb-4 mr-7 items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="">
+                        <img src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent_formato.svg" alt="">
+                        <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
+                    </a>
                     <h1 class=" text-3xl font-bold">Endereço</h1>
                     <input type="text" name="cep" placeholder="Cep" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
                     <input type="text" name="cidade" placeholder="Cidade" class=" rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
@@ -94,6 +105,7 @@
             </div>
         </div>
     </div>
+    <p class="text-[13px] ">© 2023 Diogo, Hedrik e inc. Todos os direitos reservados para TechStore.</p>
     <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
 </body>
 </html>

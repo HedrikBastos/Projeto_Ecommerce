@@ -1,10 +1,18 @@
+<?php
+if(isset($_SESSION['mensagem'])){
+    \App\Views\Notificador::notificar($_SESSION['mensagem'], $_SESSION['condicao']);
+    unset($_SESSION['mensagem']);
+    unset($_SESSION['condicao']);
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil do Cliente</title>
+    <title>Tech Store</title>
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js"

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
 
-    <title>Cadastro</title>
+    <title>Tech Store</title>
 </head>
 
 <body class="flex justify-center items-center h-[100vh] ">

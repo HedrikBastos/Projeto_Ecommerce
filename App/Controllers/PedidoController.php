@@ -38,8 +38,9 @@ class PedidoController
                 }
 
                 if ($cadastraPedidoExecutado === true) {
-                    \App\Views\Notificador::notificar("Compra efetuada com sucesso!", "sucesso");
-                    \App\Views\MainView::renderizar('perfil');
+                    $_SESSION['mensagem'] = "Compra efetuada com sucesso!";
+                    $_SESSION['condicao'] = "sucesso";
+                    header('Location: perfil');
                     die();
                 }
             }
@@ -66,8 +67,9 @@ class PedidoController
                 }
 
                 if ($cadastraPedidoExecutado === true) {
-                    \App\Views\Notificador::notificar("Compra efetuada com sucesso!", "sucesso");
-                    \App\Views\MainView::renderizar('perfil');
+                    $_SESSION['mensagem'] = "Compra efetuada com sucesso!";
+                    $_SESSION['condicao'] = "sucesso";
+                    header('Location: perfil');
                     die();
                 }
 
