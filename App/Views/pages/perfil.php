@@ -104,7 +104,7 @@ if (isset($_SESSION['mensagem'])) {
         <?php include(INCLUDE_PATH_PAGES . $opcaoMenu . '.php') ?>
     </main>
 
-    <div class="flex flex-col mt-[300px] ">
+    <div class="flex flex-col mt-[350px] ">
         <footer class="flex flex-col items-center rounded-lg bg-blue-800 m-8 py-24 sm:items-stretch">
 
             <article class="flex flex-col justify-around sm:items-start sm:flex-row">
