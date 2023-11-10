@@ -37,7 +37,7 @@ searchInput.addEventListener(
 
         autocomplete.style.display = "block";
         var produtoFound = "<ul>";
-        produtoFound += data.map((produto) => {return `<li><a  style="cursor: pointer;" id="tituloProdutos" >${produto.nome}</a></li>`;}).join("");
+        produtoFound += data.map((produto) => {return `<li><a style="cursor: pointer;" id="tituloProdutos" >${produto.nome}</a></li>`;}).join("");
 
         produtoFound += "</ul>";
 

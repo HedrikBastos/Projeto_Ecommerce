@@ -54,12 +54,14 @@ class ValidaProdutos
     public function validaNovoEstoque(): ?Produto
     {
 
-        if (!$this->validaNome($this->produtoDTO->nome)) {
-            echo 'Nome deu errado';
+        $nomeTratado = $this->validaNome($this->produtoDTO->nome);
+
+        if ($nomeTratado == false) {
+            return null;
         }
 
         if (!$this->validaEstoque($this->produtoDTO->estoque)) {
-            echo 'Estoque incorreto';
+            return null;
         }
 
         $produto = new Produto();
@@ -68,10 +70,9 @@ class ValidaProdutos
         return $produto;
     }
 
-    private function validaNome(string $nome): bool
+    private function validaNome(string $nome)
     {
-        $nome = trim($nome);
-        return preg_match('/[^\p{L}\p{N}\s]/u', $nome) === 0;
+        return ucwords(trim(preg_replace('/[^A-Za-z\s]+/', '', $nome)));
     }
 
     private function validaPreco(int $preco): bool
