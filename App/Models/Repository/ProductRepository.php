@@ -72,8 +72,6 @@ class ProductRepository
 
         $id = $produto['id_produto'];
 
-        echo $id;
-
         $sql = $connection->prepare('SELECT * FROM estoque WHERE id_estoque = :ID');
         $sql->bindValue(':ID', $id, \PDO::PARAM_STR);
         $sql->execute();

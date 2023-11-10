@@ -47,12 +47,15 @@ class CadastraprodutoController
                 $path
             );
 
-            $validaProduto = new  ValidaProdutos($produtoDTO);
+            $validaProduto = new ValidaProdutos($produtoDTO);
             $produto = $validaProduto->validaNovoProduto();
+
             if ($produto != null) {
+
                 move_uploaded_file($moveOne, $moveTwo);
                 $newProduto = new ProductRepository($produto);
                 $newProduto->insertProduto();
+
                 MainView::renderizar('produto');
                 \App\Views\Notificador::notificar("Sucesso ao cadastrar produto!", "sucesso");
             } else {
@@ -79,8 +82,11 @@ class CadastraprodutoController
             if ($produto != null) {
                 $newEstoque = new ProductRepository($produto);
                 $newEstoque->insertEstoque();
+                MainView::renderizar('produto');
+                \App\Views\Notificador::notificar("Sucesso ao alterar estoque!", "sucesso");
             } else {
-                \App\Views\Notificador::notificar("Erro ao cadastrar produto!", "erro");
+                MainView::renderizar('produto');
+                \App\Views\Notificador::notificar("Erro ao alterar estoque!", "erro");
             }
         } else {
             MainView::renderizar('produto');

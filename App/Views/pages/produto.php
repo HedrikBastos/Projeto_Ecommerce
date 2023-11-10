@@ -124,7 +124,7 @@
         </form>
 
 
-        <form class="flex flex-col justify-center items-center gap-1 " action="" method="post">
+        <form class="flex flex-col justify-center items-center gap-1 " action="cadastraproduto" method="post">
             <h1 class="text-2xl font-bold">ATUALIZE O ESTOQUE</h1>
             <input class=" border-blue-600 border-b-2 w-[270px] p-1 outline-none" type="text" name="nome" placeholder="Nome do produto" id="searchInput">
             <div class="none" id="autocomplete"></div>
