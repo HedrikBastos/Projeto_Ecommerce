@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -686,6 +686,14 @@ video {
   margin-top: 3.5rem;
 }
 
+
+.mt-\[150px\] {
+  margin-top: 150px;
+}
+
+.mt-\[35px\] {
+  margin-top: 35px;
+=======
 .mt-6 {
   margin-top: 1.5rem;
 }
@@ -704,6 +712,7 @@ video {
 
 .mt-\[400px\] {
   margin-top: 400px;
+
 }
 
 .block {
@@ -1130,6 +1139,7 @@ video {
 .p-\[4px\] {
   padding: 4px;
 }
+
 
 .p-\[6px\] {
   padding: 6px;

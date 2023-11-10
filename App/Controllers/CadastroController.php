@@ -23,7 +23,6 @@ class CadastroController
             $confirmarSenha = $_POST['confirmarSenha'];
             $contraSenha = $_POST['contraSenha'];
 
-
             $usuarioDTO = new UserDTO(
                 $nome,
                 $sobrenome,
@@ -64,7 +63,7 @@ class CadastroController
                     $cadastroEnderecoExecutado = $cadastrarEndereco->execute();
                 }
 
-                if (isset($cadastroUsuarioExecutado) === true && $cadastroEnderecoExecutado === true) {
+                if ($cadastroUsuarioExecutado === true && $cadastroEnderecoExecutado === true) {
                     header("Location: home");
                     die();
                 } else {
@@ -77,6 +76,10 @@ class CadastroController
                 \App\Views\MainView::renderizar('register');
                 die();
             }
+        }else {
+            \App\Views\Notificador::notificar("Erro ao alterar senha, Verifique e tente novamente!", "erro");
+            \App\Views\MainView::renderizar('alterasenha');
+            die();
         }
     }
 }

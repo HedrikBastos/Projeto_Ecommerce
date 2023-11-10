@@ -7,7 +7,6 @@ use App\Models\Repository\ProductRepository;
 
 class HomeController
 {
-
     public function index()
     {
         $produtos = ProductRepository::selectProdutos();

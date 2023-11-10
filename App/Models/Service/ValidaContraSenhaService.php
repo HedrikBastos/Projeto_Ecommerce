@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Models\Service;
+
 use App\Models\User;
 use App\Config\Connection;
+
 class ValidaContraSenhaService
 {
     public function __construct(
@@ -14,9 +16,7 @@ class ValidaContraSenhaService
     {
         try {
             $email = $this->usuario->email();
-            
             $contraSenha = $this->usuario->contraSenha();
-            
             $query = Connection::connect()->prepare("SELECT u.id_usuario, u.email, s.contra_senha FROM usuarios u INNER JOIN `senhas_usuarios` s ON u.id_usuario = s.id_usuario WHERE u.email = :email");
             $query->bindParam(':email', $email, \PDO::PARAM_STR);
             $query->execute();

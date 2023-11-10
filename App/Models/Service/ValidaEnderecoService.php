@@ -16,46 +16,46 @@ class ValidaEnderecoService extends ValidaCadastroService
     {
         $ruaTratada = $this->LimpaStrings($this->enderecoDTO->rua);
         if ($ruaTratada == false) {
-            return false;
+            return null;
         }
 
 
         $numeroTratado = $this->LimpaNumero($this->enderecoDTO->numero);
 
         if ($numeroTratado == false) {
-            return false;
+            return null;
         }
 
         $complementoTratado = $this->LimpaStrings($this->enderecoDTO->complemento);
 
         if ($complementoTratado == false) {
-            return false;
+            return null;
         }
 
         $bairroTratado = $this->LimpaStrings($this->enderecoDTO->bairro);
 
         if ($bairroTratado == false) {
-            return false;
+            return null;
         }
 
         $telefoneTradado = $this->validaTelefone($this->enderecoDTO->telefone);
 
 
         if ($telefoneTradado == false) {
-            return false;
+            return null;
         }
 
 
         $cepTratado = $this->validaCep($this->enderecoDTO->cep);
 
         if ($cepTratado == false) {
-            return false;
+            return null;
         }
 
 
         $ufTratado = $this->validaUf($this->enderecoDTO->uf);
         if ($ufTratado == false) {
-            return false;
+            return null;
         }
 
 

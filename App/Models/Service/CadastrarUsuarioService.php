@@ -24,10 +24,10 @@ class CadastrarUsuarioService
             $senha = $this->usuario->senha();
             $contraSenha = $this->usuario->contraSenha();
 
-            $pdo = Connection::connect();
-            $pdo->beginTransaction();
+            $conexao = Connection::connect();
+            $conexao->beginTransaction();
 
-            $verificarEmail = $pdo->prepare("SELECT COUNT(*) FROM usuarios WHERE email = :email");
+            $verificarEmail = $conexao->prepare("SELECT COUNT(*) FROM usuarios WHERE email = :email");
             $verificarEmail->bindParam(":email", $email);
             $verificarEmail->execute();
             $emailVerificado = $verificarEmail->fetchColumn();
@@ -36,7 +36,7 @@ class CadastrarUsuarioService
                 return false;
             }
 
-                $cadastraUsuario = $pdo->prepare("INSERT INTO usuarios (nome, email, cpf, sobrenome, genero)VALUES(:nome, :email, :cpf, :sobrenome, :genero)");
+                $cadastraUsuario = $conexao->prepare("INSERT INTO usuarios (nome, email, cpf, sobrenome, genero)VALUES(:nome, :email, :cpf, :sobrenome, :genero)");
                 $cadastraUsuario->bindParam(':nome', $nome, \PDO::PARAM_STR);
                 $cadastraUsuario->bindParam(':email', $email, \PDO::PARAM_STR);
                 $cadastraUsuario->bindParam(':cpf', $cpf, \PDO::PARAM_STR);
@@ -44,19 +44,18 @@ class CadastrarUsuarioService
                 $cadastraUsuario->bindParam(':genero', $genero, \PDO::PARAM_STR);
                 $cadastraUsuario->execute();
 
-                $ultimoIdUsuario = $pdo->lastInsertId();
+                $ultimoIdUsuario = $conexao->lastInsertId();
 
-                $cadastraSenha = $pdo->prepare("INSERT INTO senhas_usuarios VALUES(:id_usuario, :senha, :contra_senha)");
+                $cadastraSenha = $conexao->prepare("INSERT INTO senhas_usuarios VALUES(:id_usuario, :senha, :contra_senha)");
                 $cadastraSenha->bindParam(':id_usuario', $ultimoIdUsuario, \PDO::PARAM_INT);
                 $cadastraSenha->bindParam(':senha', $senha, \PDO::PARAM_STR);
                 $cadastraSenha->bindParam(':contra_senha', $contraSenha, \PDO::PARAM_STR);
-                
                 $cadastraSenha->execute();
                 $_SESSION['nome'] = $nome;
                 $_SESSION['login'] = $email;
                 $_SESSION['id_usuario'] = $ultimoIdUsuario;
 
-                $pdo->commit();
+                $conexao->commit();
                 
                 return true;
               
