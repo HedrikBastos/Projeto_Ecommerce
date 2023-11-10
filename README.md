@@ -2,7 +2,8 @@
 
 Projeto Ecommerce é um desafio do MSCODE que demonstra o desenvolvimento de uma aplicação de comércio eletrônico com tecnologias como PHP, MySQL, Tailwind, Ajax e Axios.
 
-![image](https://github.com/HedrikBastos/Projeto_Ecommerce/assets/85167436/76064aa5-823d-4807-8689-870c89a9dcc1)
+![image](https://github.com/HedrikBastos/Projeto_Ecommerce/assets/85167436/fc2317bb-5ca1-4c96-a629-befd75e25c47)
+
 
 ## Tecnologias Utilizadas
 
