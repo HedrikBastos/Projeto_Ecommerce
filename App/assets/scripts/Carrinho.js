@@ -5,7 +5,7 @@ $(document).on("submit", ".form-adicionar", function (e) {
     var produtoID = $(this).find(".produtoID").val();
   
     $.ajax({
-      url: "http://localhost/html/Projeto_Ecommerce/carrinho",
+      url: "http://localhost/Ecommerce/carrinho",
       method: "POST",
       data: { acao: adicionar, produtoID: produtoID },
       dataType: "json",
@@ -21,7 +21,7 @@ $(document).on("submit", ".form-adicionar", function (e) {
     var produtoID = $(this).find(".produtoID").val();
   
     $.ajax({
-      url: "http://localhost/html/Projeto_Ecommerce/carrinho",
+      url: "http://localhost/Ecommerce/carrinho",
       method: "POST",
       data: { acao: subtrair, produtoID: produtoID },
       dataType: "json",

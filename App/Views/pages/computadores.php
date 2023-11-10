@@ -101,7 +101,7 @@
 
     </head>
 
-    <!-- Swiper -->
+  
     <div class="hidden sm:flex ">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper" style="align-items: center;">
