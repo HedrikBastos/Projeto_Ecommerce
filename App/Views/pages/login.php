@@ -53,7 +53,7 @@ if (isset($_SESSION['mensagem'])) {
         </div>
 
     </div>
-    <p class="text-[13px] mt-6 ">© 2023 Diogo, Hedrik e inc. Todos os direitos reservados para TechStore.</p>
+    <p class="text-[8px] sm:text-[13px] mt-6 ">© 2023 Diogo, Hedrik e inc. Todos os direitos reservados para TechStore.</p>
     <script src="App/assets/scripts/notificador.js" type="text/javascript"></script>
     <script src="App/assets/scripts/verificaLogin.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />

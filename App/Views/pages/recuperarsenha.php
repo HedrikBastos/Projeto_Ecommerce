@@ -12,16 +12,7 @@
     <title>Tech Store</title>
 </head>
 
-<body class="">
-<head >
-        <nav class=" flex justify-between items-center p-1 bg-[#F7F7F7] border-solid border-b-2 border-blue-600 ">
-
-            <a class=" flex items-center gap-2 justify-center font-bold text-4xl text-blue-600 ml-6" href="login">
-                <img src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent_formato.svg" alt="">
-                <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
-            </a>
-        </nav>
-</head>
+<body>
     <div class="containerpaginacao grid justify-center items-center h-[100vh]">
         <div class="paginacao active flex rounded-3xl shadow-[0_5px_5px_-5px_rgba(0,0,0,0.3)] shadow-slate-900 " id="registro-usuario">
             <div class=" flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">

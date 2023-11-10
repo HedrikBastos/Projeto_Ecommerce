@@ -105,7 +105,7 @@ if (isset($_SESSION['mensagem'])) {
             </div>
         </div>
     </div>
-    <p class="text-[13px] ">© 2023 Diogo, Hedrik e inc. Todos os direitos reservados para TechStore.</p>
+    <p class="text-[8px] sm:text-[13px]">© 2023 Diogo, Hedrik e inc. Todos os direitos reservados para TechStore.</p>
     <script src="App/assets/scripts/ValidaForms.js" type="text/javascript"></script>
 </body>
 </html>

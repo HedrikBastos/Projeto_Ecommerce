@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.3.3 | MIT License | https://tailwindcss.com
+! tailwindcss v3.3.5 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -698,6 +698,10 @@ video {
   margin-top: 150px;
 }
 
+.mt-\[300px\] {
+  margin-top: 300px;
+}
+
 .mt-\[35px\] {
   margin-top: 35px;
 }
@@ -706,8 +710,8 @@ video {
   margin-top: 400px;
 }
 
-.mt-1 {
-  margin-top: 0.25rem;
+.mt-\[350px\] {
+  margin-top: 350px;
 }
 
 .block {
@@ -1510,6 +1514,14 @@ video {
   .sm\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .sm\:text-\[8px\] {
+    font-size: 8px;
+  }
+
+  .sm\:text-\[13px\] {
+    font-size: 13px;
   }
 }
 
