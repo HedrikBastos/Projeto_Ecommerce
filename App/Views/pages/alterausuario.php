@@ -1,6 +1,6 @@
 <?php
 if (isset($_SESSION['mensagem'])) {
-    \App\Views\Notificador::notificar($_SESSION['mensagem'], "sucesso");
+    \App\Views\Notificador::notificar($_SESSION['mensagem'], $_SESSION['condicao']);
     unset($_SESSION['mensagem']);
     unset($_SESSION['codicao']);
 }
@@ -13,7 +13,7 @@ if (isset($_SESSION['mensagem'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href=" <?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
-    <title>Cadastro</title>
+    <title>Tech Store</title>
 </head>
 
 <body class="flex justify-center items-center h-[100vh] ">

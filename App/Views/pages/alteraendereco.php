@@ -14,7 +14,7 @@ if(isset($_SESSION['mensagem'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
-    <title>Alterar Endereço</title>
+    <title>Tech Store</title>
 </head>
 
 <body class="flex justify-center items-center h-[100vh] ">
