@@ -22,7 +22,7 @@
             </a>
 
             <div class="hidden border-solid w-[350px] border-2 border-opacity-40 border-gray-600 md:flex ">
-                <input class=" ml-2 outline-none w-[340px]" type="text">
+                <input id="procuraProduto" class=" ml-2 outline-none w-[340px]" type="text" placeholder="Digite o produto que procura">
                 <box-icon name='search-alt' color='#717171' size="md"></box-icon>
             </div>
 
@@ -64,6 +64,10 @@
 
         </nav>
         <div id="bemvindo-mensagem" class="hidden bemvindo-mensagem">Seja bem-vindo!</div>
+
+        <div id="resultsContainer">
+        <!-- Os resultados da pesquisa serão exibidos aqui -->
+    </div>
 
         <nav class="hidden justify-center w-[100%] bg-blue-600 lg:flex">
             <ul class="flex text-white ">
@@ -120,13 +124,11 @@
         </div>
     </div>
 
-
-
     <div id="bemvindo-mensagem" class="hidden">Seja bem-vindo!</div>
 
     <article class="flex justify-center items-center ">
 
-        <div class="flex flex-wrap justify-center w-[1300px] p-[10px] gap-1 ">
+        <div id="produtos"  class="flex flex-wrap justify-center w-[1300px] p-[10px] gap-1 ">
             <?php foreach ($produtos as $key => $valor) : ?>
 
                 <a class="produtos flex flex-col items-center justify-center text-center relative border-hidden border-[1px] border-black  hover:border-solid w-[90px] sm:w-[200px] " href="show/<?= $valor['id_produto'] ?>">
@@ -198,9 +200,11 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.0/dist/boxicons.js" integrity="sha512-Dm5UxqUSgNd93XG7eseoOrScyM1BVs65GrwmavP0D0DujOA8mjiBfyj71wmI2VQZKnnZQsSWWsxDKNiQIqk8sQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/jquery-3.7.1.js"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/carousel.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/pesquisarProduto.js"></script>
 
 </body>
 
