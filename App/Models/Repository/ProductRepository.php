@@ -24,7 +24,7 @@ class ProductRepository
     public static function selectNome(string $pesquisa)
     {
         $connection = Connection::connect();
-        $sql = $connection->prepare('SELECT id_produto, nome FROM produtos WHERE nome LIKE :NOME');
+        $sql = $connection->prepare('SELECT id_produto, nome, imagem, preco FROM produtos WHERE nome LIKE :NOME');
         $sql->bindValue(':NOME', '%' . $pesquisa . '%', \PDO::PARAM_STR);
         $sql->execute();
         $result = $sql->fetchAll();
@@ -84,4 +84,6 @@ class ProductRepository
         $sql->bindValue(':QUANTIDADE', $novoEstoque, \PDO::PARAM_INT);
         $sql->execute();
     }
+
+    
 }

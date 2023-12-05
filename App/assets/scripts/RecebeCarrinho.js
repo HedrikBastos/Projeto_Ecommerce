@@ -1,5 +1,5 @@
 $.ajax({
-  url: "http://localhost/Ecommerce/json",
+  url: "http://localhost/html/Projeto_Ecommerce/json",
   type: "POST",
   data: { acao: "obterCarrinho" },
   dataType: "json",
@@ -34,7 +34,7 @@ $.ajax({
 
       produtoDiv.innerHTML = `
       <div class="flex items-center ">
-      <img class="w-[85px] sm:w-[130px]" src="/Ecommerce/App/assets/${
+      <img class="w-[85px] sm:w-[130px]" src="/Projeto_Ecommerce/App/assets/${
         produto.imagem
       }"> 
       <div class="flex flex-col" >

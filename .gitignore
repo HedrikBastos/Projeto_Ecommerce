@@ -9,3 +9,4 @@ Data.php
 index.php
 root.session.sql
 sql_simulação.txt
+App/Config/Data.php
