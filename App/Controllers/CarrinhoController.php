@@ -5,7 +5,6 @@ namespace App\Controllers;
 use App\Views\MainView;
 use App\Models\Carrinho;
 
-
 class CarrinhoController
 {
 
@@ -22,12 +21,15 @@ class CarrinhoController
 
                 $produtos = $_SESSION['carrinho'];
 
+                /*
                 foreach ($produtos as $key => $value) {
 
                     echo $value['nome'];
                     echo 'R$' . $value['preco'];
                     echo $value['id_produto'];
-                }
+               } 
+               */
+
             }
         } else {
             unset($_SESSION['login']);

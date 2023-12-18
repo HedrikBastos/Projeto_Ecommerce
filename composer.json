@@ -11,5 +11,7 @@
             "name": "Diogo e Hedrik"
         }
     ],
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.8"
+    }
 }

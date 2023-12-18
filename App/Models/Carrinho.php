@@ -69,7 +69,7 @@ class Carrinho
             }
 
             if ($produtoEncontradoNoCarrinho) {
-                // Subtrair a quantidade corretamente
+                // Subtrair a quantidade 
                 if ($_SESSION['carrinho'][$produtoIndex]['quantidade'] > 0) {
                     $_SESSION['carrinho'][$produtoIndex]['quantidade']--;
 

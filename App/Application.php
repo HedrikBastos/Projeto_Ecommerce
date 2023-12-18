@@ -20,9 +20,13 @@ class Application
         } else {
             $loadName .= ucfirst(strtolower($url[0]));
         }
-       
-        if (isset($url[1]) && is_numeric($url[1])) {
+
+        if (isset($url[0]) && $url[0] == 'show' && isset($url[1]) && is_numeric($url[1])) {
             $parameter = $url[1];
+        }
+
+        if (isset($url[0]) && ($url[0] == 'comprar' || (isset($url[1]) && is_numeric($url[1])))) {
+            $parameter = $url[1] ?? null;
         }
 
         $loadName .= 'Controller';
@@ -39,11 +43,10 @@ class Application
                 } else {
                     $this->controller->index();
                 }
-
             } else {
                 include('Views/pages/erro404.php');
             }
-        }else{
+        } else {
             include('Views/pages/erro404.php');
         }
     }
