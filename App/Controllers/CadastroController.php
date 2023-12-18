@@ -51,37 +51,43 @@ class CadastroController
             $validarEndereco = new ValidaEnderecoService($enderecoDTO);
             $endereco = $validarEndereco->executeEndereco();
 
+
             try {
                 if ($usuario != null && $endereco != null) {
-
-                    $cadastrarUsuario = new CadastrarUsuarioService($usuario);
+        
+                    $cadastrarUsuario = new CadastrarUsuarioService($usuario);        
 
                     $cadastroUsuarioExecutado = $cadastrarUsuario->execute();
                     sleep(1);
+
+                    if ($cadastroUsuarioExecutado === false){
+                        $_SESSION['mensagem'] = "Email já cadastrado, Verifique e tente novamente!";
+                        $_SESSION['condicao'] = "erro";
+                        header('Location: login');
+                        die();
+                    }
+              
                     $cadastrarEndereco = new CadastrarEnderecoService($endereco);
 
                     $cadastroEnderecoExecutado = $cadastrarEndereco->execute();
                 }
-
+                
                 if ($cadastroUsuarioExecutado === true && $cadastroEnderecoExecutado === true) {
                     header("Location: home");
                     die();
                 } else {
                     $_SESSION['mensagem'] = "Cadastro não realizado, Verifique e tente novamente!";
                     $_SESSION['condicao'] = "erro";
-                    header('Location: register');
+                    header('Location: login');
                     die();
                 }
             } catch (\TypeError $e) {
-                $_SESSION['mensagem'] = "Email já cadastrado, Verifique e tente novamente!";
-                $_SESSION['condicao'] = "erro";
-                header('Location: register');
-                die();
+               
             }
         } else {
             $_SESSION['mensagem'] = "Cadastro não realizado, Verifique e tente novamente!";
             $_SESSION['condicao'] = "erro";
-            header('Location: register');
+            header('Location: login');
             die();
         }
     }

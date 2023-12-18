@@ -1,8 +1,8 @@
 <?php
 if (isset($_SESSION['mensagem'])) {
-    \App\Views\Notificador::notificar($_SESSION['mensagem'], "sucesso");
+    \App\Views\Notificador::notificar($_SESSION['mensagem'], $_SESSION['condicao']);
     unset($_SESSION['mensagem']);
-    unset($_SESSION['codicao']);
+    unset($_SESSION['condicao']);
 }
 ?>
 

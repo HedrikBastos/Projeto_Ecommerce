@@ -18,8 +18,8 @@
             <div class=" flex flex-col justify-center items-center py-[60px] px-[60px] gap-5 lg:px-[80px] lg:py-[80px] ">
                 <form class=" flex flex-col justify-center items-center gap-4" action="contrasenha" method="post">
                     <h1 class=" text-3xl font-bold">Verificar contra Senha</h1>
-                    <input type="email" name="email" placeholder="Email" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
-                    <input type="text" name="contraSenha" id="recuperaSenha" placeholder=" Nome animal de estimação" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none">
+                    <input type="email" name="email" placeholder="Email" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                    <input type="text" name="contraSenha" id="recuperaSenha" placeholder=" Nome animal de estimação" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
                     <input type="hidden" name="redefinicaoSenha" value="true">
 
                     <div class="left">

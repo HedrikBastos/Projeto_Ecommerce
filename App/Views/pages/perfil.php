@@ -27,11 +27,6 @@ if (isset($_SESSION['mensagem'])) {
                 <img class="hidden sm:flex" src="<?php echo INCLUDE_PATH_STATIC ?>img/logo/logo_transparent.svg" alt="">
             </a>
 
-            <div class="hidden border-solid w-[350px] border-2 border-opacity-40 border-gray-600 md:flex ">
-                <input class=" ml-2 outline-none w-[340px]" type="text">
-                <box-icon name='search-alt' color='#717171' size="md"></box-icon>
-            </div>
-
             <div class="hidden justify-center gap-3 mr-6 md:flex">
                 <?php
                 if ($_SESSION['login'] == 'admin@gmail.com') : ?>
