@@ -47,6 +47,10 @@ class ValidaCadastroService
         }
         
         $cpfTratado = $this->LimpaCpf($this->usuarioDTO->cpf);
+        if ($cpfTratado < 11){
+            return null;
+        }
+
         $usuario = new User();
         $usuario->setNome($nomeTratado);
         $usuario->setSobrenome($sobrenomeTratado);

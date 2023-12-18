@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
     $('#procuraProduto').on('input', function () {
         procuraProduto();
     });
-
 });
 
 const INCLUDE_PATH_STATIC = '/html/Projeto_Ecommerce/App/assets/';

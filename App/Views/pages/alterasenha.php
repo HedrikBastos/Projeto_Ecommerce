@@ -18,8 +18,8 @@
                 <form class=" flex flex-col justify-center items-center gap-4" action="alterasenha" method="post">
                     <h1 class=" text-3xl font-bold">Alterar Senha</h1>
 
-                    <input type="password" name="senha" placeholder="Nova Senha" id="senha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="4" maxlength="8" required>
-                    <input type="password" name="confirmarSenha" placeholder="Confirmar senha" id="confirmaSenha" class="campo-obrigatorio rounded-md bg-slate-200 w-[220px] p-1 border-b-2 outline-none" minlength="4" maxlength="8" required>
+                    <input type="password" name="senha" placeholder="Nova Senha" id="senha" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" minlength="4" maxlength="8" required>
+                    <input type="password" name="confirmarSenha" placeholder="Confirmar senha" id="confirmaSenha" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" minlength="4" maxlength="8" required>
                     <div id="mensagemErroSenhas" class="erro p-1"></div>
                     <div class="left">
                         <input type="submit" name="acao" id="btnAcao" value="Salvar" class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white">

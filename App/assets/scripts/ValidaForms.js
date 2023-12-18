@@ -27,6 +27,8 @@ const senhaInput = document.getElementById("senha");
 const confirmaSenhaInput = document.getElementById("confirmaSenha");
 const mensagemErroSenhas = document.getElementById("mensagemErroSenhas");
 const mensagemErroEmail = document.getElementById("mensagemErroEmail");
+const inputCPF = document.getElementById("cpf");
+const mensagemErroCPF = document.getElementById("mensagemErroCPF");
 
 btnAcao.addEventListener('click', function () {
   registroUsuario.classList.remove('active');
@@ -41,6 +43,7 @@ function verificarCamposPreenchidos() {
     confirmaSenhaInput.value.length >= parseInt(confirmaSenhaInput.getAttribute("minlength"));
   verificarSenhas();
   verificarEmail();
+  verificarCPF();
   if (todosPreenchidos && senhasComMinLength) {
     btnAcao.style.display = "block";
   } else {
@@ -59,12 +62,12 @@ function verificarSenhas() {
     mensagemErroSenhas.textContent = "As senhas não coincidem.";
     mensagemErroSenhas.classList.remove("sucesso");
     mensagemErroSenhas.classList.add("erro");
-  } else if (senhaInput.value.length < 4) {
+  } else if (senhaInput.value.length > 1 && senhaInput.value.length < 4) {
     mensagemErroSenhas.textContent = "A senha deve conter no mínimo 4 caracteres.";
     mensagemErroSenhas.classList.remove("erro");
     mensagemErroSenhas.classList.add("sucesso");
   } else {
-    mensagemErroSenhas.textContent = "";
+    mensagemErroSenhas.textContent = "Preencha todos os campos";
     mensagemErroSenhas.classList.remove("sucesso");
     mensagemErroSenhas.classList.remove("erro");
   }
@@ -83,5 +86,23 @@ function verificarEmail() {
     mensagemErroEmail.textContent = '';
     mensagemErroEmail.classList.remove('sucesso');
     mensagemErroEmail.classList.remove('erro');
+  }
+}
+
+function verificarCPF() {
+  if (inputCPF.value.length === '') {
+    mensagemErroCPF.textContent = '';
+    mensagemErroCPF.classList.remove('sucesso');
+    mensagemErroCPF.classList.remove('erro');
+  }
+
+  else if (inputCPF.value.length > 1 && inputCPF.value.length < 11) {
+    mensagemErroCPF.textContent = 'O CPF deve conter 11 digitos.';
+    mensagemErroCPF.classList.remove('sucesso');
+    mensagemErroCPF.classList.add('erro');
+  } else {
+    mensagemErroCPF.textContent = '';
+    mensagemErroCPF.classList.remove('sucesso');
+    mensagemErroCPF.classList.remove('erro');
   }
 }
