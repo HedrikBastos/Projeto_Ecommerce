@@ -102,15 +102,20 @@
 
     <article class="flex justify-center items-center">
 
-        <div class="flex justify-center items-center w-[120px] sm:w-[250px] md:w-[500px]">
+        <div class="flex justify-center items-center sm:w-[600px]">
 
             <?php foreach ($produtos as $key => $value) : ?>
 
                 <?php if ($value['id_produto'] == $parameter) : ?>
 
-                    <img class="" src="<?= INCLUDE_PATH_STATIC ?><?= $value['imagem'] ?>" alt="">
+                    <div class="flex flex-col items-center justify-center">
+                        <img class="w-[250px] sm:w-[600px] " src="<?= INCLUDE_PATH_STATIC ?><?= $value['imagem'] ?>" alt="">
 
-                    <div class="flex flex-col items-start pt-[7%] gap-5 sm:gap-28">
+
+
+                    </div>
+
+                    <div class="flex flex-col items-center justify-center gap-5 sm:gap-16">
 
                         <div class="flex flex-col gap-10">
                             <p class="text-md sm:text-2xl "><?= $value['nome'] ?></p>
@@ -122,15 +127,17 @@
                             <form class="form-adicionar" method="post">
                                 <input type="hidden" name="acao" class="btnAdicionar" value="adicionar" onsubmit="limparCampos()">
                                 <input type="hidden" name="produtoID" class="produtoID" value="<?php echo $parameter ?>">
-                                <input onclick="up()" value="Adicionar ao carrinho " type="submit" class=" w-[120px]  text-[9px] font-semibold rounded-2xl  bg-blue-400 hover:bg-blue-500 p-[6px] px-2 cursor-pointer text-center sm:w-[200px] sm:px-7 sm:text-sm">
+                                <input onclick="up()" value="Adicionar ao carrinho " type="submit" class=" w-[150px] text-[12px] font-semibold rounded-2xl  bg-blue-400 hover:bg-blue-500 p-[6px] px-2 cursor-pointer text-center sm:w-[200px] sm:px-7 sm:text-sm">
                             </form>
-
+                            <a href="<?php echo INCLUDE_PATH ?>comprar/<?php echo $parameter ?>" class=" w-[150px] text-[12px] font-semibold rounded-2xl  bg-yellow-400 hover:bg-yellow-500 p-[6px] cursor-pointer text-center sm:w-[200px] sm:px-7 sm:text-sm">Comprar agora</a>
+                            <!--
                             <form action="<?php echo INCLUDE_PATH ?>pedido" id="formulario" method="post">
                                 <input class="hidden" type="int" value="<?php echo $parameter ?>" name="idproduto" >
-                                <input class="hidden" type="int" value="<?php echo $value['preco']?>" name="preco" >
+                                <input class="hidden" type="int" value="<?php echo $value['preco'] ?>" name="preco" >
                                 <input class="hidden" type="int" value="1" name="quantidade" >
                                 <input type="submit" value="Comprar Agora" name="acaopedidoshow" class=" w-[120px] text-[9px] font-semibold rounded-2xl  bg-yellow-400 hover:bg-yellow-500 p-[6px] cursor-pointer text-center sm:w-[200px] sm:px-7 sm:text-sm">
                             </form>
+                            -->
 
                         </div>
 
@@ -143,7 +150,7 @@
         </div>
     </article>
 
-    <div class="flex flex-col mt-14">
+    <div class="flex flex-col mt-56">
         <footer class="flex flex-col items-center rounded-lg bg-blue-800 m-8 py-24 sm:items-stretch">
 
             <article class="flex flex-col justify-around sm:items-start sm:flex-row">
