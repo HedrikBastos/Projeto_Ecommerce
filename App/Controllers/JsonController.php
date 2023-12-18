@@ -14,6 +14,7 @@ class JsonController
             $carrinho->json();
 
             MainView::renderizar('json');
+            
         } else {
             unset($_SESSION['login']);
             MainView::renderizar('login');

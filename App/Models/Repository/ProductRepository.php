@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models\Repository;
+
 use App\Config\Connection;
 use App\Models\Produto;
 
@@ -15,6 +16,15 @@ class ProductRepository
     {
         $connection = Connection::connect();
         $sql = $connection->prepare("SELECT * FROM produtos");
+        $sql->execute();
+        $result = $sql->fetchAll();
+
+        return $result;
+    }
+    public static function selectProdutoEspecifico($produtoId)
+    {
+        $connection = Connection::connect();
+        $sql = $connection->prepare("SELECT * FROM produtos WHERE id_produto = $produtoId");
         $sql->execute();
         $result = $sql->fetchAll();
 
