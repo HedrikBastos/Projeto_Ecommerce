@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-const INCLUDE_PATH_STATIC = '/html/Projeto_Ecommerce/App/assets/';
+const INCLUDE_PATH_STATIC = 'http://localhost/Ecommerce/App/assets/';
 
 function procuraProduto() {
 
@@ -13,7 +13,7 @@ function procuraProduto() {
 
     $.ajax({
         type: 'GET',
-        url: 'http://localhost/html/Projeto_Ecommerce/procuraproduto',
+        url: 'http://localhost/Ecommerce/procuraproduto',
         data: { procuraproduto: procuraProduto },
         dataType: 'json',
         success: function (data) {

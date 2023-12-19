@@ -122,12 +122,27 @@
 
                 <?php if (isset($arrayResponse['qr_codes'][0]['text'])) : ?>
                     <textarea class="border overflow-y-hidden border-black" id="meuTextarea" name="" id="" cols="28" rows="2"><?php echo isset($arrayResponse['qr_codes'][0]['text']) ? $arrayResponse['qr_codes'][0]['text'] : "" ?></textarea>
-                    <button class=" mt-2 w-[208px] border border-black bg-green-500 font-semibold hover:bg-green-400 rounded-2xl " onclick="copiarTexto()"> Copiar </button>
+                    <form action="<?php echo INCLUDE_PATH ?>pedido" id="formulario" method="post">
+                        <input class="hidden" type="int" value="<?php echo $parameter ?? "" ?>" name="idproduto">
+                        <input class="hidden" type="int" value="<?php echo $preço ?? "" ?>" name="preco">
+                        <input class="hidden" type="int" value="1" name="quantidade">
+                        <input type="submit" onclick="copiarTexto()" value="Copiar" name="<?php echo isset($parameter) ? 'acaopedidoshow' : 'acaopedido' ?>" class="mt-2 w-[208px] border border-black cursor-pointer bg-green-500 font-semibold hover:bg-green-400 rounded-2xl ">
+                    </form>
                 <?php endif; ?>
 
             </div>
 
+            <!--
+            <form action="<?php echo INCLUDE_PATH ?>pedido" id="formulario" method="post">
+                <input class="hidden" type="int" value="<?php echo $parameter ?>" name="idproduto">
+                <input class="hidden" type="int" value="<?php echo $value['preco'] ?>" name="preco">
+                <input class="hidden" type="int" value="1" name="quantidade">
+                <input type="submit" value="Comprar Agora" name="acaopedidoshow" class=" w-[120px] text-[9px] font-semibold rounded-2xl  bg-yellow-400 hover:bg-yellow-500 p-[6px] cursor-pointer text-center sm:w-[200px] sm:px-7 sm:text-sm">
+            </form>
+                -->
+
             <div class="flex flex-col">
+
                 <?php if (isset($arrayResponse['charges'][0]['liinks'])) : ?>
                     <textarea class="border overflow-y-hidden border-black" id="meuTextarea" name="" id="" cols="28" rows="2"><?php echo isset($arrayResponse['qr_codes'][0]['text']) ? $arrayResponse['qr_codes'][0]['text'] : "" ?></textarea>
                     <button class=" mt-2 w-[208px] border border-black bg-green-500 font-semibold hover:bg-green-400 rounded-2xl " onclick="copiarTexto()"> Copiar </button>
@@ -137,8 +152,14 @@
 
                     <form class=" relative w-[200px] sm:w-[300px] transition-opacity duration-800 " action="" method="get">
                         <a href="<?php echo isset($arrayResponse['charges'][0]['links'][0]['href']) ? $arrayResponse['charges'][0]['links'][1]['href'] : "" ?>" target="_blank"><img class="border border-black" src="<?php echo isset($arrayResponse['charges'][0]['links'][0]['href']) ? $arrayResponse['charges'][0]['links'][1]['href'] : "" ?>" alt="">
-                            <input class="" type="hidden" name="pdf_url" value="https://boleto.sandbox.pagseguro.com.br/ea6a2552-739f-4eaa-80a9-7abc454d96fc.pdf"></a>
-                        <button class=" absolute flex justify-center items-center py-1 left-0 right-0 bottom-0 bg-green-500 hover:bg-green-400 transition-opacity duration-800 " type="submit" name="dow">Download PDF</button>
+                            <!-- <input class="" type="hidden" name="pdf_url" value="https://boleto.sandbox.pagseguro.com.br/ea6a2552-739f-4eaa-80a9-7abc454d96fc.pdf"></a>-->
+
+                    </form>
+                    <form action="<?php echo INCLUDE_PATH ?>pedido" id="formulario" method="post">
+                        <input class="hidden" type="int" value="<?php echo $parameter ?? "" ?>" name="idproduto">
+                        <input class="hidden" type="int" value="<?php echo $preço ?? "" ?>" name="preco">
+                        <input class="hidden" type="int" value="1" name="quantidade">
+                        <input type="submit" value="Dowload" name="<?php echo isset($parameter) ? 'acaopedidoshow' : 'acaopedido' ?>" class="absolute flex justify-center items-center cursor-pointer py-1 left-0 right-0 bottom-0 bg-green-500 hover:bg-green-400 transition-opacity duration-800">
                     </form>
 
                 <?php endif; ?>
@@ -149,8 +170,10 @@
 
     </article>
 
-    <script src="https://assets.pagseguro.com.br/checkout-sdk-js/rc/dist/browser/pagseguro.min.js"></script>
-    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/encrypted.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/jquery-3.7.1.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/Carrinho.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/RecebeCarrinho.js"></script>
+    <script src="<?php echo INCLUDE_PATH_STATIC ?>scripts/menu.js"></script>
 
 
     <script>

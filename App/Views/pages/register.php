@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,12 +26,12 @@
                     <div class="flex flex-col lg:flex-row gap-4">
                         <label class="block">
                             <span class="block text-sm font-medium text-slate-700">NOME</span>
-                            <input type="text" name="nome" id="nome" placeholder="Nome" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                            <input type="text" name="nome" id="nome" placeholder="Nome" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
                         </label>
 
                         <label class="block">
                             <span class="block text-sm font-medium text-slate-700">SOBRENOME</span>
-                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                            <input type="text" name="sobrenome" id="sobrenome" placeholder="Sobrenome" class="campo-obrigatorio mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
                         </label>
 
                         <label class="block">
@@ -97,7 +96,7 @@
                 <div class="flex flex-col lg:flex-row gap-4">
                     <label class="block">
                         <span class="block text-sm font-medium text-slate-700">CEP</span>
-                        <input type="text" name="cep" placeholder="Cep" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1">
+                        <input type="text" name="cep" placeholder="Cep" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" minlength="8" maxlength="8">
                     </label>
 
                     <label class="block">
@@ -141,36 +140,36 @@
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-4">
-                        <label class="block">
-                            <span class="block text-sm font-medium text-slate-700">RUA</span>
-                <input type="text" name="rua" placeholder="Rua" id="cpf" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
-                </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium text-slate-700">RUA</span>
+                        <input type="text" name="rua" placeholder="Rua" id="cpf" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
+                    </label>
 
-                <label class="block">
-                            <span class="block text-sm font-medium text-slate-700">NUMERO</span>
-                <input type="text" name="numero" placeholder="Nº" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
-                </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium text-slate-700">NUMERO</span>
+                        <input type="text" name="numero" placeholder="Nº" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
+                    </label>
 
-                <label class="block">
-                            <span class="block text-sm font-medium text-slate-700">BAIRRO</span>
-                <input type="text" name="bairro" placeholder="Bairro" id="bairro" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
-                </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium text-slate-700">BAIRRO</span>
+                        <input type="text" name="bairro" placeholder="Bairro" id="bairro" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
+                    </label>
                 </div>
 
                 <div class="flex flex-col lg:flex-row gap-4">
-                <label class="block">
-                            <span class="block text-sm font-medium text-slate-700">COMPLEMENTO</span>
-                <input type="text" name="complemento" placeholder="Complemento" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
-                </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium text-slate-700">COMPLEMENTO</span>
+                        <input type="text" name="complemento" placeholder="Complemento" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" required>
+                    </label>
 
-                <label class="block">
-                            <span class="block text-sm font-medium text-slate-700">TELEFONE</span>
-                <input type="text" name="telefone" id="telefone" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" minlength="11" maxlength="11" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" placeholder="dd-xxxxx-xxxx" required>
-                </label>
+                    <label class="block">
+                        <span class="block text-sm font-medium text-slate-700">TELEFONE</span>
+                        <input type="text" name="telefone" id="telefone" class=" mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" minlength="11" maxlength="11" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" placeholder="dd-xxxxx-xxxx" required>
+                    </label>
                 </div>
 
                 <div class="left">
-                    <input type="submit" name="acao" id="" value="Cadastrar" class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white">
+                    <input type="submit" name="acao" id="" value="Cadastrar" class=" w-[140px] text-center rounded-md p-1 bg-blue-600  text-white" required>
                 </div>
                 <a class="font-bold text-xs" href="login">Tenho conta</a>
 

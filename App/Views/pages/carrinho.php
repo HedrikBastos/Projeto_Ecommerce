@@ -126,7 +126,7 @@
             <div class="totalDiv flex flex-col items-center justify-center text-[18px] sm:text-3xl ">
 
             </div>
-        <!--Obs: só alterei o action, talvez vai deixar o anterior mesmo(pedidos), vamos ver-->
+            
             <form action="comprar" id="formulario" method="post" class=" flex justify-center items-center p-2" onsubmit="limparCampos()">
                 <input type="submit" name="acaopedido" value="Comprar agora" class=" cursor-pointer float-right ml-[40px] text-[8px] font-semibold rounded-2xl hover:bg-green-500  bg-green-400 p-[4px] px-2 text-center sm:px-7 sm:ml-[150px] sm:text-sm">
             </form>

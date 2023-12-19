@@ -110,48 +110,10 @@ class PagSeguro
             ]
         ];
 
-        //Talvez nem precisa desses links abaixo e response retorne os links, mas analise a api de integração de boleto e faça testes com e 
-
-        $data["links"] = [
-            [
-                "rel" => "SELF",
-                "href" => "https://boleto.sandbox.pagseguro.com.br/0e243ee1-736a-45ef-b153-cc9b9f0a838f.pdf",
-                "media" => "application/pdf",
-                "type" => "GET"
-            ],
-            [
-                "rel" => "SELF",
-                "href" => "https://boleto.sandbox.pagseguro.com.br/0e243ee1-736a-45ef-b153-cc9b9f0a838f.png",
-                "media" => "image/png",
-                "type" => "GET"
-            ],
-            [
-                "rel" => "SELF",
-                "href" => "https://sandbox.api.pagseguro.com/charges/CHAR_BF10AE3B-68D2-430D-AED6-0D5E2C7E180E",
-                "media" => "application/json",
-                "type" => "GET"
-            ]
-        ];
-
-        $data["links"] = [
-            [
-                "rel" => "SELF",
-                "href" => "https://sandbox.api.pagseguro.com/orders/ORDE_E8A44EB1-89BC-4261-9004-739A09B53A8C",
-                "media" => "application/json",
-                "type" => "GET"
-            ],
-            [
-                "rel" => "PAY",
-                "href" => "https://sandbox.api.pagseguro.com/orders/ORDE_E8A44EB1-89BC-4261-9004-739A09B53A8C/pay",
-                "media" => "application/json",
-                "type" => "POST"
-            ]
-        ];
-
         $curl = curl_init('https://sandbox.api.pagseguro.com/orders');
         curl_setopt($curl, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/json',
-            'Authorization:'
+            'Authorization: '
         ));
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

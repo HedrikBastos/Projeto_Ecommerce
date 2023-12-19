@@ -7,7 +7,7 @@
     <title>Tech Store</title>
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/output.css">
     <link rel="stylesheet" href="<?php echo INCLUDE_PATH_STATIC ?>styles/estilo.css">
-    <link rel="shortcut iconFilósofos d" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo INCLUDE_PATH_STATIC ?>img/favicon/logo_transparent_formato.svg" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
@@ -48,7 +48,6 @@ include_once('head.php');
                     <p class="text-[9px] whitespace-pre-wrap max-w-[150px] overflow-ellipsis sm:text-xs "> <?= $valor['nome'] ?></p>
                     <p class="text-xs font-semibold text-[#E01D25] sm:text-sm"> R$<?php echo number_format($valor['preco'], 2, ',', '.') ?></p>
                 </a>
-                Filósofos d
             <?php endforeach; ?>
 
         </div>
